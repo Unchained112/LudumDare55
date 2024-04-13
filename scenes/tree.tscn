@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2icgshm6aykf"]
+
+[ext_resource type="Script" path="res://scripts/tree.gd" id="1_cfm8t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo3h1"]
+
+[node name="Tree" type="Area2D"]
+script = ExtResource("1_cfm8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lo3h1")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.109804, 0.654902, 0, 1)
+polygon = PackedVector2Array(0, -8, -8, 8, 8, 8)

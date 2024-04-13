@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgm7q1u4eruja"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_eix3y"]
+[ext_resource type="PackedScene" uid="uid://c16a4mstsr6de" path="res://scenes/home.tscn" id="2_xlnjj"]
+[ext_resource type="PackedScene" uid="uid://uxd8lwt33ngx" path="res://scenes/player.tscn" id="3_g222q"]
+[ext_resource type="PackedScene" uid="uid://d2icgshm6aykf" path="res://scenes/tree.tscn" id="4_0382i"]
+[ext_resource type="PackedScene" uid="uid://d3afrdwn57is5" path="res://scenes/enemy.tscn" id="5_6t003"]
+
+[node name="Game" type="Node2D"]
+position = Vector2(617, 306)
+script = ExtResource("1_eix3y")
+
+[node name="Home" parent="." instance=ExtResource("2_xlnjj")]
+
+[node name="Tree" parent="." instance=ExtResource("4_0382i")]
+position = Vector2(-231, 3)
+
+[node name="Player" parent="." instance=ExtResource("3_g222q")]
+position = Vector2(-85, -2)
+
+[node name="Enemy" parent="." instance=ExtResource("5_6t003")]
+position = Vector2(195, 22)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = -607.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="T1" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "Charactrer1
+"
+
+[node name="T2" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "Charactrer1
+"
+
+[node name="T3" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "Charactrer1
+"
+
+[node name="T4" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "Charactrer1
+"
+
+[node name="EnegerPool" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Nature: 88; Death: 66
+"
+
+[node name="GameInfo" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Wave: "
+metadata/_edit_use_anchors_ = true

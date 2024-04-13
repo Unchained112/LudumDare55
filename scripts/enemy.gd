@@ -20,12 +20,12 @@ func _physics_process(_delta):
 	new_velocity = new_velocity.normalized() * SPEED
 	#new_velocity = Vector2(0,0)
 	velocity = velocity.lerp(new_velocity,lerp_t)
-
+	collision_check()
 	#velocity = Vector2(0,0)
 	move_and_slide()
 	#print(velocity)
 	#print(position)
-	collision_check()
+
 func collision_check():
 	for i in get_slide_collision_count():
 		print("enemycoll")

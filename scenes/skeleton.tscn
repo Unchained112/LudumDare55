@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cv8q0e70yjeua"]
 
 [ext_resource type="Texture2D" uid="uid://cwghxeh7il7fo" path="res://assets/graphics/ld55_Skeleton.png" id="1_0fx2y"]
-[ext_resource type="Script" path="res://scenes/skeleton.gd" id="1_gvhph"]
+[ext_resource type="Script" path="res://scripts/skeleton.gd" id="1_cdp3t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
 size = Vector2(20, 24)
@@ -9,7 +9,7 @@ size = Vector2(20, 24)
 [node name="Skeleton" type="CharacterBody2D" groups=["player_team"]]
 collision_mask = 2
 motion_mode = 1
-script = ExtResource("1_gvhph")
+script = ExtResource("1_cdp3t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

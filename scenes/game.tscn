@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://cgm7q1u4eruja"]
+[gd_scene load_steps=14 format=3 uid="uid://cgm7q1u4eruja"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_eix3y"]
 [ext_resource type="PackedScene" uid="uid://c16a4mstsr6de" path="res://scenes/home.tscn" id="2_xlnjj"]
 [ext_resource type="Texture2D" uid="uid://dykl1p48x60lo" path="res://assets/graphics/ld55_Stone.png" id="3_3demo"]
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="3_d106e"]
 [ext_resource type="PackedScene" uid="uid://diqiok8p8xh0d" path="res://scenes/player.tscn" id="3_g222q"]
 [ext_resource type="PackedScene" uid="uid://jvimleimsoht" path="res://scenes/tree.tscn" id="4_0382i"]
 [ext_resource type="Texture2D" uid="uid://dihwe24qw2iku" path="res://assets/graphics/ld55_Grass.png" id="4_gspcx"]
+[ext_resource type="PackedScene" uid="uid://drwujw3c5tkba" path="res://scenes/item.tscn" id="4_hh2yg"]
 [ext_resource type="PackedScene" uid="uid://csge3ct40lskh" path="res://scenes/energy_pool.tscn" id="7_bg8n2"]
 [ext_resource type="PackedScene" uid="uid://cv8q0e70yjeua" path="res://scenes/skeleton.tscn" id="7_q0tmq"]
 [ext_resource type="PackedScene" uid="uid://eyxwdf38yo0t" path="res://scenes/void_worm.tscn" id="8_336w3"]
@@ -40,6 +42,7 @@ offset_top = -31.0
 offset_right = -607.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_d106e")
 alignment = 1
 
 [node name="T1" type="Button" parent="CanvasLayer/HBoxContainer"]
@@ -61,6 +64,21 @@ text = "Charactrer1
 layout_mode = 2
 text = "Charactrer1
 "
+
+[node name="DeathItemList" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 640.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_d106e")
+alignment = 1
+
+[node name="Skeleton" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
+layout_mode = 2
 
 [node name="WaveInfo" type="Label" parent="CanvasLayer"]
 anchors_preset = 5

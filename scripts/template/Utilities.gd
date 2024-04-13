@@ -54,9 +54,11 @@ func load_video_settings():
 
 # Scene manager
 func switch_scene(scene_name: StringName, cur_scene: Node):
+	cur_scene.queue_free()
 	var scene = scenes[scene_map[scene_name]].instantiate()
 	get_tree().root.add_child(scene)
-	cur_scene.queue_free()
+	#get_tree().change_scene_to_packed(scenes[scene_map[scene_name]])
+	#cur_scene.hide()
 
 func hide_scene(scene):
 	scene.hide()

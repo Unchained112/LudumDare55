@@ -122,6 +122,8 @@ grow_horizontal = 2
 text = "Wave: 1"
 metadata/_edit_use_anchors_ = true
 
+[node name="EnergyPool" parent="CanvasLayer" instance=ExtResource("8_4koci")]
+
 [node name="EnemyGenTimer" type="Timer" parent="."]
 autostart = true
 

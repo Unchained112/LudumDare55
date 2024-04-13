@@ -12,6 +12,7 @@ var lerp_speed = 0.8
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _physics_process(_delta):
+	#print(position)
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	var new_velocity :Vector2
 	if direction:
@@ -43,7 +44,8 @@ func collision_check():
 			var collider = collision.get_collider()
 			if collider and collider.is_in_group("enemy"):
 				#print("enemy position: " + str(collider.position))
-				take_damage(collider.damage,collider.position)	
+				take_damage(collider.damage,collider.position)
+
 			
 func take_damage(damage: int,collider_position):
 	health -= damage

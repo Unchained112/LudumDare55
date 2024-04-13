@@ -28,7 +28,7 @@ func _physics_process(_delta):
 
 func collision_check():
 	for i in get_slide_collision_count():
-		print("enemycoll")
+		#print("enemycoll")
 		if i == 0: #一帧会碰撞不止一次
 			var collision = get_slide_collision(i)
 			var collider = collision.get_collider()
@@ -37,13 +37,13 @@ func collision_check():
 				take_damage(collider.damage,collider.position)	
 			
 func take_damage(damage: int,collider_position):
-	print("take")
+	#print("take")
 	health -= damage
-	print(health)
+	#print(health)
 	if health <= 0:
 		queue_free()
 		enemy_die.emit()
-	print(position,collider_position)
+	#print(position,collider_position)
 	velocity = (position-collider_position).normalized() * KNCOKBACK * log(damage)/log(5)
-	print(velocity)
+	#print(velocity)
 	lerp_t = 0

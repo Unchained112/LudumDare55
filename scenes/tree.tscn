@@ -4,12 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://dgonf0wqdgbcm" path="res://assets/graphics/ld55_Tree.png" id="2_kjpcf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo3h1"]
+size = Vector2(14, 28)
 
 [node name="Tree" type="Area2D"]
 script = ExtResource("1_cfm8t")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.6)
+texture = ExtResource("2_kjpcf")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lo3h1")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_kjpcf")

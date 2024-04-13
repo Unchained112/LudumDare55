@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/sample_game.gd" id="1_omkqs"]
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="2_nwagm"]
-[ext_resource type="PackedScene" uid="uid://uxd8lwt33ngx" path="res://scenes/player.tscn" id="2_uxhl4"]
+[ext_resource type="PackedScene" uid="uid://diqiok8p8xh0d" path="res://scenes/player.tscn" id="2_uxhl4"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://scenes/template/settings.tscn" id="4_y8w6d"]
 
 [node name="SampleGame" type="Node2D"]

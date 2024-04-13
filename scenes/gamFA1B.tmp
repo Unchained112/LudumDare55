@@ -1,35 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgm7q1u4eruja"]
+[gd_scene load_steps=5 format=3 uid="uid://cgm7q1u4eruja"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_eix3y"]
 [ext_resource type="PackedScene" uid="uid://c16a4mstsr6de" path="res://scenes/home.tscn" id="2_xlnjj"]
-[ext_resource type="PackedScene" uid="uid://diqiok8p8xh0d" path="res://scenes/player.tscn" id="3_g222q"]
-[ext_resource type="PackedScene" uid="uid://jvimleimsoht" path="res://scenes/tree.tscn" id="4_0382i"]
-
-[sub_resource type="Curve2D" id="Curve2D_nyq2h"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -617, -306, 0, 0, 0, 0, 535, -306, 0, 0, 0, 0, 535, 342, 0, 0, 0, 0, -617, 342, 0, 0, 0, 0, -617, -306)
-}
-point_count = 5
+[ext_resource type="PackedScene" uid="uid://uxd8lwt33ngx" path="res://scenes/player.tscn" id="3_g222q"]
+[ext_resource type="PackedScene" uid="uid://d2icgshm6aykf" path="res://scenes/tree.tscn" id="4_0382i"]
 
 [node name="Game" type="Node2D"]
 position = Vector2(617, 306)
 script = ExtResource("1_eix3y")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -617.0
-offset_top = -306.0
-offset_right = 535.0
-offset_bottom = 342.0
-color = Color(0.447059, 0.45098, 0.345098, 1)
-
 [node name="Home" parent="." instance=ExtResource("2_xlnjj")]
-scale = Vector2(0.995, 1.01)
 
 [node name="Tree" parent="." instance=ExtResource("4_0382i")]
 position = Vector2(-231, 3)
 
 [node name="Player" parent="." instance=ExtResource("3_g222q")]
-position = Vector2(-169, 86)
+position = Vector2(-85, -2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -78,7 +64,7 @@ grow_vertical = 0
 text = "Nature: 88; Death: 66
 "
 
-[node name="WaveInfo" type="Label" parent="CanvasLayer"]
+[node name="GameInfo" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -86,21 +72,10 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "Wave: 1"
+text = "Wave: "
 metadata/_edit_use_anchors_ = true
 
-[node name="EnemyGenTimer" type="Timer" parent="."]
+[node name="Enemy_gen_timer" type="Timer" parent="."]
 autostart = true
 
-[node name="RestTimer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_nyq2h")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-617, -306)
-
-[connection signal="timeout" from="EnemyGenTimer" to="." method="_on_enemy_gen_timer_timeout"]
-[connection signal="timeout" from="RestTimer" to="." method="_on_rest_timer_timeout"]
+[connection signal="timeout" from="Enemy_gen_timer" to="." method="_on_enemy_gen_timer_timeout"]

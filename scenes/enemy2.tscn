@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcxwtuvd7d04y"]
+
+[ext_resource type="PackedScene" uid="uid://d3afrdwn57is5" path="res://scenes/enemy1.tscn" id="1_x7qn4"]
+[ext_resource type="Texture2D" uid="uid://bwltw6pap5257" path="res://assets/graphics/ld55_Voidworm.png" id="2_4fpop"]
+
+[node name="Enemy" instance=ExtResource("1_x7qn4")]
+scale = Vector2(3.7, 3.7)
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(1.01695e-06, -1.01695e-06)
+scale = Vector2(1, 1)
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(1.52588e-05, 1.90735e-06)
+scale = Vector2(0.546209, 0.546209)
+texture = ExtResource("2_4fpop")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://kmrekp0yn3bc"]
+
+[ext_resource type="PackedScene" uid="uid://dcxwtuvd7d04y" path="res://scenes/enemy2.tscn" id="1_a0oy2"]
+
+[node name="Enemy" instance=ExtResource("1_a0oy2")]
+scale = Vector2(1, 1)

@@ -1,22 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3afrdwn57is5"]
+[gd_scene load_steps=5 format=3 uid="uid://d3afrdwn57is5"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_c4crg"]
+[ext_resource type="Texture2D" uid="uid://cu1w55gd1qdcv" path="res://assets/graphics/ld55_VoidBeast.png" id="2_6er32"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_042sk"]
+size = Vector2(22.7488, 22.7488)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wlkms"]
 radius = 88.0057
 
 [node name="Enemy" type="CharacterBody2D"]
+scale = Vector2(2.11, 2.11)
 script = ExtResource("1_c4crg")
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-5, -11, -10, -4, -5, 10, 4, 10, 10, -4, 4, -11)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_042sk")
 
 [node name="AttackRange" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_wlkms")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6er32")

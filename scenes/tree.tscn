@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2icgshm6aykf"]
+[gd_scene load_steps=4 format=3 uid="uid://jvimleimsoht"]
 
 [ext_resource type="Script" path="res://scripts/tree.gd" id="1_cfm8t"]
+[ext_resource type="Texture2D" uid="uid://dgonf0wqdgbcm" path="res://assets/graphics/ld55_Tree.png" id="2_kjpcf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo3h1"]
 
@@ -10,6 +11,5 @@ script = ExtResource("1_cfm8t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lo3h1")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.109804, 0.654902, 0, 1)
-polygon = PackedVector2Array(0, -8, -8, 8, 8, 8)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kjpcf")

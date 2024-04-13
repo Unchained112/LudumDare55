@@ -1,16 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://c16a4mstsr6de"]
 
-[ext_resource type="Texture2D" uid="uid://c7hd6r5hen8n7" path="res://icon.svg" id="1_samei"]
+[ext_resource type="Texture2D" uid="uid://btqwa7acoepvm" path="res://assets/graphics/ld55_Castle.png" id="1_aojw8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xa318"]
-size = Vector2(127.524, 123.78)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_6g2xg"]
 
 [node name="Home" type="StaticBody2D"]
 scale = Vector2(0.525391, 0.533203)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_samei")
+texture = ExtResource("1_aojw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.951904, 0)
-shape = SubResource("RectangleShape2D_xa318")
+position = Vector2(5.67241e-07, 22.5055)
+shape = SubResource("ConvexPolygonShape2D_6g2xg")

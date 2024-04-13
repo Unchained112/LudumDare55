@@ -4,17 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://cu1w55gd1qdcv" path="res://assets/graphics/ld55_VoidBeast.png" id="2_6er32"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_042sk"]
-size = Vector2(8.5308, 15.6398)
+size = Vector2(26.0664, 22.7488)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wlkms"]
 radius = 88.0057
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(2.11, 2.11)
+motion_mode = 1
 script = ExtResource("1_c4crg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.95481e-07, 0.236967)
+position = Vector2(-0.236968, -0.473936)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_042sk")
 

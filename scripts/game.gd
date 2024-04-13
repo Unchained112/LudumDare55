@@ -20,6 +20,7 @@ var cur_wave_enemy_list = []
 
 func _ready(): 
 	cur_wave_enemy_list = get_enemy_list(wave_list[0])
+	
 
 func _physics_process(_delta):
 	pass
@@ -36,12 +37,15 @@ func get_enemy_list(wave_list) -> Array:
 	return enemy_list
 
 func check_wave_end():
+
 	var enemy_list = get_tree().get_nodes_in_group("enemy")
-	if enemy_list.is_empty() and cur_wave_enemy_list.is_empty():
+	print(enemy_list)
+	if len(enemy_list) == 1 and cur_wave_enemy_list.is_empty():#最后一个enemy会在下一帧才移除
 		rest_timer.start()
 
+
 func _on_enemy_gen_timer_timeout():
-	print("enemy list",cur_wave_enemy_list)
+	#print("enemy list",cur_wave_enemy_list)
 	if len(cur_wave_enemy_list) > 0:
 		var new_enemy = cur_wave_enemy_list.pop_front().instantiate()
 		new_enemy.connect("enemy_die", check_wave_end)
@@ -53,7 +57,7 @@ func _on_enemy_gen_timer_timeout():
 func _on_rest_timer_timeout():
 	var text = wave_info.text
 	var wave = int(text.split(":")[1])
-	print("wave:",wave)
-	if wave <= max_wave :
+	print("next wave:",wave + 1)
+	if wave < max_wave :
 		wave_info.text = text.split(":")[0] + ":" + str(wave + 1)
 		cur_wave_enemy_list = get_enemy_list(wave_list[wave])

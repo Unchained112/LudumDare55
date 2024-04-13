@@ -1,50 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgm7q1u4eruja"]
+[gd_scene load_steps=9 format=3 uid="uid://cgm7q1u4eruja"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_eix3y"]
 [ext_resource type="PackedScene" uid="uid://d3afrdwn57is5" path="res://scenes/enemy1.tscn" id="2_kthnc"]
 [ext_resource type="PackedScene" uid="uid://c16a4mstsr6de" path="res://scenes/home.tscn" id="2_xlnjj"]
 [ext_resource type="PackedScene" uid="uid://diqiok8p8xh0d" path="res://scenes/player.tscn" id="3_g222q"]
-[ext_resource type="Texture2D" uid="uid://bwltw6pap5257" path="res://assets/graphics/ld55_Voidworm.png" id="3_yjwf8"]
+[ext_resource type="PackedScene" uid="uid://dcxwtuvd7d04y" path="res://scenes/enemy2.tscn" id="3_iv3r2"]
 [ext_resource type="PackedScene" uid="uid://jvimleimsoht" path="res://scenes/tree.tscn" id="4_0382i"]
-
-[sub_resource type="PackedScene" id="PackedScene_xlalq"]
-_bundled = {
-"base_scene": 0,
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("Enemy", "scale", "CollisionShape2D", "position", "AttackRange", "Sprite2D", "texture"),
-"node_count": 3,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 0, 0, 2147483647, 262146, -1, 1, 3, 2, 0, 0, 0, 2147483647, 786437, -1, 3, 3, 3, 1, 4, 6, 5, 0),
-"variants": [ExtResource("2_kthnc"), Vector2(3.7, 3.7), Vector2(1.5326, 2.32291), Vector2(1.52588e-05, 1.90735e-06), Vector2(0.546209, 0.546209), ExtResource("3_yjwf8")],
-"version": 3
-}
-
-[sub_resource type="PackedScene" id="PackedScene_pjuly"]
-_bundled = {
-"base_scene": 0,
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("Enemy", "scale", "CollisionShape2D", "AttackRange", "Sprite2D"),
-"node_count": 2,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 0, 0, 2147483647, 262146, -1, 1, 1, 1, 0),
-"variants": [SubResource("PackedScene_xlalq"), Vector2(1, 1)],
-"version": 3
-}
+[ext_resource type="PackedScene" uid="uid://kmrekp0yn3bc" path="res://scenes/enemy3.tscn" id="4_h5m10"]
 
 [sub_resource type="Curve2D" id="Curve2D_nyq2h"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -617, -306, 0, 0, 0, 0, 231, -114, 0, 0, 0, 0, 535, 342, 0, 0, 0, 0, -241, 174, 0, 0, 0, 0, -617, -306)
+"points": PackedVector2Array(0, 0, 0, 0, -617, -306, 0, 0, 0, 0, 535, -306, 0, 0, 0, 0, 535, 342, 0, 0, 0, 0, -617, 342, 0, 0, 0, 0, -617, -306)
 }
 point_count = 5
 
 [node name="Game" type="Node2D"]
 position = Vector2(617, 306)
 script = ExtResource("1_eix3y")
-enemy_type = Array[PackedScene]([ExtResource("2_kthnc"), SubResource("PackedScene_xlalq"), SubResource("PackedScene_pjuly")])
+enemy_type = Array[PackedScene]([ExtResource("2_kthnc"), ExtResource("3_iv3r2"), ExtResource("4_h5m10")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -617.0
@@ -134,7 +107,6 @@ curve = SubResource("Curve2D_nyq2h")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(-617, -306)
-rotation = 0.222661
 
 [connection signal="timeout" from="EnemyGenTimer" to="." method="_on_enemy_gen_timer_timeout"]
 [connection signal="timeout" from="RestTimer" to="." method="_on_rest_timer_timeout"]

@@ -1,8 +1,0 @@
-res://scenes/main_menu.tscn
-res://assets/MinimalUI/MinimalUI.tres
-res://scenes/action_button.tscn
-res://scenes/settings.tscn
-res://scenes/sample_game.tscn
-res://scenes/utilities.tscn
-res://scenes/audio_manager.tscn
-res://scripts/settings.gd

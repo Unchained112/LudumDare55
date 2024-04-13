@@ -1,8 +1,0 @@
-res://assets/MinimalUI/MinimalUI.tres::26a5775ff1453492ee4c65083ea6164e::1706971090::res://.godot/exported/133200997/export-63bf9aff15507bef82b809d287ddfe0c-MinimalUI.res
-res://assets/default_bus_layout.tres::03bd267dbf63aff7a78662d03fd45c68::1706991918::res://.godot/exported/133200997/export-d01cc4ddf1d732095fecfb44d2dc8d65-default_bus_layout.res
-res://scenes/action_button.tscn::ea7465847f725ee462df48d2edf930f2::1706994250::res://.godot/exported/133200997/export-9729b5baee0bbd8b7e327ff48a46964e-action_button.scn
-res://scenes/audio_manager.tscn::0dc5658bd7230507c6757dee04c5a21d::1706994284::res://.godot/exported/133200997/export-f9a873655189730b04b7720acae5dfd9-audio_manager.scn
-res://scenes/main_menu.tscn::3945e65e1da2b50a7b84085e2ff5eeef::1706994269::res://.godot/exported/133200997/export-ea5c6ad4629af728dc514cefde332394-main_menu.scn
-res://scenes/sample_game.tscn::2975471558f84c9fd71dde9be5a75b6f::1706994250::res://.godot/exported/133200997/export-d4f2df10ffdcb70cbd651640400e111d-sample_game.scn
-res://scenes/settings.tscn::87eb3f49bd67c2f90f69958bf1b4da8c::1706994250::res://.godot/exported/133200997/export-7416c78d345eded4b396246a6c8adbe0-settings.scn
-res://scenes/utilities.tscn::2ded83773964cef74806d5833d33f72d::1706994250::res://.godot/exported/133200997/export-0d8736326459db587c392d4cb9ba63ac-utilities.scn

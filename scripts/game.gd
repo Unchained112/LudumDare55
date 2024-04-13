@@ -18,21 +18,25 @@ var wave_cnt = 0
 
 var cur_wave_enemy_list = []
 
-@onready var energy_pool: Label = $CanvasLayer/EnegerPool
 @onready var wave_info: Label = $CanvasLayer/WaveInfo
 @onready var rest_timer: Timer = $RestTimer
+@onready var energy_pool: Control = $CanvasLayer/EnergyPool
+@onready var energy_pool_pos: Vector2 = $EnergyPoolPos.position
+@onready var home: StaticBody2D = $Home
 
 func _ready(): 
+	EventBus.pick_up_leaf.connect(_on_pick_up_leaf)
+	EventBus.enemy_created.connect(_on_enemy_created)
 	cur_wave_enemy_list = get_enemy_list(wave_list[0])
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("TestAction"):
 		energy_pool.text = "Text Changed"
 
-func get_enemy_list(wave_list) -> Array:
+func get_enemy_list(_wave_list) -> Array:
 	var enemy_list = []
-	for i in len(wave_list):
-		for j in wave_list[i]:
+	for i in len(_wave_list):
+		for j in _wave_list[i]:
 			enemy_list.append(enemy_type[i])
 	return enemy_list
 
@@ -40,6 +44,18 @@ func check_wave_end():
 	var enemy_list = get_tree().get_nodes_in_group("enemy")
 	if len(enemy_list) == 1 and cur_wave_enemy_list.is_empty(): # 最后一个enemy会在下一帧才移除
 		rest_timer.start()
+
+func _on_pick_up_leaf(leaf: Leaf):
+	print("Get leaf")
+	var tween = self.create_tween().set_trans(Tween.TRANS_BACK)
+	tween.tween_property(leaf, "position", 
+		energy_pool_pos + Vector2(-20, -40), 1.0)
+	await tween.finished
+	energy_pool.update_nature_energy(10)
+	leaf.queue_free()
+
+func _on_enemy_created(enemy):
+	enemy.set_target(home)
 
 func _on_enemy_gen_timer_timeout():
 	#print("enemy list",cur_wave_enemy_list)

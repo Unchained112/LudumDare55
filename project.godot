@@ -23,6 +23,7 @@ buses/default_bus_layout="res://assets/default_bus_layout.tres"
 
 Utilities="*res://scenes/template/utilities.tscn"
 AudioManager="*res://scenes/template/audio_manager.tscn"
+EventBus="*res://scripts/event_bus.gd"
 
 [display]
 

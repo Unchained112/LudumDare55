@@ -29,8 +29,8 @@ func _physics_process(delta):
 	velocity = velocity.lerp(new_velocity, lerp_t)
 	move_and_slide()
 
-func take_damage(damage: int, collider_position):
-	health -= damage
+func take_damage(damage_got: int, collider_position):
+	health -= damage_got
 	print("Skeleton health: " + str(health))
-	velocity = (position-collider_position).normalized() * knockback * log(damage)/log(5)
+	velocity = (position-collider_position).normalized() * knockback * log(damage_got)/log(5)
 	lerp_t = 0

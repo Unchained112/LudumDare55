@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
 size = Vector2(20, 24)
 
-[node name="Skeleton" type="CharacterBody2D" groups=["player"]]
+[node name="Skeleton" type="CharacterBody2D" groups=["player_team"]]
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_gvhph")

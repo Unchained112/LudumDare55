@@ -40,12 +40,12 @@ func _physics_process(delta):
 	#position.y = clamp(position.y, 0, screen_size.y)
 	move_and_slide()
 
-func take_damage(damage: int, collider_position):
-	health -= damage
+func take_damage(damage_got: int, collider_position):
+	health -= damage_got
 	print("player health: " + str(health))
-	velocity = (position-collider_position).normalized() * KNCOKBACK * log(damage)/log(5)
+	velocity = (position-collider_position).normalized() * KNCOKBACK * log(damage_got)/log(5)
 	lerp_t = 0
 
-func summon(summon_id: int):
-	print(summon_id)
+func summon(id: int):
+	print(id)
 	pass

@@ -1,16 +1,20 @@
 extends Node2D
 
+@export var summon_list: Array[PackedScene] = []
 @export var max_wave: int = 3
 @export var enemy_type: Array[PackedScene] = []
 
-var wave_cnt = 0
 
+var summon_dict: Dictionary = {
+	
+}
 # enemy1, enemy2, enemy3
 var wave_list = [
 	[2,0,0],
 	[1,1,1],
 	[0,0,3]
 ]
+var wave_cnt = 0
 
 var cur_wave_enemy_list = []
 
@@ -20,10 +24,6 @@ var cur_wave_enemy_list = []
 
 func _ready(): 
 	cur_wave_enemy_list = get_enemy_list(wave_list[0])
-	
-
-func _physics_process(_delta):
-	pass
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("TestAction"):
@@ -37,12 +37,9 @@ func get_enemy_list(wave_list) -> Array:
 	return enemy_list
 
 func check_wave_end():
-
 	var enemy_list = get_tree().get_nodes_in_group("enemy")
-	print(enemy_list)
-	if len(enemy_list) == 1 and cur_wave_enemy_list.is_empty():#最后一个enemy会在下一帧才移除
+	if len(enemy_list) == 1 and cur_wave_enemy_list.is_empty(): # 最后一个enemy会在下一帧才移除
 		rest_timer.start()
-
 
 func _on_enemy_gen_timer_timeout():
 	#print("enemy list",cur_wave_enemy_list)
@@ -57,7 +54,7 @@ func _on_enemy_gen_timer_timeout():
 func _on_rest_timer_timeout():
 	var text = wave_info.text
 	var wave = int(text.split(":")[1])
-	print("next wave:",wave + 1)
+	print("next wave:", wave + 1)
 	if wave < max_wave :
 		wave_info.text = text.split(":")[0] + ":" + str(wave + 1)
 		cur_wave_enemy_list = get_enemy_list(wave_list[wave])

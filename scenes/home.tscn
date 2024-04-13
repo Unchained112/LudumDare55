@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://btqwa7acoepvm" path="res://assets/graphics/ld55_Castle.png" id="1_aojw8"]
 [ext_resource type="Script" path="res://scripts/home.gd" id="1_yt1j5"]
 
-[node name="Home" type="StaticBody2D"]
+[node name="Home" type="StaticBody2D" groups=["home"]]
 script = ExtResource("1_yt1j5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

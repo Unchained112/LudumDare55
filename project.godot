@@ -24,6 +24,10 @@ buses/default_bus_layout="res://assets/default_bus_layout.tres"
 Utilities="*res://scenes/template/utilities.tscn"
 AudioManager="*res://scenes/template/audio_manager.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 Up={

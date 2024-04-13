@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://eyxwdf38yo0t"]
+
+[ext_resource type="Texture2D" uid="uid://bwltw6pap5257" path="res://assets/graphics/ld55_Voidworm.png" id="1_a75kv"]
+[ext_resource type="Script" path="res://scripts/void_creature.gd" id="1_laqms"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bixio"]
+size = Vector2(16, 15)
+
+[node name="VoidWorm" type="Area2D" groups=["enemy"]]
+script = ExtResource("1_laqms")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("1_a75kv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_bixio")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

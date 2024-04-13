@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://csge3ct40lskh" path="res://scenes/energy_pool.tscn" id="7_bg8n2"]
 [ext_resource type="PackedScene" uid="uid://cv8q0e70yjeua" path="res://scenes/skeleton.tscn" id="7_q0tmq"]
 [ext_resource type="PackedScene" uid="uid://eyxwdf38yo0t" path="res://scenes/void_worm.tscn" id="8_336w3"]
+[ext_resource type="PackedScene" uid="uid://bfbn2gwsrlwns" path="res://scenes/leaf.tscn" id="8_sn41i"]
 
 [sub_resource type="Curve2D" id="Curve2D_nyq2h"]
 _data = {
@@ -163,6 +164,8 @@ grow_vertical = 1
 
 [node name="Skeleton" parent="." instance=ExtResource("7_q0tmq")]
 position = Vector2(55, 22)
+[node name="Leaf" parent="." instance=ExtResource("8_sn41i")]
+position = Vector2(63, 110)
 
 [connection signal="timeout" from="EnemyGenTimer" to="." method="_on_enemy_gen_timer_timeout"]
 [connection signal="timeout" from="RestTimer" to="." method="_on_rest_timer_timeout"]

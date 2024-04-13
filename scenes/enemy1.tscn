@@ -15,7 +15,6 @@ script = ExtResource("1_c4crg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.95481e-07, 0.236967)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_042sk")
 
 [node name="AttackRange" type="Area2D" parent="."]

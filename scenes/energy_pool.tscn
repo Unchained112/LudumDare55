@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://k0a6o2urdadx"]
+
+[ext_resource type="Script" path="res://scripts/energy_pool.gd" id="1_2a4ng"]
+[ext_resource type="Texture2D" uid="uid://vhp3b706mgcg" path="res://assets/graphics/ld55_Taiji_empty.png" id="1_itpc2"]
+[ext_resource type="Texture2D" uid="uid://bn1uwro68fgrt" path="res://assets/graphics/ld55_Taiji_left.png" id="2_mq2cu"]
+[ext_resource type="Texture2D" uid="uid://bk3o566wlans1" path="res://assets/graphics/ld55_Taiji_right.png" id="3_pil5e"]
+
+[node name="EnergyPool" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_2a4ng")
+
+[node name="Nature" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -96.0
+offset_right = 48.0
+grow_horizontal = 2
+grow_vertical = 0
+fill_mode = 3
+texture_under = ExtResource("1_itpc2")
+texture_progress = ExtResource("2_mq2cu")
+
+[node name="Death" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -96.0
+offset_right = 48.0
+grow_horizontal = 2
+grow_vertical = 0
+fill_mode = 3
+texture_progress = ExtResource("3_pil5e")

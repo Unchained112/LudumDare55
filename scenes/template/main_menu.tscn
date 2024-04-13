@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://scenes/template/settings.tscn" id="3_lrjgf"]
 
 [node name="MainMenu" type="Node2D"]
+position = Vector2(617, 306)
 
 [node name="UI" type="CanvasLayer" parent="."]
 

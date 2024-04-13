@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgm7q1u4eruja"]
+[gd_scene load_steps=10 format=3 uid="uid://cgm7q1u4eruja"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_eix3y"]
 [ext_resource type="PackedScene" uid="uid://d3afrdwn57is5" path="res://scenes/enemy1.tscn" id="2_kthnc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dcxwtuvd7d04y" path="res://scenes/enemy2.tscn" id="3_iv3r2"]
 [ext_resource type="PackedScene" uid="uid://jvimleimsoht" path="res://scenes/tree.tscn" id="4_0382i"]
 [ext_resource type="PackedScene" uid="uid://kmrekp0yn3bc" path="res://scenes/enemy3.tscn" id="4_h5m10"]
+[ext_resource type="PackedScene" uid="uid://k0a6o2urdadx" path="res://scenes/energy_pool.tscn" id="8_4koci"]
 
 [sub_resource type="Curve2D" id="Curve2D_nyq2h"]
 _data = {
@@ -94,6 +95,8 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "Wave: 1"
 metadata/_edit_use_anchors_ = true
+
+[node name="EnergyPool" parent="CanvasLayer" instance=ExtResource("8_4koci")]
 
 [node name="EnemyGenTimer" type="Timer" parent="."]
 autostart = true

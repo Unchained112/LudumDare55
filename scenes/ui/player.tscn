@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://diqiok8p8xh0d"]
+[gd_scene load_steps=10 format=3 uid="uid://diqiok8p8xh0d"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_amc0k"]
-[ext_resource type="Texture2D" uid="uid://dj3mpxbv2nlut" path="res://assets/graphics/ld55_Player_New.png" id="2_q20yl"]
+[ext_resource type="Texture2D" uid="uid://dewv2nb78ytn1" path="res://assets/graphics/ld55_Player_New.png" id="2_q20yl"]
+[ext_resource type="PackedScene" uid="uid://ca2ihl6u8y36f" path="res://scenes/effects/nature_summon_effect.tscn" id="2_y1cck"]
+[ext_resource type="PackedScene" uid="uid://2sucwo3j2m4k" path="res://scenes/effects/summon_effect.tscn" id="3_d7d1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5c5i0"]
 size = Vector2(24, 24)
@@ -89,6 +91,8 @@ _data = {
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_amc0k")
+nature_summon_circle = ExtResource("2_y1cck")
+death_summon_circle = ExtResource("3_d7d1c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5c5i0")

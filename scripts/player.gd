@@ -3,6 +3,9 @@ extends CharacterBody2D
 const SPEED = 200.0
 const KNCOKBACK = 300
 
+@export var nature_summon_circle: PackedScene
+@export var death_summon_circle: PackedScene
+
 var health_max: int = 1000 
 var health: int = 1000:
 	get:
@@ -34,7 +37,7 @@ func _physics_process(delta):
 	else:
 		new_velocity.x = move_toward(new_velocity.x, 0, SPEED)
 		new_velocity.y = move_toward(new_velocity.y, 0, SPEED)
-	
+
 	if new_velocity.length() > 0:
 		animation_player.play("Move")
 	else:
@@ -51,18 +54,25 @@ func _physics_process(delta):
 
 func take_damage(damage_got: int, collider_position):
 	health -= damage_got
-	#print("player health: " + str(health))
 	velocity = (position-collider_position).normalized() * KNCOKBACK * log(damage_got)/log(5)
 	lerp_t = 0
 
-func _on_game_start_summon(summon_item):
-	summon(summon_item)
-
-func summon(summon_scene: PackedScene):
-	#print(summon_scene)
+func summon(summon_scene: PackedScene, id: int):
 	var new_summon = summon_scene.instantiate()
 	get_parent().add_child(new_summon)
 	new_summon.position = position
+
+	# Add summon effect
+	var summon_effect
+	if id in range(0, 5):
+		summon_effect = nature_summon_circle.instantiate()
+	elif id in range(6, 11):
+		summon_effect = death_summon_circle.instantiate()
+	get_parent().add_child(summon_effect)
+	summon_effect.position = position
+
+func _on_game_start_summon(summon_item, id):
+	summon(summon_item, id)
 
 func _on_recover_timer_timeout():
 	health += 1

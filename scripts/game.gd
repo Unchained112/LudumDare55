@@ -1,6 +1,6 @@
 extends Node2D
 
-signal start_summon(summon_name)
+signal start_summon(summon_name, id)
 
 @export var summon_list: Array[PackedScene] = []
 @export var summon_cost: Array[int] = [1,30,100,300,3000,0,
@@ -64,23 +64,24 @@ func _ready():
 func _input(event: InputEvent):
 	if event.is_action_pressed("Summon"):
 		var this_summon_cost = summon_cost[summon_id]
-		if summon_id in range(0,5):
+
+		if summon_id in range(0, 5):
 			if nature_energy >= this_summon_cost:
-				update_nature_energy(-1*this_summon_cost)
-				start_summon.emit(summon_list[summon_id])
+				update_nature_energy(-1 * this_summon_cost)
+				start_summon.emit(summon_list[summon_id], summon_id)
 				if summon_id == 0:
 					pass
-					#summon_cost[summon_id] += 1
 				if summon_id == 2:
 					nature_energy_max += 80
 					energy_pool.set_nature_max_energy(nature_energy_max)
 				if summon_id == 8:
 					death_energy_max += 80
 					energy_pool.set_death_max_energy(death_energy_max)
-		elif  summon_id in range(6,11):
+
+		elif  summon_id in range(6, 11):
 			if death_energy >= this_summon_cost:
-				update_death_energy(-1*this_summon_cost)
-				start_summon.emit(summon_list[summon_id])
+				update_death_energy(-1 * this_summon_cost)
+				start_summon.emit(summon_list[summon_id], summon_id)
 
 	if event.is_action_pressed("Escape"):
 		if not pause_panel.visible:

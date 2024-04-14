@@ -101,3 +101,9 @@ texture = ExtResource("2_q20yl")
 libraries = {
 "": SubResource("AnimationLibrary_kjsha")
 }
+
+[node name="RecoverTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="RecoverTimer" to="." method="_on_recover_timer_timeout"]

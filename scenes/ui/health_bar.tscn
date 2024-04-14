@@ -1,15 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bb1c5augyx2np"]
+[gd_scene load_steps=5 format=3 uid="uid://bb1c5augyx2np"]
 
 [ext_resource type="Texture2D" uid="uid://mxk07vqu24ph" path="res://assets/graphics/ld55_HealthBar.png" id="1_bn0dt"]
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="1_nk11y"]
 [ext_resource type="Texture2D" uid="uid://dk42qsjub7jga" path="res://assets/graphics/ld55_HealthBar_Fill.png" id="2_ir3k6"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="4_vcmw0"]
 
 [node name="HealthBar" type="TextureProgressBar"]
 offset_right = 96.0
 offset_bottom = 40.0
 theme = ExtResource("1_nk11y")
+max_value = 1000.0
+value = 1000.0
 texture_under = ExtResource("1_bn0dt")
 texture_progress = ExtResource("2_ir3k6")
+script = ExtResource("4_vcmw0")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -20,5 +24,5 @@ anchor_right = 0.104167
 anchor_bottom = 1.0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Health"
+text = "Health: 1000/1000"
 metadata/_edit_use_anchors_ = true

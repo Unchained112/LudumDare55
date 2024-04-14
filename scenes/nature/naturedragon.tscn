@@ -7,7 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
 size = Vector2(21, 24)
 
-[node name="Skeleton" type="CharacterBody2D" groups=["player_team"]]
+[node name="NatureDragon" type="CharacterBody2D" groups=["player_team"]]
+collision_layer = 2
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_op7m3")

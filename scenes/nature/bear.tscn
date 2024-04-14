@@ -8,6 +8,7 @@
 size = Vector2(21, 24)
 
 [node name="bear" type="CharacterBody2D" groups=["player_team"]]
+collision_layer = 2
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_wx0q6")

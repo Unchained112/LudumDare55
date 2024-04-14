@@ -3,7 +3,16 @@ extends CharacterBody2D
 const SPEED = 200.0
 const KNCOKBACK = 300
 
-var health: int = 1000
+var health_max: int = 1000 
+var health: int = 1000:
+	get:
+		return health
+	set(value):
+		health = min(health_max, value)
+		health = max(0, health)
+		EventBus.game_failed.emit()
+		EventBus.player_health_changed.emit(health)
+
 var damage: int = 10
 var lerp_t = 1.0
 var lerp_speed = 0.8
@@ -40,7 +49,6 @@ func _physics_process(delta):
 	#position.y = clamp(position.y, 0, screen_size.y)
 	move_and_slide()
 
-
 func take_damage(damage_got: int, collider_position):
 	health -= damage_got
 	#print("player health: " + str(health))
@@ -55,3 +63,6 @@ func summon(summon_scene: PackedScene):
 	var new_summon = summon_scene.instantiate()
 	get_parent().add_child(new_summon)
 	new_summon.position = position
+
+func _on_recover_timer_timeout():
+	health += 1

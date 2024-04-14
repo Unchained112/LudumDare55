@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dgonf0wqdgbcm" path="res://assets/graphics/ld55_Tree.png" id="6_hu4u0"]
 [ext_resource type="Script" path="res://scripts/nature/nature_item_list.gd" id="6_lfm7n"]
 [ext_resource type="PackedScene" uid="uid://cr4d2ymmvixt" path="res://scenes/nature/naturedragon.tscn" id="6_nffsh"]
-[ext_resource type="PackedScene" path="res://scenes/nature/grass.tscn" id="7_7yekh"]
+[ext_resource type="PackedScene" uid="uid://cqgmfakcfkdm7" path="res://scenes/nature/grass.tscn" id="7_7yekh"]
 [ext_resource type="PackedScene" uid="uid://csge3ct40lskh" path="res://scenes/energy_pool.tscn" id="7_bg8n2"]
 [ext_resource type="PackedScene" uid="uid://cv8q0e70yjeua" path="res://scenes/death/skeleton.tscn" id="7_q0tmq"]
 [ext_resource type="Texture2D" uid="uid://bpgp3gohrckyc" path="res://assets/graphics/ld55_WoodMan.png" id="8_ew28w"]

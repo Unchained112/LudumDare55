@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc7bnjeakct0o"]
+[gd_scene load_steps=5 format=3 uid="uid://cqgmfakcfkdm7"]
 
 [ext_resource type="Script" path="res://scripts/nature/tree.gd" id="1_kiw1o"]
 [ext_resource type="PackedScene" uid="uid://bfbn2gwsrlwns" path="res://scenes/nature/leaf.tscn" id="2_13lal"]

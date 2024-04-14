@@ -1,10 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://c16a4mstsr6de"]
+[gd_scene load_steps=6 format=3 uid="uid://c16a4mstsr6de"]
 
 [ext_resource type="Texture2D" uid="uid://btqwa7acoepvm" path="res://assets/graphics/ld55_Castle.png" id="1_aojw8"]
 [ext_resource type="Script" path="res://scripts/home.gd" id="1_yt1j5"]
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="2_4ebmb"]
+[ext_resource type="Texture2D" uid="uid://cdhu6dlrlu2v" path="res://assets/graphics/ld55_HomeHealth.png" id="2_6k1ew"]
+[ext_resource type="Texture2D" uid="uid://dh6xqhafnnw52" path="res://assets/graphics/ld55_HomeHealth_Fill.png" id="3_1lwv1"]
 
 [node name="Home" type="StaticBody2D" groups=["home"]]
 script = ExtResource("1_yt1j5")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -48.0
+offset_top = -80.0
+offset_right = -8.0
+offset_bottom = -40.0
+max_value = 1000.0
+value = 1000.0
+texture_under = ExtResource("2_6k1ew")
+texture_progress = ExtResource("3_1lwv1")
+metadata/_edit_use_anchors_ = true
+
+[node name="Health" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -84.0
+offset_right = 31.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_4ebmb")
+theme_override_font_sizes/font_size = 12
+text = "1000/1000"
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_aojw8")
@@ -12,3 +42,8 @@ texture = ExtResource("1_aojw8")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
 polygon = PackedVector2Array(-10, -46, -20, -34, -46, -34, -45.6803, 0, -45.6803, 45.011, 45.6803, 45.011, 45.6803, 0, 23, -2, 23, -46)
+
+[node name="RecoverTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="RecoverTimer" to="." method="_on_recover_timer_timeout"]

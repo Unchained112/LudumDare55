@@ -4,9 +4,9 @@ extends CharacterBody2D
 @export var health: int = 100
 @export var speed = 60.0
 @export var knockback = 300
-@export var drop_leaves: int = 3
-@export var drop_bones: int = 5
-@export var drop_boneparts: int = 10
+@export var drop_leaves: int = 0
+@export var drop_bones: int = 0
+@export var drop_boneparts: int = 0
 @export var leaf : PackedScene
 @export var bone : PackedScene
 @export var bonepart : PackedScene
@@ -30,16 +30,10 @@ func _physics_process(delta):
 		new_velocity = target_enemy.position - position
 		new_velocity = new_velocity.normalized() * speed
 	else:
-		#var homes = get_tree().get_nodes_in_group("home")
-		#for home in homes:
-			#new_velocity = home.position - position
-			#new_velocity = new_velocity.normalized() * speed
-		var players = get_tree().get_nodes_in_group("player")
-		for player in players:
-			new_velocity = player.position - position
-			if new_velocity.length() > 70:
-				new_velocity = new_velocity.normalized() * speed
-			else: new_velocity = Vector2(0,0)		
+		var homes = get_tree().get_nodes_in_group("home")
+		for home in homes:
+			new_velocity = home.position - position
+			new_velocity = new_velocity.normalized() * speed
 
 	lerp_t += lerp_speed * delta
 	lerp_t = clamp(lerp_t,0.0,1.0)
@@ -50,7 +44,7 @@ func take_damage(damage_got: int, collider_position):
 	health -= damage_got
 	if health <= 0:
 		call_deferred("drop") # TODO: Need to check if this works
-		queue_free()
+		queue_free()		
 	velocity = (position-collider_position).normalized() * knockback * log(damage_got)/log(5)
 	lerp_t = 0
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr4d2ymmvixt"]
+[gd_scene load_steps=5 format=3 uid="uid://cr4d2ymmvixt"]
 
-[ext_resource type="Script" path="res://scripts/nature/woodman.gd" id="1_ias55"]
+[ext_resource type="Script" path="res://scripts/nature/naturedragon.gd" id="1_op7m3"]
+[ext_resource type="PackedScene" uid="uid://bvikiqtqmf8s6" path="res://scenes/death/bone.tscn" id="2_ha3g8"]
 [ext_resource type="Texture2D" uid="uid://ct3qwof0372fw" path="res://assets/graphics/ld55_NatureDragon.png" id="2_u8gws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
@@ -9,11 +10,13 @@ size = Vector2(21, 24)
 [node name="Skeleton" type="CharacterBody2D" groups=["player_team"]]
 collision_mask = 2
 motion_mode = 1
-script = ExtResource("1_ias55")
+script = ExtResource("1_op7m3")
 damage = 80
 health = 4000
 speed = 110.0
 knockback = 90
+drop_bones = 1000
+bone = ExtResource("2_ha3g8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

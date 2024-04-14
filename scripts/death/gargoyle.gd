@@ -11,9 +11,24 @@ extends CharacterBody2D
 @export var bone : PackedScene
 @export var bonepart : PackedScene
 
+var def = 0
 var lerp_t = 1.0
 var lerp_speed = 0.8
 
+func _ready():
+	var grow_up_timer = Timer.new()
+	add_child(grow_up_timer)
+	
+	grow_up_timer.wait_time = 5  
+	grow_up_timer.one_shot = false  
+	grow_up_timer.start()
+	grow_up_timer.connect("timeout", grow_up)
+
+# 计时器的超时处理函数
+func grow_up():
+	if def < 20: 
+		def += 1
+	
 func _physics_process(delta):
 	var new_velocity = Vector2(0, 0)
 
@@ -47,7 +62,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func take_damage(damage_got: int, collider_position):
-	health -= damage_got
+	health -= max(damage_got-def,1)
 	if health <= 0:
 		call_deferred("drop") # TODO: Need to check if this works
 		queue_free()

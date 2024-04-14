@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://clrj7b4v7sprv"]
+[gd_scene load_steps=5 format=3 uid="uid://clrj7b4v7sprv"]
 
-[ext_resource type="Script" path="res://scripts/nature/woodman.gd" id="1_dl52n"]
+[ext_resource type="Script" path="res://scripts/nature/woodelf.gd" id="1_bp57m"]
+[ext_resource type="PackedScene" uid="uid://bvikiqtqmf8s6" path="res://scenes/death/bone.tscn" id="2_mfkbv"]
 [ext_resource type="Texture2D" uid="uid://qxgq5h3fut5i" path="res://assets/graphics/ld55_WoodElf.png" id="2_rtq7x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
@@ -9,11 +10,13 @@ size = Vector2(21, 24)
 [node name="Skeleton" type="CharacterBody2D" groups=["player_team"]]
 collision_mask = 2
 motion_mode = 1
-script = ExtResource("1_dl52n")
+script = ExtResource("1_bp57m")
 damage = 50
 health = 200
 speed = 200.0
 knockback = 500
+drop_bones = 10
+bone = ExtResource("2_mfkbv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

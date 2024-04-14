@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://crac6q2gs17gu"]
+[gd_scene load_steps=6 format=3 uid="uid://crac6q2gs17gu"]
 
-[ext_resource type="Script" path="res://scripts/death/skeleton.gd" id="1_ch632"]
+[ext_resource type="Script" path="res://scripts/death/zombie.gd" id="1_g61si"]
+[ext_resource type="PackedScene" uid="uid://cv8q0e70yjeua" path="res://scenes/death/skeleton.tscn" id="2_e3k16"]
+[ext_resource type="PackedScene" uid="uid://b21tdaenx324q" path="res://scenes/death/bonepart.tscn" id="2_p2h08"]
 [ext_resource type="Texture2D" uid="uid://e325s66yao1q" path="res://assets/graphics/ld55_Zombie.png" id="2_svkue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
@@ -9,10 +11,15 @@ size = Vector2(21, 24)
 [node name="Skeleton" type="CharacterBody2D" groups=["player_team"]]
 collision_mask = 2
 motion_mode = 1
-script = ExtResource("1_ch632")
+script = ExtResource("1_g61si")
 health = 200
-speed = 50.0
+speed = 30.0
 knockback = 200
+drop_leaves = 0
+drop_bones = 0
+drop_boneparts = 5
+bonepart = ExtResource("2_p2h08")
+skeleton = ExtResource("2_e3k16")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

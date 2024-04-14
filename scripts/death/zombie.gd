@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var leaf : PackedScene
 @export var bone : PackedScene
 @export var bonepart : PackedScene
+@export var skeleton : PackedScene
 
 var lerp_t = 1.0
 var lerp_speed = 0.8
@@ -49,6 +50,9 @@ func _physics_process(delta):
 func take_damage(damage_got: int, collider_position):
 	health -= damage_got
 	if health <= 0:
+		var new_skeleton = skeleton.instantiate()
+		get_parent().add_child(new_skeleton)
+		new_skeleton.position = position
 		call_deferred("drop") # TODO: Need to check if this works
 		queue_free()
 	velocity = (position-collider_position).normalized() * knockback * log(damage_got)/log(5)

@@ -3,21 +3,37 @@ extends Node2D
 signal start_summon(summon_name)
 
 @export var summon_list: Array[PackedScene] = []
-@export var summon_cost: Array[int] = [1,50,100,300,3000,0,
-										5,50,100,300,2000,0]
-@export var max_wave: int = 3
+@export var summon_cost: Array[int] = [1,30,100,300,3000,0,
+										5,30,100,300,2000,0] #按照表里的顺序的召唤物花费
+#@export var summon_cost: Array[int] = [1,1,1,1,1,1,1,1,1,1,1,1] #for test
+#@export var max_wave: int = 3
 @export var enemy_type: Array[PackedScene] = []
 
 var summon_dict: Dictionary = {
 	
 }
 var summon_id = 0
-# enemy1, enemy2, enemy3
+# enemy1, enemy2, elite, boss
 var wave_list = [
-	[2,0,0],
-	[1,1,1],
-	[0,0,3]
+	[1,0,0,0],
+	[2,0,0,0],
+	[2,1,0,0],
+	[3,1,0,0],
+	[5,0,0,0],
+	[5,3,0,0],
+	[5,5,0,0],#5
+	[0,10,0,0],
+	[5,10,0,0],
+	[5,5,1,0],
+	[20,10,0,0],
+	[30,10,0,0],#10
+	[30,10,1,0],
+	[15,15,2,0],
+	[0,80,0,0],
+	[60,30,1,0],
+	[0,0,0,1]#15
 ]
+var max_wave = len(wave_list)
 var wave_cnt = 0
 
 var cur_wave_enemy_list = []
@@ -50,7 +66,15 @@ func _input(event: InputEvent):
 				update_nature_energy(-1*this_summon_cost)
 				start_summon.emit(summon_list[summon_id])
 				if summon_id == 0:
-					summon_cost[summon_id] += 1
+					pass
+					#summon_cost[summon_id] += 1
+				if summon_id == 2:
+					nature_energy_max += 80
+					energy_pool.set_nature_max_energy(nature_energy_max)
+				if summon_id == 8:
+					death_energy_max += 80
+					energy_pool.set_death_max_energy(death_energy_max)
+					
 		elif  summon_id in range(6,11):
 			if death_energy >= this_summon_cost:
 				update_death_energy(-1*this_summon_cost)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqmgdulx5hg8m"]
+[gd_scene load_steps=5 format=3 uid="uid://bqmgdulx5hg8m"]
 
-[ext_resource type="Script" path="res://scripts/death/skeleton.gd" id="1_7bdkm"]
+[ext_resource type="Script" path="res://scripts/death/ghost.gd" id="1_m0i2f"]
 [ext_resource type="Texture2D" uid="uid://dab1v0qcoduiv" path="res://assets/graphics/ld55_Ghost.png" id="2_by43q"]
+[ext_resource type="PackedScene" uid="uid://b21tdaenx324q" path="res://scenes/death/bonepart.tscn" id="2_uqahe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
 size = Vector2(21, 24)
@@ -9,11 +10,14 @@ size = Vector2(21, 24)
 [node name="Skeleton" type="CharacterBody2D" groups=["player_team"]]
 collision_mask = 2
 motion_mode = 1
-script = ExtResource("1_7bdkm")
+script = ExtResource("1_m0i2f")
 damage = 50
 health = 200
 speed = 200.0
 knockback = 500
+drop_leaves = 0
+drop_bones = 0
+bonepart = ExtResource("2_uqahe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

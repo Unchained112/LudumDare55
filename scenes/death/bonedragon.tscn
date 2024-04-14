@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bovojj2l0gwa3"]
+[gd_scene load_steps=5 format=3 uid="uid://bovojj2l0gwa3"]
 
-[ext_resource type="Script" path="res://scripts/death/skeleton.gd" id="1_d0hyv"]
+[ext_resource type="Script" path="res://scripts/death/bonedragon.gd" id="1_v2qx0"]
+[ext_resource type="PackedScene" uid="uid://b21tdaenx324q" path="res://scenes/death/bonepart.tscn" id="2_nvh2c"]
 [ext_resource type="Texture2D" uid="uid://dok3bkxvr463w" path="res://assets/graphics/ld55_BoneDragon.png" id="2_ucq3c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
@@ -9,11 +10,15 @@ size = Vector2(39, 39)
 [node name="Skeleton" type="CharacterBody2D" groups=["player_team"]]
 collision_mask = 2
 motion_mode = 1
-script = ExtResource("1_d0hyv")
+script = ExtResource("1_v2qx0")
 damage = 100
 health = 2000
 speed = 100.0
 knockback = 100
+drop_leaves = 0
+drop_bones = 0
+drop_boneparts = 200
+bonepart = ExtResource("2_nvh2c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3s2ht06376e2"]
+[gd_scene load_steps=8 format=3 uid="uid://b3s2ht06376e2"]
 
 [ext_resource type="Script" path="res://scripts/nature/woodman.gd" id="1_g4sih"]
 [ext_resource type="PackedScene" uid="uid://bfbn2gwsrlwns" path="res://scenes/nature/leaf.tscn" id="2_3xxl5"]
 [ext_resource type="Texture2D" uid="uid://bpgp3gohrckyc" path="res://assets/graphics/ld55_WoodMan.png" id="2_hl76q"]
 [ext_resource type="PackedScene" uid="uid://bvikiqtqmf8s6" path="res://scenes/death/bone.tscn" id="3_mgmvs"]
 [ext_resource type="PackedScene" uid="uid://b21tdaenx324q" path="res://scenes/death/bonepart.tscn" id="4_k45ev"]
+[ext_resource type="PackedScene" uid="uid://jvimleimsoht" path="res://scenes/nature/tree.tscn" id="5_aa4rk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
 size = Vector2(21, 24)
@@ -18,6 +19,7 @@ speed = 30.0
 leaf = ExtResource("2_3xxl5")
 bone = ExtResource("3_mgmvs")
 bonepart = ExtResource("4_k45ev")
+tree = ExtResource("5_aa4rk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

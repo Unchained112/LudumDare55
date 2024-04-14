@@ -383,7 +383,7 @@ position = Vector2(-101, 150)
 position = Vector2(-87, 150)
 
 [node name="Bone" parent="." instance=ExtResource("13_duhge")]
-position = Vector2(-9, 150)
+position = Vector2(-11, 150)
 
 [node name="Bone2" parent="." instance=ExtResource("13_duhge")]
 position = Vector2(13, 150)

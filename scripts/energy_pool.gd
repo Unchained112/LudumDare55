@@ -8,3 +8,9 @@ func set_nature_energy(energy: int):
 
 func set_death_energy(energy: int):
 	death_bar.value = energy
+
+func set_nature_max_energy(energy: int):
+	nature_bar.max_value = energy
+	
+func set_death_max_energy(energy: int):
+	death_bar.max_value = energy

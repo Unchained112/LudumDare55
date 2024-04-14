@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://batfbvqktmgks"]
+
+[ext_resource type="PackedScene" uid="uid://cv8q0e70yjeua" path="res://scenes/death/skeleton.tscn" id="1_vsr6d"]
+[ext_resource type="Texture2D" uid="uid://dab1v0qcoduiv" path="res://assets/graphics/ld55_Ghost.png" id="2_by43q"]
+
+[node name="Ghost" instance=ExtResource("1_vsr6d")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_by43q")

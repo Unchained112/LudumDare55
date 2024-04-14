@@ -282,6 +282,13 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 24
 text = "Right"
 
+[node name="Summon" type="Label" parent="Controls/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Summon"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="Controls/HBoxContainer"]
 layout_mode = 2
 
@@ -305,8 +312,14 @@ action = "Left"
 [node name="Right" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("5_3ih56")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Left")
-focus_neighbor_bottom = NodePath("../../../Back")
+focus_neighbor_bottom = NodePath("../Summon")
 action = "Right"
+
+[node name="Summon" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("5_3ih56")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Right")
+focus_neighbor_bottom = NodePath("../../../Back")
+action = "Summon"
 
 [node name="Back" type="Button" parent="Controls"]
 custom_minimum_size = Vector2(100, 0)

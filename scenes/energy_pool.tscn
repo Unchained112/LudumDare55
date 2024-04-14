@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://csge3ct40lskh"]
+[gd_scene load_steps=6 format=3 uid="uid://csge3ct40lskh"]
 
 [ext_resource type="Script" path="res://scripts/energy_pool.gd" id="1_2a4ng"]
 [ext_resource type="Texture2D" uid="uid://vhp3b706mgcg" path="res://assets/graphics/ld55_Taiji_empty.png" id="1_itpc2"]
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="2_b0pgd"]
 [ext_resource type="Texture2D" uid="uid://bn1uwro68fgrt" path="res://assets/graphics/ld55_Taiji_left.png" id="2_mq2cu"]
 [ext_resource type="Texture2D" uid="uid://bk3o566wlans1" path="res://assets/graphics/ld55_Taiji_right.png" id="3_pil5e"]
 
@@ -16,7 +17,27 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme = ExtResource("2_b0pgd")
 script = ExtResource("1_2a4ng")
+
+[node name="NatureValue" type="Label" parent="."]
+layout_mode = 0
+offset_left = -56.0
+offset_right = -10.0
+offset_bottom = 43.0
+theme = ExtResource("2_b0pgd")
+text = "0
+leaves"
+horizontal_alignment = 1
+
+[node name="DeathValue" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 59.0
+offset_bottom = 43.0
+text = "0
+bones"
+horizontal_alignment = 1
 
 [node name="Nature" type="TextureProgressBar" parent="."]
 layout_mode = 1
@@ -48,3 +69,6 @@ grow_horizontal = 2
 grow_vertical = 0
 fill_mode = 3
 texture_progress = ExtResource("3_pil5e")
+
+[connection signal="value_changed" from="Nature" to="." method="_on_nature_value_changed"]
+[connection signal="value_changed" from="Death" to="." method="_on_death_value_changed"]

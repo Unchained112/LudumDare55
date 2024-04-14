@@ -43,6 +43,7 @@ var death_energy_max: int = 100
 var nature_energy: int = 0
 var death_energy: int = 0
 
+var is_paused: bool = false
 
 @onready var wave_info: Label = $CanvasLayer/WaveInfo
 @onready var rest_timer: Timer = $RestTimer
@@ -50,8 +51,10 @@ var death_energy: int = 0
 @onready var energy_pool_pos: Vector2 = $EnergyPoolPos.position
 @onready var bonepart_pos: Vector2 = $"CanvasLayer/DeathItemList".position
 @onready var home: StaticBody2D = $Home
+@onready var settings: TabContainer = $CanvasLayer/PausePanel/Settings
+@onready var pause_panel: Panel = $CanvasLayer/PausePanel
 
-func _ready(): 
+func _ready():
 	EventBus.pick_up_leaf.connect(_on_pick_up_leaf)
 	EventBus.pick_up_bone.connect(_on_pick_up_bone)
 	EventBus.pick_up_bonepart.connect(_on_pick_up_bonepart)
@@ -59,7 +62,7 @@ func _ready():
 	cur_wave_enemy_list = get_enemy_list(wave_list[0])
 
 func _input(event: InputEvent):
-	if event.is_action_pressed("summon"):
+	if event.is_action_pressed("Summon"):
 		var this_summon_cost = summon_cost[summon_id]
 		if summon_id in range(0,5):
 			if nature_energy >= this_summon_cost:
@@ -74,14 +77,28 @@ func _input(event: InputEvent):
 				if summon_id == 8:
 					death_energy_max += 80
 					energy_pool.set_death_max_energy(death_energy_max)
-					
 		elif  summon_id in range(6,11):
 			if death_energy >= this_summon_cost:
 				update_death_energy(-1*this_summon_cost)
 				start_summon.emit(summon_list[summon_id])
-			
-			
-		
+
+	if event.is_action_pressed("Escape"):
+		if not pause_panel.visible:
+			pause_game()
+		else:
+			resume_game()
+
+func pause_game():
+	pause_panel.show()
+	reset_focus()
+	Engine.time_scale = 0
+
+func resume_game():
+	Engine.time_scale = 1
+	pause_panel.hide()
+
+func reset_focus():
+	$CanvasLayer/PausePanel/PauseMenu/Resume.grab_focus()
 
 func get_enemy_list(_wave_list) -> Array:
 	var enemy_list = []
@@ -134,7 +151,6 @@ func _on_pick_up_bonepart(bonepart: Bonepart):
 	tween.tween_property(bonepart, "position", 
 		bonepart_pos + Vector2(-225, -270), 1.0)#我不理解
 	await tween.finished
-	print("get1bp")
 	bonepart.queue_free()
 	
 func _on_enemy_created(enemy):
@@ -160,7 +176,17 @@ func _on_rest_timer_timeout():
 
 func _on_death_item_list_choose(choose_name):
 	summon_id = choose_name
-	#print("will summon:"+choose_name) # Replace with function body.
 
 func _on_nature_item_list_choose(choose_name):
-	summon_id = choose_name#print("will summon:"+choose_name)
+	summon_id = choose_name
+
+func _on_resume_pressed():
+	resume_game()
+
+func _on_option_pressed():
+	settings.show()
+	settings.reset_focus()
+
+func _on_main_menu_pressed():
+	resume_game()
+	Utilities.switch_scene("MainMenu", self)

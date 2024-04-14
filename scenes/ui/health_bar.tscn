@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb1c5augyx2np"]
+
+[ext_resource type="Texture2D" uid="uid://mxk07vqu24ph" path="res://assets/graphics/ld55_HealthBar.png" id="1_bn0dt"]
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="1_nk11y"]
+[ext_resource type="Texture2D" uid="uid://dk42qsjub7jga" path="res://assets/graphics/ld55_HealthBar_Fill.png" id="2_ir3k6"]
+
+[node name="HealthBar" type="TextureProgressBar"]
+offset_right = 96.0
+offset_bottom = 40.0
+theme = ExtResource("1_nk11y")
+texture_under = ExtResource("1_bn0dt")
+texture_progress = ExtResource("2_ir3k6")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0555556
+anchor_top = 1.0
+anchor_right = 0.104167
+anchor_bottom = 1.0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Health"
+metadata/_edit_use_anchors_ = true

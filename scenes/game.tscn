@@ -1,20 +1,18 @@
-[gd_scene load_steps=43 format=3 uid="uid://cgm7q1u4eruja"]
+[gd_scene load_steps=46 format=3 uid="uid://cgm7q1u4eruja"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_eix3y"]
 [ext_resource type="PackedScene" uid="uid://c16a4mstsr6de" path="res://scenes/home.tscn" id="2_xlnjj"]
 [ext_resource type="Texture2D" uid="uid://dykl1p48x60lo" path="res://assets/graphics/ld55_Stone.png" id="3_3demo"]
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="3_d106e"]
-[ext_resource type="PackedScene" uid="uid://diqiok8p8xh0d" path="res://scenes/player.tscn" id="3_g222q"]
 [ext_resource type="PackedScene" uid="uid://b3s2ht06376e2" path="res://scenes/nature/woodman.tscn" id="3_l6rio"]
 [ext_resource type="PackedScene" uid="uid://jvimleimsoht" path="res://scenes/nature/tree.tscn" id="4_0382i"]
 [ext_resource type="Texture2D" uid="uid://dihwe24qw2iku" path="res://assets/graphics/ld55_Grass.png" id="4_gspcx"]
-[ext_resource type="PackedScene" uid="uid://drwujw3c5tkba" path="res://scenes/item.tscn" id="4_hh2yg"]
 [ext_resource type="PackedScene" uid="uid://clrj7b4v7sprv" path="res://scenes/nature/woodelf.tscn" id="4_snyqr"]
 [ext_resource type="PackedScene" uid="uid://xx03vfmi2v3i" path="res://scenes/nature/bear.tscn" id="5_fhfmp"]
 [ext_resource type="Texture2D" uid="uid://dgonf0wqdgbcm" path="res://assets/graphics/ld55_Tree.png" id="6_hu4u0"]
 [ext_resource type="Script" path="res://scripts/nature/nature_item_list.gd" id="6_lfm7n"]
 [ext_resource type="PackedScene" uid="uid://cr4d2ymmvixt" path="res://scenes/nature/naturedragon.tscn" id="6_nffsh"]
-[ext_resource type="PackedScene" uid="uid://dc7bnjeakct0o" path="res://scenes/nature/grass.tscn" id="7_7yekh"]
+[ext_resource type="PackedScene" path="res://scenes/nature/grass.tscn" id="7_7yekh"]
 [ext_resource type="PackedScene" uid="uid://csge3ct40lskh" path="res://scenes/energy_pool.tscn" id="7_bg8n2"]
 [ext_resource type="PackedScene" uid="uid://cv8q0e70yjeua" path="res://scenes/death/skeleton.tscn" id="7_q0tmq"]
 [ext_resource type="Texture2D" uid="uid://bpgp3gohrckyc" path="res://assets/graphics/ld55_WoodMan.png" id="8_ew28w"]
@@ -37,7 +35,12 @@
 [ext_resource type="Texture2D" uid="uid://d0kn6frg5ciym" path="res://assets/graphics/ld55_Gargoyle.png" id="17_3tdef"]
 [ext_resource type="PackedScene" uid="uid://buhrci8fucx1s" path="res://scenes/void/void_enemy4.tscn" id="17_jsxkh"]
 [ext_resource type="Texture2D" uid="uid://c8b62ml631b3s" path="res://assets/graphics/ld55_BoneDragon_Item.png" id="18_sfe6i"]
+[ext_resource type="PackedScene" uid="uid://bb1c5augyx2np" path="res://scenes/ui/health_bar.tscn" id="19_hdrfq"]
 [ext_resource type="Texture2D" uid="uid://ct3aiqwxbg8gj" path="res://assets/graphics/ld55_BoneParts.png" id="19_jxicq"]
+[ext_resource type="PackedScene" uid="uid://drwujw3c5tkba" path="res://scenes/ui/item.tscn" id="21_ghrws"]
+[ext_resource type="PackedScene" uid="uid://dolid28cun1g3" path="res://scenes/ui/pause_menu.tscn" id="34_hojjx"]
+[ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://scenes/template/settings.tscn" id="34_ykl4g"]
+[ext_resource type="PackedScene" uid="uid://diqiok8p8xh0d" path="res://scenes/ui/player.tscn" id="38_ljclh"]
 [ext_resource type="PackedScene" uid="uid://b21tdaenx324q" path="res://scenes/death/bonepart.tscn" id="39_m4jre"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
@@ -76,6 +79,13 @@ offset_bottom = 342.0
 color = Color(0.129412, 0.14902, 0.172549, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("19_hdrfq")]
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 184.0
+offset_bottom = 80.0
+metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 visible = false
@@ -117,7 +127,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 48.0
 offset_top = -96.0
-offset_right = -650.0
+offset_right = -664.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -125,7 +135,7 @@ theme = ExtResource("3_d106e")
 alignment = 2
 script = ExtResource("6_lfm7n")
 
-[node name="5grass" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
+[node name="5grass" parent="CanvasLayer/NatureItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
 id = 5
 
@@ -138,7 +148,7 @@ texture = ExtResource("4_gspcx")
 [node name="Label" parent="CanvasLayer/NatureItemList/5grass/VBoxContainer" index="1"]
 text = "Grass"
 
-[node name="4naturedragon" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
+[node name="4naturedragon" parent="CanvasLayer/NatureItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
 id = 4
 
@@ -156,7 +166,7 @@ texture = ExtResource("9_h4kj0")
 [node name="Label" parent="CanvasLayer/NatureItemList/4naturedragon/VBoxContainer" index="1"]
 text = "Dragon"
 
-[node name="3bear" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
+[node name="3bear" parent="CanvasLayer/NatureItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
 id = 3
 
@@ -166,7 +176,7 @@ texture = ExtResource("10_3oyof")
 [node name="Label" parent="CanvasLayer/NatureItemList/3bear/VBoxContainer" index="1"]
 text = "Druid"
 
-[node name="2woodelf" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
+[node name="2woodelf" parent="CanvasLayer/NatureItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
 id = 2
 
@@ -177,7 +187,7 @@ texture = ExtResource("11_awq11")
 text = "WoodElf
 "
 
-[node name="1woodman" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
+[node name="1woodman" parent="CanvasLayer/NatureItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
 id = 1
 
@@ -188,7 +198,7 @@ texture = ExtResource("8_ew28w")
 text = "Treant
 "
 
-[node name="0tree" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
+[node name="0tree" parent="CanvasLayer/NatureItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
 
 [node name="Sprite" parent="CanvasLayer/NatureItemList/0tree/VBoxContainer" index="0"]
@@ -203,7 +213,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 617.0
+offset_left = 632.0
 offset_top = -96.0
 offset_right = -28.0
 offset_bottom = -16.0
@@ -212,7 +222,7 @@ grow_vertical = 0
 theme = ExtResource("3_d106e")
 script = ExtResource("9_y2514")
 
-[node name="6skeleton" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
+[node name="6skeleton" parent="CanvasLayer/DeathItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
 id = 6
 
@@ -220,7 +230,7 @@ id = 6
 text = "Skeleton
 "
 
-[node name="7zombie" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
+[node name="7zombie" parent="CanvasLayer/DeathItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
 id = 7
 
@@ -231,7 +241,7 @@ texture = ExtResource("15_kov7r")
 text = "Zombie
 "
 
-[node name="8ghost" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
+[node name="8ghost" parent="CanvasLayer/DeathItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
 id = 8
 
@@ -242,7 +252,7 @@ texture = ExtResource("16_tdw5f")
 text = "Ghost
 "
 
-[node name="9gargoyle" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
+[node name="9gargoyle" parent="CanvasLayer/DeathItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
 id = 9
 
@@ -253,7 +263,7 @@ texture = ExtResource("17_3tdef")
 text = "Gargoyle
 "
 
-[node name="10bonedragon" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
+[node name="10bonedragon" parent="CanvasLayer/DeathItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
 id = 10
 
@@ -264,7 +274,7 @@ texture = ExtResource("18_sfe6i")
 text = "BoneDragon
 "
 
-[node name="11boneparts" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
+[node name="11boneparts" parent="CanvasLayer/DeathItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
 id = 11
 
@@ -287,17 +297,30 @@ text = "Wave: 1"
 metadata/_edit_use_anchors_ = true
 
 [node name="EnergyPool" parent="CanvasLayer" instance=ExtResource("7_bg8n2")]
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 564.0
-offset_top = 640.0
-offset_right = 564.0
-offset_bottom = 640.0
-grow_horizontal = 1
-grow_vertical = 1
+offset_left = -16.0
+offset_top = -48.0
+offset_right = -16.0
+offset_bottom = -48.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PausePanel" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenu" parent="CanvasLayer/PausePanel" instance=ExtResource("34_hojjx")]
+layout_mode = 1
+offset_left = -75.0
+offset_top = -49.0
+offset_right = 75.0
+offset_bottom = 49.0
+
+[node name="Settings" parent="CanvasLayer/PausePanel" instance=ExtResource("34_ykl4g")]
+visible = false
+layout_mode = 1
 
 [node name="Summon" type="Control" parent="."]
 layout_mode = 3
@@ -350,7 +373,7 @@ position = Vector2(-41, 14)
 [node name="Tree" parent="." instance=ExtResource("4_0382i")]
 position = Vector2(-73, 74)
 
-[node name="Player" parent="." instance=ExtResource("3_g222q")]
+[node name="Player" parent="." instance=ExtResource("38_ljclh")]
 position = Vector2(-41, 74)
 
 [node name="EnemyGenTimer" type="Timer" parent="."]
@@ -402,6 +425,9 @@ position = Vector2(-73, -98)
 [connection signal="choose" from="CanvasLayer/NatureItemList" to="CanvasLayer/DeathItemList" method="_on_nature_item_list_choose"]
 [connection signal="choose" from="CanvasLayer/DeathItemList" to="." method="_on_death_item_list_choose"]
 [connection signal="choose" from="CanvasLayer/DeathItemList" to="CanvasLayer/NatureItemList" method="_on_death_item_list_choose"]
+[connection signal="pressed" from="CanvasLayer/PausePanel/PauseMenu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/PausePanel/PauseMenu/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="CanvasLayer/PausePanel/PauseMenu/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="timeout" from="EnemyGenTimer" to="." method="_on_enemy_gen_timer_timeout"]
 [connection signal="timeout" from="RestTimer" to="." method="_on_rest_timer_timeout"]
 
@@ -417,3 +443,4 @@ position = Vector2(-73, -98)
 [editable path="CanvasLayer/DeathItemList/9gargoyle"]
 [editable path="CanvasLayer/DeathItemList/10bonedragon"]
 [editable path="CanvasLayer/DeathItemList/11boneparts"]
+[editable path="CanvasLayer/PausePanel/PauseMenu"]

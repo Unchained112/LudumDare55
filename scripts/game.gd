@@ -46,7 +46,7 @@ func check_wave_end():
 		rest_timer.start()
 
 func _on_pick_up_leaf(leaf: Leaf):
-	print("Get leaf")
+	#print("Get leaf")
 	var tween = self.create_tween().set_trans(Tween.TRANS_BACK)
 	tween.tween_property(leaf, "position", 
 		energy_pool_pos + Vector2(-20, -40), 1.0)

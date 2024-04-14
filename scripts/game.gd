@@ -8,6 +8,8 @@ extends Node2D
 var summon_dict: Dictionary = {
 	
 }
+var summon_id = 0
+signal start_summon(summon_name)
 # enemy1, enemy2, enemy3
 var wave_list = [
 	[2,0,0],
@@ -26,12 +28,16 @@ var cur_wave_enemy_list = []
 
 func _ready(): 
 	EventBus.pick_up_leaf.connect(_on_pick_up_leaf)
+	EventBus.pick_up_bone.connect(_on_pick_up_bone)
 	EventBus.enemy_created.connect(_on_enemy_created)
 	cur_wave_enemy_list = get_enemy_list(wave_list[0])
 
 func _input(event: InputEvent):
-	if event.is_action_pressed("TestAction"):
-		energy_pool.text = "Text Changed"
+	#if event.is_action_pressed("TestAction"):
+		#energy_pool.text = "Text Changed"
+	if event.is_action_pressed("summon"):
+		print("22")
+		start_summon.emit(summon_list[summon_id])
 
 func get_enemy_list(_wave_list) -> Array:
 	var enemy_list = []
@@ -53,6 +59,15 @@ func _on_pick_up_leaf(leaf: Leaf):
 	await tween.finished
 	energy_pool.update_nature_energy(10)
 	leaf.queue_free()
+	
+func _on_pick_up_bone(bone: Bone):
+	#print("Get bone")
+	var tween = self.create_tween().set_trans(Tween.TRANS_BACK)
+	tween.tween_property(bone, "position", 
+		energy_pool_pos + Vector2(20, -40), 1.0)
+	await tween.finished
+	energy_pool.update_death_energy(10)
+	bone.queue_free()
 
 func _on_enemy_created(enemy):
 	enemy.set_target(home)
@@ -74,3 +89,14 @@ func _on_rest_timer_timeout():
 	if wave < max_wave :
 		wave_info.text = text.split(":")[0] + ":" + str(wave + 1)
 		cur_wave_enemy_list = get_enemy_list(wave_list[wave])
+
+
+func _on_death_item_list_choose(choose_name):
+	summon_id = choose_name
+	#print("will summon:"+choose_name) # Replace with function body.
+	
+
+
+func _on_nature_item_list_choose(choose_name):
+	summon_id = choose_name#print("will summon:"+choose_name)
+

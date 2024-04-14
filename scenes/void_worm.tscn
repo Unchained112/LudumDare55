@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://eyxwdf38yo0t"]
+[gd_scene load_steps=8 format=3 uid="uid://eyxwdf38yo0t"]
 
 [ext_resource type="Texture2D" uid="uid://bwltw6pap5257" path="res://assets/graphics/ld55_Voidworm.png" id="1_a75kv"]
 [ext_resource type="Script" path="res://scripts/void_creature.gd" id="1_laqms"]
 [ext_resource type="Shader" path="res://scripts/shader/basic.gdshader" id="2_21daa"]
+[ext_resource type="PackedScene" uid="uid://bfbn2gwsrlwns" path="res://scenes/leaf.tscn" id="2_64o2j"]
+[ext_resource type="PackedScene" uid="uid://bvikiqtqmf8s6" path="res://scenes/bone.tscn" id="3_f1let"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_20l7v"]
 resource_local_to_scene = true
@@ -21,6 +23,8 @@ size = Vector2(24, 24)
 
 [node name="VoidWorm" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_laqms")
+leaf = ExtResource("2_64o2j")
+bone = ExtResource("3_f1let")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_20l7v")

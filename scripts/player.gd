@@ -9,6 +9,8 @@ var lerp_t = 1.0
 var lerp_speed = 0.8
 var summon_id: int = -1
 
+
+
 @onready var screen_size = get_viewport_rect().size
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -39,6 +41,7 @@ func _physics_process(delta):
 	#position.x = clamp(position.x, 0, screen_size.x)
 	#position.y = clamp(position.y, 0, screen_size.y)
 	move_and_slide()
+	
 
 func take_damage(damage_got: int, collider_position):
 	health -= damage_got
@@ -46,6 +49,14 @@ func take_damage(damage_got: int, collider_position):
 	velocity = (position-collider_position).normalized() * KNCOKBACK * log(damage_got)/log(5)
 	lerp_t = 0
 
-func summon(id: int):
-	print(id)
-	pass
+
+
+func _on_game_start_summon(summon):
+	print('111')
+	summon(summon)
+	
+func summon(summon_scene: PackedScene):
+	print(summon_scene)
+	var new_summon = summon_scene.instantiate()
+	get_parent().add_child(new_summon)
+	new_summon.position = position

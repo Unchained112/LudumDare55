@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://cgm7q1u4eruja"]
+[gd_scene load_steps=17 format=3 uid="uid://cgm7q1u4eruja"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_eix3y"]
 [ext_resource type="PackedScene" uid="uid://c16a4mstsr6de" path="res://scenes/home.tscn" id="2_xlnjj"]
 [ext_resource type="Texture2D" uid="uid://dykl1p48x60lo" path="res://assets/graphics/ld55_Stone.png" id="3_3demo"]
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="3_d106e"]
 [ext_resource type="PackedScene" uid="uid://diqiok8p8xh0d" path="res://scenes/player.tscn" id="3_g222q"]
-[ext_resource type="Script" path="res://scripts/NatureItemList.gd" id="4_1x0la"]
 [ext_resource type="PackedScene" uid="uid://jvimleimsoht" path="res://scenes/tree.tscn" id="4_0382i"]
 [ext_resource type="Texture2D" uid="uid://dihwe24qw2iku" path="res://assets/graphics/ld55_Grass.png" id="4_gspcx"]
 [ext_resource type="PackedScene" uid="uid://drwujw3c5tkba" path="res://scenes/item.tscn" id="4_hh2yg"]
@@ -26,7 +25,6 @@ point_count = 5
 [node name="Game" type="Node2D"]
 position = Vector2(617, 306)
 script = ExtResource("1_eix3y")
-summon_list = Array[PackedScene]([ExtResource("4_0382i"), ExtResource("7_q0tmq"), null])
 enemy_type = Array[PackedScene]([ExtResource("8_336w3"), ExtResource("8_336w3"), ExtResource("8_336w3")])
 
 [node name="Background" type="ColorRect" parent="."]
@@ -84,11 +82,14 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_d106e")
 alignment = 1
-script = ExtResource("4_1x0la")
+
+[node name="tree2" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
+layout_mode = 2
+script = null
 
 [node name="tree" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
 layout_mode = 2
-id = 2
+script = null
 
 [node name="Sprite" parent="CanvasLayer/NatureItemList/tree/VBoxContainer" index="0"]
 texture = ExtResource("6_hu4u0")
@@ -97,13 +98,9 @@ texture = ExtResource("6_hu4u0")
 text = "Tree
 "
 
-[node name="tree2" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
-layout_mode = 2
-id = 3
-
 [node name="sprite" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
 layout_mode = 2
-id = 4
+script = null
 
 [node name="DeathItemList" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 12
@@ -123,7 +120,6 @@ layout_mode = 2
 
 [node name="Skeleton2" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
 layout_mode = 2
-id = 1
 
 [node name="WaveInfo" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
@@ -223,19 +219,8 @@ position = Vector2(-53, 311)
 [node name="Leaf" parent="." instance=ExtResource("8_sn41i")]
 position = Vector2(-105, 150)
 
-[node name="Summon" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[connection signal="start_summon" from="." to="Player" method="_on_game_start_summon"]
-[connection signal="choose" from="CanvasLayer/NatureItemList" to="." method="_on_nature_item_list_choose"]
-[connection signal="choose" from="CanvasLayer/NatureItemList" to="CanvasLayer/DeathItemList" method="_on_nature_item_list_choose"]
 [connection signal="choose" from="CanvasLayer/DeathItemList" to="." method="_on_death_item_list_choose"]
-[connection signal="choose" from="CanvasLayer/DeathItemList" to="CanvasLayer/NatureItemList" method="_on_death_item_list_choose"]
 [connection signal="timeout" from="EnemyGenTimer" to="." method="_on_enemy_gen_timer_timeout"]
 [connection signal="timeout" from="RestTimer" to="." method="_on_rest_timer_timeout"]
 
 [editable path="CanvasLayer/NatureItemList/tree"]
-[editable path="CanvasLayer/DeathItemList/Skeleton2"]

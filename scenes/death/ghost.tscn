@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://batfbvqktmgks"]
+[gd_scene load_steps=4 format=3 uid="uid://bqmgdulx5hg8m"]
 
-[ext_resource type="PackedScene" uid="uid://cv8q0e70yjeua" path="res://scenes/death/skeleton.tscn" id="1_vsr6d"]
+[ext_resource type="Script" path="res://scripts/death/skeleton.gd" id="1_7bdkm"]
 [ext_resource type="Texture2D" uid="uid://dab1v0qcoduiv" path="res://assets/graphics/ld55_Ghost.png" id="2_by43q"]
 
-[node name="Ghost" instance=ExtResource("1_vsr6d")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
+size = Vector2(21, 24)
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Skeleton" type="CharacterBody2D" groups=["player_team"]]
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_7bdkm")
+speed = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_by43q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jhenk")

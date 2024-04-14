@@ -1,21 +1,40 @@
-[gd_scene load_steps=18 format=3 uid="uid://cgm7q1u4eruja"]
+[gd_scene load_steps=37 format=3 uid="uid://cgm7q1u4eruja"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_eix3y"]
 [ext_resource type="PackedScene" uid="uid://c16a4mstsr6de" path="res://scenes/home.tscn" id="2_xlnjj"]
 [ext_resource type="Texture2D" uid="uid://dykl1p48x60lo" path="res://assets/graphics/ld55_Stone.png" id="3_3demo"]
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="3_d106e"]
 [ext_resource type="PackedScene" uid="uid://diqiok8p8xh0d" path="res://scenes/player.tscn" id="3_g222q"]
-[ext_resource type="Script" path="res://scripts/nature_item_list.gd" id="4_1x0la"]
+[ext_resource type="PackedScene" uid="uid://b3s2ht06376e2" path="res://scenes/nature/woodman.tscn" id="3_l6rio"]
 [ext_resource type="PackedScene" uid="uid://jvimleimsoht" path="res://scenes/nature/tree.tscn" id="4_0382i"]
 [ext_resource type="Texture2D" uid="uid://dihwe24qw2iku" path="res://assets/graphics/ld55_Grass.png" id="4_gspcx"]
 [ext_resource type="PackedScene" uid="uid://drwujw3c5tkba" path="res://scenes/item.tscn" id="4_hh2yg"]
-[ext_resource type="Script" path="res://scripts/death_item_list.gd" id="4_m75a8"]
+[ext_resource type="PackedScene" uid="uid://clrj7b4v7sprv" path="res://scenes/nature/woodelf.tscn" id="4_snyqr"]
+[ext_resource type="PackedScene" uid="uid://xx03vfmi2v3i" path="res://scenes/nature/bear.tscn" id="5_fhfmp"]
 [ext_resource type="Texture2D" uid="uid://dgonf0wqdgbcm" path="res://assets/graphics/ld55_Tree.png" id="6_hu4u0"]
+[ext_resource type="Script" path="res://scripts/nature/nature_item_list.gd" id="6_lfm7n"]
+[ext_resource type="PackedScene" uid="uid://cr4d2ymmvixt" path="res://scenes/nature/naturedragon.tscn" id="6_nffsh"]
+[ext_resource type="PackedScene" uid="uid://dc7bnjeakct0o" path="res://scenes/nature/grass.tscn" id="7_7yekh"]
 [ext_resource type="PackedScene" uid="uid://csge3ct40lskh" path="res://scenes/energy_pool.tscn" id="7_bg8n2"]
 [ext_resource type="PackedScene" uid="uid://cv8q0e70yjeua" path="res://scenes/death/skeleton.tscn" id="7_q0tmq"]
 [ext_resource type="PackedScene" uid="uid://eyxwdf38yo0t" path="res://scenes/void/void_worm.tscn" id="8_336w3"]
+[ext_resource type="Texture2D" uid="uid://bpgp3gohrckyc" path="res://assets/graphics/ld55_WoodMan.png" id="8_ew28w"]
 [ext_resource type="PackedScene" uid="uid://bfbn2gwsrlwns" path="res://scenes/nature/leaf.tscn" id="8_sn41i"]
+[ext_resource type="Texture2D" uid="uid://bfcx53aquo8k0" path="res://assets/graphics/ld55_NatureDragon_Item.png" id="9_h4kj0"]
+[ext_resource type="PackedScene" uid="uid://crac6q2gs17gu" path="res://scenes/death/zombie.tscn" id="9_urtrb"]
+[ext_resource type="Script" path="res://scripts/death/death_item_list.gd" id="9_y2514"]
+[ext_resource type="Texture2D" uid="uid://7eoahy68n525" path="res://assets/graphics/ld55_Bear.png" id="10_3oyof"]
+[ext_resource type="PackedScene" uid="uid://bqmgdulx5hg8m" path="res://scenes/death/ghost.tscn" id="10_4rq5d"]
+[ext_resource type="Texture2D" uid="uid://qxgq5h3fut5i" path="res://assets/graphics/ld55_WoodElf.png" id="11_awq11"]
+[ext_resource type="PackedScene" uid="uid://bm6mk3dpg2m1y" path="res://scenes/death/gargoyle.tscn" id="11_jdko7"]
+[ext_resource type="PackedScene" uid="uid://bovojj2l0gwa3" path="res://scenes/death/bonedragon.tscn" id="12_eigyx"]
+[ext_resource type="PackedScene" uid="uid://ddeuttrmj1ikb" path="res://scenes/death/boneparts.tscn" id="13_0rln3"]
 [ext_resource type="PackedScene" uid="uid://bvikiqtqmf8s6" path="res://scenes/death/bone.tscn" id="13_duhge"]
+[ext_resource type="Texture2D" uid="uid://e325s66yao1q" path="res://assets/graphics/ld55_Zombie.png" id="15_kov7r"]
+[ext_resource type="Texture2D" uid="uid://dab1v0qcoduiv" path="res://assets/graphics/ld55_Ghost.png" id="16_tdw5f"]
+[ext_resource type="Texture2D" uid="uid://d0kn6frg5ciym" path="res://assets/graphics/ld55_Gargoyle.png" id="17_3tdef"]
+[ext_resource type="Texture2D" uid="uid://c8b62ml631b3s" path="res://assets/graphics/ld55_BoneDragon_Item.png" id="18_sfe6i"]
+[ext_resource type="Texture2D" uid="uid://ct3aiqwxbg8gj" path="res://assets/graphics/ld55_BoneParts.png" id="19_jxicq"]
 
 [sub_resource type="Curve2D" id="Curve2D_nyq2h"]
 _data = {
@@ -26,7 +45,7 @@ point_count = 5
 [node name="Game" type="Node2D"]
 position = Vector2(617, 306)
 script = ExtResource("1_eix3y")
-summon_list = Array[PackedScene]([ExtResource("4_0382i"), ExtResource("7_q0tmq"), null])
+summon_list = Array[PackedScene]([ExtResource("4_0382i"), ExtResource("3_l6rio"), ExtResource("4_snyqr"), ExtResource("5_fhfmp"), ExtResource("6_nffsh"), ExtResource("7_7yekh"), ExtResource("7_q0tmq"), ExtResource("9_urtrb"), ExtResource("10_4rq5d"), ExtResource("11_jdko7"), ExtResource("12_eigyx"), ExtResource("13_0rln3")])
 enemy_type = Array[PackedScene]([ExtResource("8_336w3"), ExtResource("8_336w3"), ExtResource("8_336w3")])
 
 [node name="Background" type="ColorRect" parent="."]
@@ -76,54 +95,165 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = -88.0
-offset_right = -600.0
-offset_bottom = -8.0
+offset_left = 48.0
+offset_top = -96.0
+offset_right = -650.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_d106e")
-alignment = 1
-script = ExtResource("4_1x0la")
+alignment = 2
+script = ExtResource("6_lfm7n")
 
-[node name="tree" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
+[node name="5grass" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
 layout_mode = 2
-id = 2
+id = 5
 
-[node name="Sprite" parent="CanvasLayer/NatureItemList/tree/VBoxContainer" index="0"]
-texture = ExtResource("6_hu4u0")
+[node name="VBoxContainer" parent="CanvasLayer/NatureItemList/5grass" index="1"]
+alignment = 2
 
-[node name="Label" parent="CanvasLayer/NatureItemList/tree/VBoxContainer" index="1"]
-text = "Tree
-"
+[node name="Sprite" parent="CanvasLayer/NatureItemList/5grass/VBoxContainer" index="0"]
+texture = ExtResource("4_gspcx")
 
-[node name="tree2" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
+[node name="Label" parent="CanvasLayer/NatureItemList/5grass/VBoxContainer" index="1"]
+text = "Grass"
+
+[node name="4naturedragon" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
+layout_mode = 2
+id = 4
+
+[node name="VBoxContainer" parent="CanvasLayer/NatureItemList/4naturedragon" index="1"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_bottom = 0.0
+grow_vertical = 0
+
+[node name="Sprite" parent="CanvasLayer/NatureItemList/4naturedragon/VBoxContainer" index="0"]
+texture = ExtResource("9_h4kj0")
+
+[node name="Label" parent="CanvasLayer/NatureItemList/4naturedragon/VBoxContainer" index="1"]
+text = "Dragon"
+
+[node name="3bear" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
 layout_mode = 2
 id = 3
 
-[node name="sprite" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
+[node name="Sprite" parent="CanvasLayer/NatureItemList/3bear/VBoxContainer" index="0"]
+texture = ExtResource("10_3oyof")
+
+[node name="Label" parent="CanvasLayer/NatureItemList/3bear/VBoxContainer" index="1"]
+text = "Druid"
+
+[node name="2woodelf" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
 layout_mode = 2
-id = 4
+id = 2
+
+[node name="Sprite" parent="CanvasLayer/NatureItemList/2woodelf/VBoxContainer" index="0"]
+texture = ExtResource("11_awq11")
+
+[node name="Label" parent="CanvasLayer/NatureItemList/2woodelf/VBoxContainer" index="1"]
+text = "WoodElf
+"
+
+[node name="1woodman" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
+layout_mode = 2
+id = 1
+
+[node name="Sprite" parent="CanvasLayer/NatureItemList/1woodman/VBoxContainer" index="0"]
+texture = ExtResource("8_ew28w")
+
+[node name="Label" parent="CanvasLayer/NatureItemList/1woodman/VBoxContainer" index="1"]
+text = "Treant
+"
+
+[node name="0tree" parent="CanvasLayer/NatureItemList" instance=ExtResource("4_hh2yg")]
+layout_mode = 2
+
+[node name="Sprite" parent="CanvasLayer/NatureItemList/0tree/VBoxContainer" index="0"]
+texture = ExtResource("6_hu4u0")
+
+[node name="Label" parent="CanvasLayer/NatureItemList/0tree/VBoxContainer" index="1"]
+text = "Tree
+"
 
 [node name="DeathItemList" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 640.0
-offset_top = -80.0
+offset_left = 617.0
+offset_top = -96.0
+offset_right = -28.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_d106e")
-alignment = 1
-script = ExtResource("4_m75a8")
+script = ExtResource("9_y2514")
 
-[node name="Skeleton" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
+[node name="6skeleton" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
 layout_mode = 2
+id = 6
 
-[node name="Skeleton2" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
+[node name="Label" parent="CanvasLayer/DeathItemList/6skeleton/VBoxContainer" index="1"]
+text = "Skeleton
+"
+
+[node name="7zombie" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
 layout_mode = 2
-id = 1
+id = 7
+
+[node name="Sprite" parent="CanvasLayer/DeathItemList/7zombie/VBoxContainer" index="0"]
+texture = ExtResource("15_kov7r")
+
+[node name="Label" parent="CanvasLayer/DeathItemList/7zombie/VBoxContainer" index="1"]
+text = "Zombie
+"
+
+[node name="8ghost" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
+layout_mode = 2
+id = 8
+
+[node name="Sprite" parent="CanvasLayer/DeathItemList/8ghost/VBoxContainer" index="0"]
+texture = ExtResource("16_tdw5f")
+
+[node name="Label" parent="CanvasLayer/DeathItemList/8ghost/VBoxContainer" index="1"]
+text = "Ghost
+"
+
+[node name="9gargoyle" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
+layout_mode = 2
+id = 9
+
+[node name="Sprite" parent="CanvasLayer/DeathItemList/9gargoyle/VBoxContainer" index="0"]
+texture = ExtResource("17_3tdef")
+
+[node name="Label" parent="CanvasLayer/DeathItemList/9gargoyle/VBoxContainer" index="1"]
+text = "Gargoyle
+"
+
+[node name="10bonedragon" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
+layout_mode = 2
+id = 10
+
+[node name="Sprite" parent="CanvasLayer/DeathItemList/10bonedragon/VBoxContainer" index="0"]
+texture = ExtResource("18_sfe6i")
+
+[node name="Label" parent="CanvasLayer/DeathItemList/10bonedragon/VBoxContainer" index="1"]
+text = "BoneDragon
+"
+
+[node name="11boneparts" parent="CanvasLayer/DeathItemList" instance=ExtResource("4_hh2yg")]
+layout_mode = 2
+id = 11
+
+[node name="Sprite" parent="CanvasLayer/DeathItemList/11boneparts/VBoxContainer" index="0"]
+texture = ExtResource("19_jxicq")
+
+[node name="Label" parent="CanvasLayer/DeathItemList/11boneparts/VBoxContainer" index="1"]
+text = "BoneParts
+"
 
 [node name="WaveInfo" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
@@ -237,5 +367,15 @@ offset_bottom = 40.0
 [connection signal="timeout" from="EnemyGenTimer" to="." method="_on_enemy_gen_timer_timeout"]
 [connection signal="timeout" from="RestTimer" to="." method="_on_rest_timer_timeout"]
 
-[editable path="CanvasLayer/NatureItemList/tree"]
-[editable path="CanvasLayer/DeathItemList/Skeleton2"]
+[editable path="CanvasLayer/NatureItemList/5grass"]
+[editable path="CanvasLayer/NatureItemList/4naturedragon"]
+[editable path="CanvasLayer/NatureItemList/3bear"]
+[editable path="CanvasLayer/NatureItemList/2woodelf"]
+[editable path="CanvasLayer/NatureItemList/1woodman"]
+[editable path="CanvasLayer/NatureItemList/0tree"]
+[editable path="CanvasLayer/DeathItemList/6skeleton"]
+[editable path="CanvasLayer/DeathItemList/7zombie"]
+[editable path="CanvasLayer/DeathItemList/8ghost"]
+[editable path="CanvasLayer/DeathItemList/9gargoyle"]
+[editable path="CanvasLayer/DeathItemList/10bonedragon"]
+[editable path="CanvasLayer/DeathItemList/11boneparts"]

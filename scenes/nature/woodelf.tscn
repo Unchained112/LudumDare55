@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv8q0e70yjeua"]
+[gd_scene load_steps=4 format=3 uid="uid://clrj7b4v7sprv"]
 
-[ext_resource type="Texture2D" uid="uid://cwghxeh7il7fo" path="res://assets/graphics/ld55_Skeleton.png" id="1_0fx2y"]
-[ext_resource type="Script" path="res://scripts/death/skeleton.gd" id="1_lc2ol"]
+[ext_resource type="Script" path="res://scripts/nature/woodman.gd" id="1_dl52n"]
+[ext_resource type="Texture2D" uid="uid://qxgq5h3fut5i" path="res://assets/graphics/ld55_WoodElf.png" id="2_rtq7x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
 size = Vector2(21, 24)
@@ -9,11 +9,11 @@ size = Vector2(21, 24)
 [node name="Skeleton" type="CharacterBody2D" groups=["player_team"]]
 collision_mask = 2
 motion_mode = 1
-script = ExtResource("1_lc2ol")
+script = ExtResource("1_dl52n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_0fx2y")
+texture = ExtResource("2_rtq7x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jhenk")

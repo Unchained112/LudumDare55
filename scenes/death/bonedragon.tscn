@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bovojj2l0gwa3"]
+
+[ext_resource type="Script" path="res://scripts/death/skeleton.gd" id="1_d0hyv"]
+[ext_resource type="Texture2D" uid="uid://dok3bkxvr463w" path="res://assets/graphics/ld55_BoneDragon.png" id="2_ucq3c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
+size = Vector2(39, 39)
+
+[node name="Skeleton" type="CharacterBody2D" groups=["player_team"]]
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_d0hyv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ucq3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_jhenk")

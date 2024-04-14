@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var health: int = 100
 @export var damage: int = 20
 
+
 var lerp_t = 1.0
 var lerp_speed = 0.8
 
@@ -23,6 +24,11 @@ func _physics_process(delta):
 	if target_enemy:
 		new_velocity = target_enemy.position - position
 		new_velocity = new_velocity.normalized() * speed
+	else:
+		var homes = get_tree().get_nodes_in_group("home")
+		for home in homes:
+			new_velocity = home.position - position
+			new_velocity = new_velocity.normalized() * speed		
 
 	lerp_t += lerp_speed * delta
 	lerp_t = clamp(lerp_t,0.0,1.0)

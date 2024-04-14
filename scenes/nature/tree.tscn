@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://jvimleimsoht"]
 
-[ext_resource type="Script" path="res://scripts/tree.gd" id="1_cfm8t"]
+[ext_resource type="Script" path="res://scripts/nature/tree.gd" id="1_e58tf"]
 [ext_resource type="PackedScene" uid="uid://bfbn2gwsrlwns" path="res://scenes/nature/leaf.tscn" id="2_508ea"]
 [ext_resource type="Texture2D" uid="uid://dgonf0wqdgbcm" path="res://assets/graphics/ld55_Tree.png" id="2_kjpcf"]
 
@@ -8,7 +8,7 @@
 size = Vector2(14, 28)
 
 [node name="Tree" type="Area2D"]
-script = ExtResource("1_cfm8t")
+script = ExtResource("1_e58tf")
 leaf = ExtResource("2_508ea")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

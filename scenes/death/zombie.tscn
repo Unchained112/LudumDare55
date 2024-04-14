@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv8q0e70yjeua"]
+[gd_scene load_steps=4 format=3 uid="uid://crac6q2gs17gu"]
 
-[ext_resource type="Texture2D" uid="uid://cwghxeh7il7fo" path="res://assets/graphics/ld55_Skeleton.png" id="1_0fx2y"]
-[ext_resource type="Script" path="res://scripts/death/skeleton.gd" id="1_lc2ol"]
+[ext_resource type="Script" path="res://scripts/death/skeleton.gd" id="1_ch632"]
+[ext_resource type="Texture2D" uid="uid://e325s66yao1q" path="res://assets/graphics/ld55_Zombie.png" id="2_svkue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
 size = Vector2(21, 24)
@@ -9,11 +9,13 @@ size = Vector2(21, 24)
 [node name="Skeleton" type="CharacterBody2D" groups=["player_team"]]
 collision_mask = 2
 motion_mode = 1
-script = ExtResource("1_lc2ol")
+script = ExtResource("1_ch632")
+speed = 30.0
+knockback = 150
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_0fx2y")
+texture = ExtResource("2_svkue")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jhenk")

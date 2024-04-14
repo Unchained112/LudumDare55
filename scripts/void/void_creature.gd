@@ -47,13 +47,13 @@ func drop():
 		var new_bone = bone.instantiate()
 		get_parent().add_child(new_bone)
 		new_bone.position = position + Vector2(randf_range(-1.0, 1.0),
-			randf_range(-1.0, 1.0)) * randi_range(5, 30)
+			randf_range(-1.0, 1.0)) * randi_range(5,30+10*log(i)/log(5))
 
 	for i in range(1, drop_leaves + 1):
 		var new_leaf = leaf.instantiate()
 		get_parent().add_child(new_leaf)
 		new_leaf.position = position + Vector2(randf_range(-1.0, 1.0),
-			randf_range(-1.0, 1.0)) * randi_range(5, 30)
+			randf_range(-1.0, 1.0)) * randi_range(5,30+10*log(i)/log(5))
 
 func _on_body_entered(body):
 	if (body.is_in_group("player") or 

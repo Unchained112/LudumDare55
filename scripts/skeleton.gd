@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 @export var speed = 60.0
 @export var knockback = 300
-@export var health: int = 100
-@export var damage: int = 20
 
+var health: int = 100
+var damage: int = 20
 var lerp_t = 1.0
 var lerp_speed = 0.8
 

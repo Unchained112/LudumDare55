@@ -8,7 +8,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_20l7v"]
 resource_local_to_scene = true
-shader = ExtResource("2_8lxfp")
+shader = ExtResource("2_21daa")
 shader_parameter/poly_color = Color(1, 1, 1, 1)
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_modifier = 0.0
@@ -29,7 +29,7 @@ bone = ExtResource("3_f1let")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_20l7v")
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_44h3q")
+texture = ExtResource("1_a75kv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

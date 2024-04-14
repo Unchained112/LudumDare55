@@ -13,7 +13,8 @@ var health: int = 1000:
 	set(value):
 		health = min(health_max, value)
 		health = max(0, health)
-		EventBus.game_failed.emit()
+		if health == 0:
+			EventBus.game_failed.emit()
 		EventBus.player_health_changed.emit(health)
 
 var damage: int = 10

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://drwujw3c5tkba"]
+[gd_scene load_steps=5 format=3 uid="uid://drwujw3c5tkba"]
 
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="1_eyaen"]
 [ext_resource type="Texture2D" uid="uid://cwghxeh7il7fo" path="res://assets/graphics/ld55_Skeleton.png" id="2_1urq5"]
 [ext_resource type="Script" path="res://scripts/item.gd" id="2_s2ue5"]
+[ext_resource type="PackedScene" uid="uid://cdakhybrnp7hn" path="res://scenes/ui/item_info.tscn" id="4_8w0hq"]
 
 [node name="Item" type="Control"]
 custom_minimum_size = Vector2(70, 70)
@@ -12,7 +13,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_eyaen")
 script = ExtResource("2_s2ue5")
 
 [node name="ItemColor" type="ColorRect" parent="."]
@@ -20,6 +20,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.490196, 0.490196, 0.490196, 0.231373)
@@ -31,6 +32,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 72.0
 grow_horizontal = 2
+theme = ExtResource("1_eyaen")
 
 [node name="Sprite" type="TextureRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(30, 30)
@@ -44,4 +46,23 @@ text = "skeleton
 "
 horizontal_alignment = 1
 
+[node name="Cost" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_top = -24.0
+grow_horizontal = 0
+theme = ExtResource("1_eyaen")
+text = "10"
+
+[node name="ItemInfo" parent="." instance=ExtResource("4_8w0hq")]
+visible = false
+layout_mode = 1
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="ItemColor" to="." method="_on_item_color_mouse_entered"]
+[connection signal="mouse_exited" from="ItemColor" to="." method="_on_item_color_mouse_exited"]

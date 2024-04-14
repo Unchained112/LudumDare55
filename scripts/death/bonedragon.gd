@@ -59,16 +59,16 @@ func drop():
 		var new_bone = bone.instantiate()
 		get_parent().add_child(new_bone)
 		new_bone.position = position + Vector2(randf_range(-1.0, 1.0),
-			randf_range(-1.0, 1.0)) * randi_range(5,30+10*log(i)/log(5))
+			randf_range(-1.0, 1.0)) * randi_range(5, 30 + Utilities.calcualte_range_num(i))
 
 	for i in range(1, drop_leaves + 1):
 		var new_leaf = leaf.instantiate()
 		get_parent().add_child(new_leaf)
 		new_leaf.position = position + Vector2(randf_range(-1.0, 1.0),
-			randf_range(-1.0, 1.0)) * randi_range(5,30+10*log(i)/log(5))
+			randf_range(-1.0, 1.0)) * randi_range(5, 30 + Utilities.calcualte_range_num(i))
 			
 	for i in range(1, drop_boneparts + 1):
 		var new_bonepart = bonepart.instantiate()
 		get_parent().add_child(new_bonepart)
 		new_bonepart.position = position + Vector2(randf_range(-1.0, 1.0),
-			randf_range(-1.0, 1.0)) * randi_range(5,30+10*log(i)/log(5))
+			randf_range(-1.0, 1.0)) * randi_range(5, 30 + Utilities.calcualte_range_num(i))

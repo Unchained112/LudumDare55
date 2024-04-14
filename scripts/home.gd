@@ -9,7 +9,8 @@ var health: int = 1000:
 	set(value):
 		health = min(health_max, value)
 		health = max(0, health)
-		EventBus.game_failed.emit()
+		if health == 0:
+			EventBus.game_failed.emit()
 
 @onready var health_bar: TextureProgressBar = $HealthBar
 @onready var health_text: Label = $Health

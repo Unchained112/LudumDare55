@@ -131,12 +131,12 @@ offset_right = -664.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("3_d106e")
 alignment = 2
 script = ExtResource("6_lfm7n")
 
 [node name="5grass" parent="CanvasLayer/NatureItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
+item_name = "Grass"
 id = 5
 
 [node name="VBoxContainer" parent="CanvasLayer/NatureItemList/5grass" index="1"]
@@ -150,6 +150,7 @@ text = "Grass"
 
 [node name="4naturedragon" parent="CanvasLayer/NatureItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
+item_name = "NatureDragon"
 id = 4
 
 [node name="VBoxContainer" parent="CanvasLayer/NatureItemList/4naturedragon" index="1"]
@@ -168,6 +169,7 @@ text = "Dragon"
 
 [node name="3bear" parent="CanvasLayer/NatureItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
+item_name = "Bear"
 id = 3
 
 [node name="Sprite" parent="CanvasLayer/NatureItemList/3bear/VBoxContainer" index="0"]
@@ -178,6 +180,7 @@ text = "Druid"
 
 [node name="2woodelf" parent="CanvasLayer/NatureItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
+item_name = "WoodElf"
 id = 2
 
 [node name="Sprite" parent="CanvasLayer/NatureItemList/2woodelf/VBoxContainer" index="0"]
@@ -189,6 +192,7 @@ text = "WoodElf
 
 [node name="1woodman" parent="CanvasLayer/NatureItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
+item_name = "Woodman"
 id = 1
 
 [node name="Sprite" parent="CanvasLayer/NatureItemList/1woodman/VBoxContainer" index="0"]
@@ -219,11 +223,11 @@ offset_right = -28.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("3_d106e")
 script = ExtResource("9_y2514")
 
 [node name="6skeleton" parent="CanvasLayer/DeathItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
+item_name = "Skeleton"
 id = 6
 
 [node name="Label" parent="CanvasLayer/DeathItemList/6skeleton/VBoxContainer" index="1"]
@@ -232,6 +236,7 @@ text = "Skeleton
 
 [node name="7zombie" parent="CanvasLayer/DeathItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
+item_name = "Zombie"
 id = 7
 
 [node name="Sprite" parent="CanvasLayer/DeathItemList/7zombie/VBoxContainer" index="0"]
@@ -243,6 +248,7 @@ text = "Zombie
 
 [node name="8ghost" parent="CanvasLayer/DeathItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
+item_name = "Ghost"
 id = 8
 
 [node name="Sprite" parent="CanvasLayer/DeathItemList/8ghost/VBoxContainer" index="0"]
@@ -254,6 +260,7 @@ text = "Ghost
 
 [node name="9gargoyle" parent="CanvasLayer/DeathItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
+item_name = "Gragoyle"
 id = 9
 
 [node name="Sprite" parent="CanvasLayer/DeathItemList/9gargoyle/VBoxContainer" index="0"]
@@ -265,6 +272,7 @@ text = "Gargoyle
 
 [node name="10bonedragon" parent="CanvasLayer/DeathItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
+item_name = "BoneDragon"
 id = 10
 
 [node name="Sprite" parent="CanvasLayer/DeathItemList/10bonedragon/VBoxContainer" index="0"]
@@ -276,6 +284,7 @@ text = "BoneDragon
 
 [node name="11boneparts" parent="CanvasLayer/DeathItemList" instance=ExtResource("21_ghrws")]
 layout_mode = 2
+item_name = "BonePart"
 id = 11
 
 [node name="Sprite" parent="CanvasLayer/DeathItemList/11boneparts/VBoxContainer" index="0"]
@@ -321,6 +330,92 @@ offset_bottom = 49.0
 [node name="Settings" parent="CanvasLayer/PausePanel" instance=ExtResource("34_ykl4g")]
 visible = false
 layout_mode = 1
+
+[node name="FailPanel" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/FailPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -35.0
+offset_right = 142.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_d106e")
+theme_override_font_sizes/font_size = 60
+text = "You Lose..."
+clip_text = true
+
+[node name="MainMenu" type="Button" parent="CanvasLayer/FailPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 68.0
+offset_right = 67.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_d106e")
+theme_override_font_sizes/font_size = 24
+text = "Main Menu"
+
+[node name="WinPanel" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/WinPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -35.0
+offset_right = 142.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_d106e")
+theme_override_font_sizes/font_size = 60
+text = "You win!!!"
+clip_text = true
+
+[node name="MainMenu" type="Button" parent="CanvasLayer/WinPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 68.0
+offset_right = 67.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_d106e")
+theme_override_font_sizes/font_size = 24
+text = "Main Menu"
 
 [node name="Summon" type="Control" parent="."]
 layout_mode = 3
@@ -428,6 +523,8 @@ position = Vector2(-73, -98)
 [connection signal="pressed" from="CanvasLayer/PausePanel/PauseMenu/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/PausePanel/PauseMenu/Option" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="CanvasLayer/PausePanel/PauseMenu/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/FailPanel/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/WinPanel/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="timeout" from="EnemyGenTimer" to="." method="_on_enemy_gen_timer_timeout"]
 [connection signal="timeout" from="RestTimer" to="." method="_on_rest_timer_timeout"]
 

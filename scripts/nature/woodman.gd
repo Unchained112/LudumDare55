@@ -46,29 +46,32 @@ func _physics_process(delta):
 func take_damage(damage_got: int, collider_position):
 	health -= damage_got
 	if health <= 0:
-		var new_tree = tree.instantiate()
-		get_parent().add_child(new_tree)
-		new_tree.position = position
 		call_deferred("drop") # TODO: Need to check if this works
 		queue_free()		
 	velocity = (position-collider_position).normalized() * knockback * log(damage_got)/log(5)
 	lerp_t = 0
 
 func drop():
+	# Generate tree
+	var new_tree = tree.instantiate()
+	get_parent().add_child(new_tree)
+	new_tree.position = position
+
+	# Drop things
 	for i in range(1, drop_bones + 1):
 		var new_bone = bone.instantiate()
 		get_parent().add_child(new_bone)
 		new_bone.position = position + Vector2(randf_range(-1.0, 1.0),
-			randf_range(-1.0, 1.0)) * randi_range(5,30+10*log(i)/log(5))
+			randf_range(-1.0, 1.0)) * randi_range(5, 30 + Utilities.calcualte_range_num(i))
 
 	for i in range(1, drop_leaves + 1):
 		var new_leaf = leaf.instantiate()
 		get_parent().add_child(new_leaf)
 		new_leaf.position = position + Vector2(randf_range(-1.0, 1.0),
-			randf_range(-1.0, 1.0)) * randi_range(5,30+10*log(i)/log(5))
+			randf_range(-1.0, 1.0)) * randi_range(5, 30 + Utilities.calcualte_range_num(i))
 			
 	for i in range(1, drop_boneparts + 1):
 		var new_bonepart = bonepart.instantiate()
 		get_parent().add_child(new_bonepart)
 		new_bonepart.position = position + Vector2(randf_range(-1.0, 1.0),
-			randf_range(-1.0, 1.0)) * randi_range(5,30+10*log(i)/log(5))
+			randf_range(-1.0, 1.0)) * randi_range(5, 30 + Utilities.calcualte_range_num(i))

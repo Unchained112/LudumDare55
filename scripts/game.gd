@@ -53,12 +53,15 @@ var is_paused: bool = false
 @onready var home: StaticBody2D = $Home
 @onready var settings: TabContainer = $CanvasLayer/PausePanel/Settings
 @onready var pause_panel: Panel = $CanvasLayer/PausePanel
+@onready var fail_panel: Panel = $CanvasLayer/FailPanel
+@onready var win_panel: Panel = $CanvasLayer/WinPanel
 
 func _ready():
 	EventBus.pick_up_leaf.connect(_on_pick_up_leaf)
 	EventBus.pick_up_bone.connect(_on_pick_up_bone)
 	EventBus.pick_up_bonepart.connect(_on_pick_up_bonepart)
 	EventBus.enemy_created.connect(_on_enemy_created)
+	EventBus.game_failed.connect(_on_game_fail)
 	cur_wave_enemy_list = get_enemy_list(wave_list[0])
 
 func _input(event: InputEvent):
@@ -67,7 +70,7 @@ func _input(event: InputEvent):
 
 		if summon_id in range(0, 5):
 			if nature_energy >= this_summon_cost:
-				update_nature_energy(-1 * this_summon_cost)
+				update_nature_energy(-this_summon_cost)
 				start_summon.emit(summon_list[summon_id], summon_id)
 				if summon_id == 0:
 					pass
@@ -80,7 +83,7 @@ func _input(event: InputEvent):
 
 		elif  summon_id in range(6, 11):
 			if death_energy >= this_summon_cost:
-				update_death_energy(-1 * this_summon_cost)
+				update_death_energy(-this_summon_cost)
 				start_summon.emit(summon_list[summon_id], summon_id)
 
 	if event.is_action_pressed("Escape"):
@@ -131,6 +134,10 @@ func update_death_energy(change: int):
 		EventBus.is_death_energy_full = false
 	energy_pool.set_death_energy(death_energy)
 
+func game_win():
+	win_panel.show()
+	Engine.time_scale = 0
+
 func _on_pick_up_leaf(leaf: Leaf):
 	var tween = self.create_tween().set_trans(Tween.TRANS_BACK)
 	tween.tween_property(leaf, "position", 
@@ -174,6 +181,8 @@ func _on_rest_timer_timeout():
 	if wave < max_wave :
 		wave_info.text = text.split(":")[0] + ":" + str(wave + 1)
 		cur_wave_enemy_list = get_enemy_list(wave_list[wave])
+	else:
+		game_win()
 
 func _on_death_item_list_choose(choose_name):
 	summon_id = choose_name
@@ -191,3 +200,7 @@ func _on_option_pressed():
 func _on_main_menu_pressed():
 	resume_game()
 	Utilities.switch_scene("MainMenu", self)
+
+func _on_game_fail():
+	fail_panel.show()
+	Engine.time_scale = 0

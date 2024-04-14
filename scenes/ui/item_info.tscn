@@ -1,23 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdakhybrnp7hn"]
+[gd_scene load_steps=3 format=3 uid="uid://cdakhybrnp7hn"]
 
+[ext_resource type="Script" path="res://scripts/item_info.gd" id="1_gwhr5"]
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="1_ihy6d"]
 
 [node name="ItemInfo" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gwhr5")
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 184.0
+offset_bottom = 168.0
+theme = ExtResource("1_ihy6d")
+
+[node name="InfoLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 176.0
+offset_bottom = 120.0
 theme = ExtResource("1_ihy6d")
 text = "Health:
 Damage:
 Speed:
 Knokback:
-Info
+Info:
 "
+autowrap_mode = 3

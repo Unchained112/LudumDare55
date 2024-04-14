@@ -68,3 +68,7 @@ func remove_scene(scene):
 
 func delete_scene(scene):
 	scene.queue_free()
+
+# Other static functions
+func calcualte_range_num(i: int) -> int:
+	return 10 * int(log(i) / log(5))

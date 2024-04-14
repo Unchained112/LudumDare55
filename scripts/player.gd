@@ -43,7 +43,7 @@ func _physics_process(delta):
 
 func take_damage(damage_got: int, collider_position):
 	health -= damage_got
-	print("player health: " + str(health))
+	#print("player health: " + str(health))
 	velocity = (position-collider_position).normalized() * KNCOKBACK * log(damage_got)/log(5)
 	lerp_t = 0
 
@@ -51,7 +51,7 @@ func _on_game_start_summon(summon_item):
 	summon(summon_item)
 
 func summon(summon_scene: PackedScene):
-	print(summon_scene)
+	#print(summon_scene)
 	var new_summon = summon_scene.instantiate()
 	get_parent().add_child(new_summon)
 	new_summon.position = position

@@ -3,6 +3,8 @@ extends Node2D
 signal start_summon(summon_name)
 
 @export var summon_list: Array[PackedScene] = []
+@export var summon_cost: Array[int] = [1,50,100,300,3000,0,
+										5,50,100,300,2000,0]
 @export var max_wave: int = 3
 @export var enemy_type: Array[PackedScene] = []
 
@@ -30,18 +32,32 @@ var death_energy: int = 0
 @onready var rest_timer: Timer = $RestTimer
 @onready var energy_pool: Control = $CanvasLayer/EnergyPool
 @onready var energy_pool_pos: Vector2 = $EnergyPoolPos.position
+@onready var bonepart_pos: Vector2 = $"CanvasLayer/DeathItemList".position
 @onready var home: StaticBody2D = $Home
 
 func _ready(): 
 	EventBus.pick_up_leaf.connect(_on_pick_up_leaf)
 	EventBus.pick_up_bone.connect(_on_pick_up_bone)
+	EventBus.pick_up_bonepart.connect(_on_pick_up_bonepart)
 	EventBus.enemy_created.connect(_on_enemy_created)
 	cur_wave_enemy_list = get_enemy_list(wave_list[0])
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("summon"):
-		print("22")
-		start_summon.emit(summon_list[summon_id])
+		var this_summon_cost = summon_cost[summon_id]
+		if summon_id in range(0,5):
+			if nature_energy >= this_summon_cost:
+				update_nature_energy(-1*this_summon_cost)
+				start_summon.emit(summon_list[summon_id])
+				if summon_id == 0:
+					summon_cost[summon_id] += 1
+		elif  summon_id in range(6,11):
+			if death_energy >= this_summon_cost:
+				update_death_energy(-1*this_summon_cost)
+				start_summon.emit(summon_list[summon_id])
+			
+			
+		
 
 func get_enemy_list(_wave_list) -> Array:
 	var enemy_list = []
@@ -78,7 +94,7 @@ func _on_pick_up_leaf(leaf: Leaf):
 	tween.tween_property(leaf, "position", 
 		energy_pool_pos + Vector2(-20, -40), 1.0)
 	await tween.finished
-	update_nature_energy(10)
+	update_nature_energy(1)
 	leaf.queue_free()
 
 func _on_pick_up_bone(bone: Bone):
@@ -86,9 +102,17 @@ func _on_pick_up_bone(bone: Bone):
 	tween.tween_property(bone, "position", 
 		energy_pool_pos + Vector2(20, -40), 1.0)
 	await tween.finished
-	update_death_energy(10)
+	update_death_energy(1)
 	bone.queue_free()
-
+	
+func _on_pick_up_bonepart(bonepart: Bonepart):
+	var tween = self.create_tween().set_trans(Tween.TRANS_BACK)
+	tween.tween_property(bonepart, "position", 
+		bonepart_pos + Vector2(-225, -270), 1.0)#我不理解
+	await tween.finished
+	print("get1bp")
+	bonepart.queue_free()
+	
 func _on_enemy_created(enemy):
 	enemy.set_target(home)
 

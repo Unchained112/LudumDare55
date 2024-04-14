@@ -1,15 +1,15 @@
 extends Area2D
 
-@export var health = 100
 @export var damage = 10
+@export var health = 100
 @export var leaf : PackedScene 
 
 func _ready():
 	var grow_up_timer = Timer.new()
 	add_child(grow_up_timer)
 	
-	grow_up_timer.wait_time = 5.0  # 每隔1秒触发一次
-	grow_up_timer.one_shot = true  # 设置为循环模式
+	grow_up_timer.wait_time = 0.1  
+	grow_up_timer.one_shot = true  
 	grow_up_timer.start()
 	grow_up_timer.connect("timeout", grow_up)
 
@@ -18,7 +18,7 @@ func grow_up():
 	var gen_leaf_timer = Timer.new()
 	add_child(gen_leaf_timer)
 	
-	gen_leaf_timer.wait_time = 1.0  # 每隔1秒触发一次
+	gen_leaf_timer.wait_time = 10.0  # 每隔1秒触发一次
 	gen_leaf_timer.one_shot = false  # 设置为循环模式
 	gen_leaf_timer.start()
 	gen_leaf_timer.connect("timeout", gen_leaf)

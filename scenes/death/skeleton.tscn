@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv8q0e70yjeua"]
+[gd_scene load_steps=7 format=3 uid="uid://cv8q0e70yjeua"]
 
 [ext_resource type="Texture2D" uid="uid://cwghxeh7il7fo" path="res://assets/graphics/ld55_Skeleton.png" id="1_0fx2y"]
 [ext_resource type="Script" path="res://scripts/death/skeleton.gd" id="1_lc2ol"]
+[ext_resource type="PackedScene" uid="uid://bfbn2gwsrlwns" path="res://scenes/nature/leaf.tscn" id="2_fguuu"]
+[ext_resource type="PackedScene" uid="uid://bvikiqtqmf8s6" path="res://scenes/death/bone.tscn" id="3_hcbkk"]
+[ext_resource type="PackedScene" uid="uid://b21tdaenx324q" path="res://scenes/death/bonepart.tscn" id="4_mk0ey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
 size = Vector2(21, 24)
@@ -10,6 +13,11 @@ size = Vector2(21, 24)
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_lc2ol")
+damage = 10
+health = 40
+leaf = ExtResource("2_fguuu")
+bone = ExtResource("3_hcbkk")
+bonepart = ExtResource("4_mk0ey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

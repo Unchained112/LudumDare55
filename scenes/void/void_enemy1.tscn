@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1ug602hrqfgx"]
+
+[ext_resource type="Script" path="res://scripts/void/void_creature.gd" id="1_f6gdw"]
+[ext_resource type="PackedScene" uid="uid://bfbn2gwsrlwns" path="res://scenes/nature/leaf.tscn" id="2_5ck68"]
+[ext_resource type="PackedScene" uid="uid://bvikiqtqmf8s6" path="res://scenes/death/bone.tscn" id="3_x57tv"]
+[ext_resource type="PackedScene" uid="uid://b21tdaenx324q" path="res://scenes/death/bonepart.tscn" id="4_dcgrb"]
+[ext_resource type="Shader" path="res://scripts/shader/basic.gdshader" id="4_if288"]
+[ext_resource type="Texture2D" uid="uid://cu1w55gd1qdcv" path="res://assets/graphics/ld55_VoidBeast.png" id="5_0ljrx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_20l7v"]
+resource_local_to_scene = true
+shader = ExtResource("4_if288")
+shader_parameter/poly_color = Color(1, 1, 1, 1)
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bixio"]
+size = Vector2(24, 24)
+
+[node name="enemy1" type="Area2D" groups=["enemy"]]
+script = ExtResource("1_f6gdw")
+damage = 10
+health = 50
+speed = 60
+leaf = ExtResource("2_5ck68")
+bone = ExtResource("3_x57tv")
+bonepart = ExtResource("4_dcgrb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_20l7v")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_0ljrx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_bixio")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

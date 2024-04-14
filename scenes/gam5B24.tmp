@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cgm7q1u4eruja"]
+[gd_scene load_steps=40 format=3 uid="uid://cgm7q1u4eruja"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_eix3y"]
 [ext_resource type="PackedScene" uid="uid://c16a4mstsr6de" path="res://scenes/home.tscn" id="2_xlnjj"]
@@ -27,8 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://qxgq5h3fut5i" path="res://assets/graphics/ld55_WoodElf.png" id="11_awq11"]
 [ext_resource type="PackedScene" uid="uid://bm6mk3dpg2m1y" path="res://scenes/death/gargoyle.tscn" id="11_jdko7"]
 [ext_resource type="PackedScene" uid="uid://bovojj2l0gwa3" path="res://scenes/death/bonedragon.tscn" id="12_eigyx"]
+[ext_resource type="PackedScene" uid="uid://ddeuttrmj1ikb" path="res://scenes/death/boneparts.tscn" id="13_0rln3"]
 [ext_resource type="PackedScene" uid="uid://bvikiqtqmf8s6" path="res://scenes/death/bone.tscn" id="13_duhge"]
-[ext_resource type="Script" path="res://scripts/death/skeleton.gd" id="13_rvyvn"]
 [ext_resource type="PackedScene" uid="uid://b1ug602hrqfgx" path="res://scenes/void/void_enemy1.tscn" id="14_xbjq5"]
 [ext_resource type="Texture2D" uid="uid://e325s66yao1q" path="res://assets/graphics/ld55_Zombie.png" id="15_kov7r"]
 [ext_resource type="PackedScene" uid="uid://eyxwdf38yo0t" path="res://scenes/void/void_enemy2.tscn" id="15_ohkah"]
@@ -38,23 +38,6 @@
 [ext_resource type="PackedScene" uid="uid://buhrci8fucx1s" path="res://scenes/void/void_enemy4.tscn" id="17_jsxkh"]
 [ext_resource type="Texture2D" uid="uid://c8b62ml631b3s" path="res://assets/graphics/ld55_BoneDragon_Item.png" id="18_sfe6i"]
 [ext_resource type="Texture2D" uid="uid://ct3aiqwxbg8gj" path="res://assets/graphics/ld55_BoneParts.png" id="19_jxicq"]
-[ext_resource type="PackedScene" uid="uid://b21tdaenx324q" path="res://scenes/death/bonepart.tscn" id="39_m4jre"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
-size = Vector2(21, 24)
-
-[sub_resource type="PackedScene" id="PackedScene_7bqws"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("Skeleton", "CharacterBody2D", "player_team", "collision_mask", "motion_mode", "script", "Sprite2D", "Sprite2D", "scale", "texture", "CollisionShape2D", "CollisionShape2D", "shape"),
-"node_count": 3,
-"node_paths": [NodePath("."), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 3, 0, 4, 1, 5, 2, 1, 2, 1073741824, 0, 7, 6, -1, 2, 8, 3, 9, 4, 0, 1073741825, 0, 11, 10, -1, 1, 12, 5, 0),
-"variants": [2, 1, ExtResource("13_rvyvn"), Vector2(0.5, 0.5), ExtResource("19_jxicq"), SubResource("RectangleShape2D_jhenk")],
-"version": 3
-}
 
 [sub_resource type="Curve2D" id="Curve2D_nyq2h"]
 _data = {
@@ -65,7 +48,7 @@ point_count = 5
 [node name="Game" type="Node2D"]
 position = Vector2(617, 306)
 script = ExtResource("1_eix3y")
-summon_list = Array[PackedScene]([ExtResource("4_0382i"), ExtResource("3_l6rio"), ExtResource("4_snyqr"), ExtResource("5_fhfmp"), ExtResource("6_nffsh"), ExtResource("7_7yekh"), ExtResource("7_q0tmq"), ExtResource("9_urtrb"), ExtResource("10_4rq5d"), ExtResource("11_jdko7"), ExtResource("12_eigyx"), SubResource("PackedScene_7bqws")])
+summon_list = Array[PackedScene]([ExtResource("4_0382i"), ExtResource("3_l6rio"), ExtResource("4_snyqr"), ExtResource("5_fhfmp"), ExtResource("6_nffsh"), ExtResource("7_7yekh"), ExtResource("7_q0tmq"), ExtResource("9_urtrb"), ExtResource("10_4rq5d"), ExtResource("11_jdko7"), ExtResource("12_eigyx"), ExtResource("13_0rln3")])
 enemy_type = Array[PackedScene]([ExtResource("14_xbjq5"), ExtResource("15_ohkah"), ExtResource("16_8w3gp"), ExtResource("17_jsxkh")])
 
 [node name="Background" type="ColorRect" parent="."]
@@ -272,7 +255,7 @@ id = 11
 texture = ExtResource("19_jxicq")
 
 [node name="Label" parent="CanvasLayer/DeathItemList/11boneparts/VBoxContainer" index="1"]
-text = "Bone Meal
+text = "BoneParts
 "
 
 [node name="WaveInfo" type="Label" parent="CanvasLayer"]
@@ -390,12 +373,6 @@ position = Vector2(13, 150)
 
 [node name="Bone3" parent="." instance=ExtResource("13_duhge")]
 position = Vector2(1, 150)
-
-[node name="Bonepart" parent="." instance=ExtResource("39_m4jre")]
-position = Vector2(-185, 22)
-
-[node name="Bonepart2" parent="." instance=ExtResource("39_m4jre")]
-position = Vector2(-73, -98)
 
 [connection signal="start_summon" from="." to="Player" method="_on_game_start_summon"]
 [connection signal="choose" from="CanvasLayer/NatureItemList" to="." method="_on_nature_item_list_choose"]

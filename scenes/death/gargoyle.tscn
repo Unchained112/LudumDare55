@@ -10,6 +10,10 @@ size = Vector2(21, 24)
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_hd37p")
+damage = 30
+health = 800
+speed = 30.0
+knockback = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

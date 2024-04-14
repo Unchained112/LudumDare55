@@ -12,7 +12,7 @@ func _ready():
 	for child in get_children():
 		if child is Control:
 			child.connect("gui_input",_on_choose.bind(child))
-			print(child,"connect")
+			#print(child,"connect")
 
 # 当 Label 节点被点击时调用的函数
 func _on_choose(event: InputEvent,control):

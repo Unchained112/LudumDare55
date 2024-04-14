@@ -97,7 +97,7 @@ shape = SubResource("RectangleShape2D_5c5i0")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ohgk6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["player"]]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_kjsha")
 }

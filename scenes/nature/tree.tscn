@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://jvimleimsoht"]
 
 [ext_resource type="Script" path="res://scripts/tree.gd" id="1_cfm8t"]
-[ext_resource type="PackedScene" uid="uid://bfbn2gwsrlwns" path="res://scenes/leaf.tscn" id="2_508ea"]
+[ext_resource type="PackedScene" uid="uid://bfbn2gwsrlwns" path="res://scenes/nature/leaf.tscn" id="2_508ea"]
 [ext_resource type="Texture2D" uid="uid://dgonf0wqdgbcm" path="res://assets/graphics/ld55_Tree.png" id="2_kjpcf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo3h1"]

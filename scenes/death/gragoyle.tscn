@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdrpprxsb1liw"]
+
+[ext_resource type="PackedScene" uid="uid://cv8q0e70yjeua" path="res://scenes/death/skeleton.tscn" id="1_k5bhu"]
+[ext_resource type="Texture2D" uid="uid://d0kn6frg5ciym" path="res://assets/graphics/ld55_Gargoyle.png" id="2_6asla"]
+
+[node name="Gragoyle" instance=ExtResource("1_k5bhu")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_6asla")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -0.5)

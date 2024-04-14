@@ -7,4 +7,10 @@ func update_nature_energy(energy: int):
 	nature_bar.value += energy
 
 func update_death_energy(energy: int):
+	death_bar.value += energy
+
+func set_nature_energy(energy: int):
+	nature_bar.value = energy
+
+func set_death_energy(energy: int):
 	death_bar.value = energy

@@ -4,12 +4,13 @@ extends Node2D
 @export var max_wave: int = 3
 @export var enemy_type: Array[PackedScene] = []
 
-
 var summon_dict: Dictionary = {
 	
 }
 var summon_id = 0
 signal start_summon(summon_name)
+var selected_item: SummonItem = null
+
 # enemy1, enemy2, enemy3
 var wave_list = [
 	[2,0,0],
@@ -17,8 +18,12 @@ var wave_list = [
 	[0,0,3]
 ]
 var wave_cnt = 0
-
 var cur_wave_enemy_list = []
+
+var nature_energy_max: int = 100
+var death_energy_max: int = 100
+var nature_energy: int = 0
+var death_energy: int = 0
 
 @onready var wave_info: Label = $CanvasLayer/WaveInfo
 @onready var rest_timer: Timer = $RestTimer
@@ -51,13 +56,21 @@ func check_wave_end():
 	if len(enemy_list) == 1 and cur_wave_enemy_list.is_empty(): # 最后一个enemy会在下一帧才移除
 		rest_timer.start()
 
+func update_nature_energy(change: int):
+	nature_energy += change
+	if nature_energy >= nature_energy_max:
+		nature_energy = nature_energy_max
+		EventBus.is_nature_energy_full = true
+	if nature_energy < nature_energy_max:
+		EventBus.is_nature_energy_full = false
+	energy_pool.set_nature_energy(nature_energy)
+
 func _on_pick_up_leaf(leaf: Leaf):
-	#print("Get leaf")
 	var tween = self.create_tween().set_trans(Tween.TRANS_BACK)
 	tween.tween_property(leaf, "position", 
 		energy_pool_pos + Vector2(-20, -40), 1.0)
 	await tween.finished
-	energy_pool.update_nature_energy(10)
+	update_nature_energy(10)
 	leaf.queue_free()
 	
 func _on_pick_up_bone(bone: Bone):

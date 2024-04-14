@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7571jwh2i4ij"]
+
+[ext_resource type="PackedScene" uid="uid://cv8q0e70yjeua" path="res://scenes/death/skeleton.tscn" id="1_opga6"]
+[ext_resource type="Texture2D" uid="uid://e325s66yao1q" path="res://assets/graphics/ld55_Zombie.png" id="2_b6qui"]
+
+[node name="Zombie" instance=ExtResource("1_opga6")]
+speed = 55.0
+health = 120
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_b6qui")

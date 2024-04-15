@@ -11,7 +11,7 @@ var items = {
 		"Info": "Produce leaves."
 	},
 	"Woodman": {
-		"Cost": 50,
+		"Cost": 20,
 		"ID": 1,
 		"Damage": 10,
 		"Health": 100,
@@ -20,7 +20,7 @@ var items = {
 		"Info": "Generate a tree upon death."
 	},
 	"WoodElf": {
-		"Cost": 100,
+		"Cost": 60,
 		"ID": 2,
 		"Damage": 50,
 		"Health": 200,
@@ -29,7 +29,7 @@ var items = {
 		"Info": "Increase max nature energy pool by 80."
 	},
 	"Bear": {
-		"Cost": 300,
+		"Cost": 100,
 		"ID": 3,
 		"Damage": 40,
 		"Health": 400,
@@ -38,7 +38,7 @@ var items = {
 		"Info": "Gain 5 more damage every 10 seconds."
 	},
 	"NatureDragon": {
-		"Cost": 3000,
+		"Cost": 1500,
 		"ID": 4,
 		"Damage": 80,
 		"Health": 4000,
@@ -65,7 +65,7 @@ var items = {
 		"Info": "Just a normal skeleton."
 	},
 	"Zombie": {
-		"Cost": 50,
+		"Cost": 20,
 		"ID": 7,
 		"Damage": 20,
 		"Health": 200,
@@ -74,7 +74,7 @@ var items = {
 		"Info": "Generate a skeleton upon death."
 	},
 	"Ghost": {
-		"Cost": 100,
+		"Cost": 60,
 		"ID": 8,
 		"Damage": 50,
 		"Health": 200,
@@ -83,7 +83,7 @@ var items = {
 		"Info": "Increase max death energy by 80 upon death."
 	},
 	"Gragoyle": {
-		"Cost": 300,
+		"Cost": 100,
 		"ID": 8,
 		"Damage": 30,
 		"Health": 800,
@@ -92,7 +92,7 @@ var items = {
 		"Info": "Increase defense by 1 every 5 seconds, maximum 20."
 	},
 	"BoneDragon": {
-		"Cost": 2000,
+		"Cost": 1000,
 		"ID": 10,
 		"Damage": 100,
 		"Health": 2000,
@@ -101,7 +101,7 @@ var items = {
 		"Info": "Very powerful creature."
 	},
 	"BonePart": {
-		"Cost": 1,
+		"Cost": 0,
 		"ID": 11,
 		"Damage": 0,
 		"Health": 0,

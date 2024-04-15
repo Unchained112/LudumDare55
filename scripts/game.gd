@@ -3,10 +3,9 @@ extends Node2D
 signal start_summon(summon_name, id)
 
 @export var summon_list: Array[PackedScene] = []
+#按照表里的顺序的召唤物花费
 @export var summon_cost: Array[int] = [1,20,60,100,1500,1,
-										5,20,60,100,1000,0] #按照表里的顺序的召唤物花
-#@export var summon_cost: Array[int] = [1,30,100,300,3000,1,
-										#5,30,100,300,2000,0] #按照表里的顺序的召唤物花费										
+										5,20,60,100,1000,0]
 #@export var summon_cost: Array[int] = [1,1,1,1,1,1,1,1,1,1,1,1] #for test
 #@export var max_wave: int = 3
 @export var enemy_type: Array[PackedScene] = []

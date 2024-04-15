@@ -1,6 +1,6 @@
 extends Node
 
-var num_effect_players = 50
+var num_effect_players = 64
 var available: Array = []  # The available players.
 var queue: Array = []  # The queue of sounds to play.
 
@@ -17,7 +17,9 @@ func _ready():
 		p.bus = "Sound Effect"
 
 func play(sound_path):
-	queue.append(sound_path)
+	# Not to queue too many sounds in a short time interval
+	if len(queue) <= num_effect_players:
+		queue.append(sound_path)
 
 func _process(_delta):
 	# Play a queued sound if any players are available.

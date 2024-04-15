@@ -38,6 +38,7 @@ func take_damage(damage_got: int, collider_position):
 	#print("Enemy got damage: " + str(damage_got))
 	health -= damage_got
 	if health <= 0:
+		AudioManager.play("res://assets/audio/676477__stevenmaertens__beast-breath.wav")
 		call_deferred("drop") # TODO: Need to check if this works
 		queue_free()
 		enemy_die.emit()
@@ -57,7 +58,7 @@ func drop():
 		get_parent().add_child(new_leaf)
 		new_leaf.position = position + Vector2(randf_range(-1.0, 1.0),
 			randf_range(-1.0, 1.0)) * randi_range(5, 30 + Utilities.calcualte_range_num(i))
-			
+
 	for i in range(1, drop_boneparts + 1):
 		var new_bonepart = bonepart.instantiate()
 		get_parent().add_child(new_bonepart)
@@ -70,3 +71,4 @@ func _on_body_entered(body):
 		body.is_in_group("home")):
 		body.take_damage(damage, position)
 		take_damage(body.damage, body.position)
+		AudioManager.play("res://assets/audio/hitHurt1.wav")

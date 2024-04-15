@@ -50,15 +50,18 @@ func _physics_process(delta):
 func take_damage(damage_got: int, collider_position):
 	health -= damage_got
 	if health <= 0:
-		var new_skeleton = skeleton.instantiate()
-		get_parent().add_child(new_skeleton)
-		new_skeleton.position = position
 		call_deferred("drop") # TODO: Need to check if this works
 		queue_free()
 	velocity = (position-collider_position).normalized() * knockback * log(damage_got)/log(5)
 	lerp_t = 0
 
 func drop():
+	# Generate skeleton
+	var new_skeleton = skeleton.instantiate()
+	get_parent().add_child(new_skeleton)
+	new_skeleton.position = position
+
+	# Drop things
 	for i in range(1, drop_bones + 1):
 		var new_bone = bone.instantiate()
 		get_parent().add_child(new_bone)

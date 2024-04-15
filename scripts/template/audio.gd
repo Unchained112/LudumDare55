@@ -25,7 +25,7 @@ func _on_sound_effects_value_changed(value):
 	set_volume(2, value)
 
 func set_volume(idx, value):
-	#AudioServer.set_bus_volume_db(idx, linear_to_db(value))
+	AudioServer.set_bus_volume_db(idx, linear_to_db(value))
 	Utilities.config.set_value("Audio", str(idx), value)
 	Utilities.save_data()
 	AudioManager.play_button_sound()

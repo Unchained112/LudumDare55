@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cgm7q1u4eruja"]
+[gd_scene load_steps=48 format=3 uid="uid://cgm7q1u4eruja"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_eix3y"]
 [ext_resource type="PackedScene" uid="uid://c16a4mstsr6de" path="res://scenes/home.tscn" id="2_xlnjj"]
@@ -61,9 +61,15 @@ _bundled = {
 
 [sub_resource type="Curve2D" id="Curve2D_nyq2h"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -617, -306, 0, 0, 0, 0, 231, -114, 0, 0, 0, 0, 535, 342, 0, 0, 0, 0, -241, 174, 0, 0, 0, 0, -617, -306)
+"points": PackedVector2Array(0, 0, 0, 0, -593, -290, 0, 0, 0, 0, 231, -114, 0, 0, 0, 0, 503, 318, 0, 0, 0, 0, -241, 174, 0, 0, 0, 0, -593, -290)
 }
 point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0cpd"]
+size = Vector2(1154, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqrp7"]
+size = Vector2(72, 645.5)
 
 [node name="Game" type="Node2D"]
 position = Vector2(617, 306)
@@ -77,6 +83,130 @@ offset_top = -306.0
 offset_right = 535.0
 offset_bottom = 342.0
 color = Color(0.129412, 0.14902, 0.172549, 1)
+
+[node name="Summon" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Environment" type="Node2D" parent="."]
+visible = false
+
+[node name="Ld55Stone" type="Sprite2D" parent="Environment"]
+position = Vector2(-209, 6)
+texture = ExtResource("3_3demo")
+
+[node name="Ld55Grass" type="Sprite2D" parent="Environment"]
+position = Vector2(151, 286)
+texture = ExtResource("4_gspcx")
+
+[node name="Ld55Grass2" type="Sprite2D" parent="Environment"]
+position = Vector2(303, 262)
+texture = ExtResource("4_gspcx")
+
+[node name="Ld55Grass3" type="Sprite2D" parent="Environment"]
+position = Vector2(175, -50)
+texture = ExtResource("4_gspcx")
+
+[node name="Ld55Grass4" type="Sprite2D" parent="Environment"]
+position = Vector2(-505, 126)
+texture = ExtResource("4_gspcx")
+
+[node name="Ld55Grass5" type="Sprite2D" parent="Environment"]
+position = Vector2(-305, 150)
+texture = ExtResource("4_gspcx")
+
+[node name="Ld55Grass6" type="Sprite2D" parent="Environment"]
+position = Vector2(-313, -50)
+texture = ExtResource("4_gspcx")
+
+[node name="Ld55Grass7" type="Sprite2D" parent="Environment"]
+position = Vector2(143, 126)
+texture = ExtResource("4_gspcx")
+
+[node name="Ld55Grass8" type="Sprite2D" parent="Environment"]
+position = Vector2(-329, 126)
+texture = ExtResource("4_gspcx")
+
+[node name="Home" parent="." instance=ExtResource("2_xlnjj")]
+position = Vector2(-41, 14)
+
+[node name="Tree" parent="." instance=ExtResource("4_0382i")]
+position = Vector2(-73, 74)
+
+[node name="Player" parent="." instance=ExtResource("38_ljclh")]
+position = Vector2(-41, 74)
+
+[node name="EnemyGenTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="RestTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_nyq2h")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-593, -290)
+rotation = 0.21043
+
+[node name="Skeleton" parent="." instance=ExtResource("7_q0tmq")]
+position = Vector2(-9, 74)
+
+[node name="EnergyPoolPos" type="Node2D" parent="."]
+position = Vector2(-53, 311)
+
+[node name="Leaf3" parent="." instance=ExtResource("8_sn41i")]
+position = Vector2(-73, 150)
+
+[node name="Leaf2" parent="." instance=ExtResource("8_sn41i")]
+position = Vector2(-101, 150)
+
+[node name="Leaf" parent="." instance=ExtResource("8_sn41i")]
+position = Vector2(-87, 150)
+
+[node name="Bone" parent="." instance=ExtResource("13_duhge")]
+position = Vector2(-11, 150)
+
+[node name="Bone2" parent="." instance=ExtResource("13_duhge")]
+position = Vector2(13, 150)
+
+[node name="Bone3" parent="." instance=ExtResource("13_duhge")]
+position = Vector2(1, 150)
+
+[node name="Bonepart" parent="." instance=ExtResource("39_m4jre")]
+position = Vector2(-185, 22)
+
+[node name="Bonepart2" parent="." instance=ExtResource("39_m4jre")]
+position = Vector2(-73, -98)
+
+[node name="Boundary" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D"]
+position = Vector2(575, -25)
+shape = SubResource("RectangleShape2D_j0cpd")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D2"]
+position = Vector2(576, 672)
+shape = SubResource("RectangleShape2D_j0cpd")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D3"]
+position = Vector2(-38, 325)
+shape = SubResource("RectangleShape2D_eqrp7")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D4"]
+position = Vector2(1188, 325)
+shape = SubResource("RectangleShape2D_eqrp7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -417,105 +547,23 @@ theme = ExtResource("3_d106e")
 theme_override_font_sizes/font_size = 24
 text = "Main Menu"
 
-[node name="Summon" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Environment" type="Node2D" parent="."]
-visible = false
-
-[node name="Ld55Stone" type="Sprite2D" parent="Environment"]
-position = Vector2(-209, 6)
-texture = ExtResource("3_3demo")
-
-[node name="Ld55Grass" type="Sprite2D" parent="Environment"]
-position = Vector2(151, 286)
-texture = ExtResource("4_gspcx")
-
-[node name="Ld55Grass2" type="Sprite2D" parent="Environment"]
-position = Vector2(303, 262)
-texture = ExtResource("4_gspcx")
-
-[node name="Ld55Grass3" type="Sprite2D" parent="Environment"]
-position = Vector2(175, -50)
-texture = ExtResource("4_gspcx")
-
-[node name="Ld55Grass4" type="Sprite2D" parent="Environment"]
-position = Vector2(-505, 126)
-texture = ExtResource("4_gspcx")
-
-[node name="Ld55Grass5" type="Sprite2D" parent="Environment"]
-position = Vector2(-305, 150)
-texture = ExtResource("4_gspcx")
-
-[node name="Ld55Grass6" type="Sprite2D" parent="Environment"]
-position = Vector2(-313, -50)
-texture = ExtResource("4_gspcx")
-
-[node name="Ld55Grass7" type="Sprite2D" parent="Environment"]
-position = Vector2(143, 126)
-texture = ExtResource("4_gspcx")
-
-[node name="Ld55Grass8" type="Sprite2D" parent="Environment"]
-position = Vector2(-329, 126)
-texture = ExtResource("4_gspcx")
-
-[node name="Home" parent="." instance=ExtResource("2_xlnjj")]
-position = Vector2(-41, 14)
-
-[node name="Tree" parent="." instance=ExtResource("4_0382i")]
-position = Vector2(-73, 74)
-
-[node name="Player" parent="." instance=ExtResource("38_ljclh")]
-position = Vector2(-41, 74)
-
-[node name="EnemyGenTimer" type="Timer" parent="."]
-autostart = true
-
-[node name="RestTimer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_nyq2h")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-617, -306)
-rotation = 0.222661
-
-[node name="Skeleton" parent="." instance=ExtResource("7_q0tmq")]
-position = Vector2(-9, 74)
-
-[node name="EnergyPoolPos" type="Node2D" parent="."]
-position = Vector2(-53, 311)
-
-[node name="Leaf3" parent="." instance=ExtResource("8_sn41i")]
-position = Vector2(-73, 150)
-
-[node name="Leaf2" parent="." instance=ExtResource("8_sn41i")]
-position = Vector2(-101, 150)
-
-[node name="Leaf" parent="." instance=ExtResource("8_sn41i")]
-position = Vector2(-87, 150)
-
-[node name="Bone" parent="." instance=ExtResource("13_duhge")]
-position = Vector2(-11, 150)
-
-[node name="Bone2" parent="." instance=ExtResource("13_duhge")]
-position = Vector2(13, 150)
-
-[node name="Bone3" parent="." instance=ExtResource("13_duhge")]
-position = Vector2(1, 150)
-
-[node name="Bonepart" parent="." instance=ExtResource("39_m4jre")]
-position = Vector2(-185, 22)
-
-[node name="Bonepart2" parent="." instance=ExtResource("39_m4jre")]
-position = Vector2(-73, -98)
+[node name="Guide" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -224.0
+offset_top = 16.0
+offset_right = -17.0
+offset_bottom = 82.0
+grow_horizontal = 0
+theme = ExtResource("3_d106e")
+text = "WASD move
+Mouse click select character
+SPACE summon character"
 
 [connection signal="start_summon" from="." to="Player" method="_on_game_start_summon"]
+[connection signal="timeout" from="EnemyGenTimer" to="." method="_on_enemy_gen_timer_timeout"]
+[connection signal="timeout" from="RestTimer" to="." method="_on_rest_timer_timeout"]
 [connection signal="choose" from="CanvasLayer/NatureItemList" to="." method="_on_nature_item_list_choose"]
 [connection signal="choose" from="CanvasLayer/NatureItemList" to="CanvasLayer/DeathItemList" method="_on_nature_item_list_choose"]
 [connection signal="choose" from="CanvasLayer/DeathItemList" to="." method="_on_death_item_list_choose"]
@@ -525,8 +573,6 @@ position = Vector2(-73, -98)
 [connection signal="pressed" from="CanvasLayer/PausePanel/PauseMenu/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer/FailPanel/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer/WinPanel/MainMenu" to="." method="_on_main_menu_pressed"]
-[connection signal="timeout" from="EnemyGenTimer" to="." method="_on_enemy_gen_timer_timeout"]
-[connection signal="timeout" from="RestTimer" to="." method="_on_rest_timer_timeout"]
 
 [editable path="CanvasLayer/NatureItemList/5grass"]
 [editable path="CanvasLayer/NatureItemList/4naturedragon"]

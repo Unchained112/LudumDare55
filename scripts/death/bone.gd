@@ -9,3 +9,4 @@ func _on_body_entered(body):
 	if body.is_in_group("player") and not is_picked and not is_pool_full:
 		EventBus.pick_up_bone.emit(self)
 		is_picked = true # Avoid double collison
+		AudioManager.play("res://assets/audio/pickup1.wav")

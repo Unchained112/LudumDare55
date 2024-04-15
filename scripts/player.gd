@@ -67,8 +67,10 @@ func summon(summon_scene: PackedScene, id: int):
 	var summon_effect
 	if id in range(0, 5):
 		summon_effect = nature_summon_circle.instantiate()
+		AudioManager.play("res://assets/audio/683184__stevenmaertens__spawning.wav")
 	elif id in range(6, 11):
 		summon_effect = death_summon_circle.instantiate()
+		AudioManager.play("res://assets/audio/676985__stevenmaertens__spinning-short-3.wav")
 	get_parent().add_child(summon_effect)
 	summon_effect.position = position
 

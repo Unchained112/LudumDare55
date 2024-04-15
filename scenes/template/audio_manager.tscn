@@ -1,14 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://6mdjrm773v5g"]
 
 [ext_resource type="Script" path="res://scripts/template/audio_manager.gd" id="1_od18h"]
-[ext_resource type="AudioStream" uid="uid://2t3lq8staurd" path="res://assets/audio/Ludum Dare 30 - 07.ogg" id="2_44xod"]
+[ext_resource type="AudioStream" uid="uid://cwc31fttc1dse" path="res://assets/audio/Three Red Hearts - Connected.ogg" id="2_mclrs"]
 [ext_resource type="AudioStream" uid="uid://cdftf0f0a87pp" path="res://assets/audio/Modern10.wav" id="3_63rwl"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_od18h")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_44xod")
+stream = ExtResource("2_mclrs")
+bus = &"Music"
 
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_63rwl")
+bus = &"Sound Effect"

@@ -177,12 +177,13 @@ func _on_enemy_gen_timer_timeout():
 func _on_rest_timer_timeout():
 	var text = wave_info.text
 	var wave = int(text.split(":")[1])
+	# TODO: Better game win condition check
+	if wave == max_wave:
+		game_win()
 	print("next wave:", wave + 1)
 	if wave < max_wave :
 		wave_info.text = text.split(":")[0] + ":" + str(wave + 1)
 		cur_wave_enemy_list = get_enemy_list(wave_list[wave])
-	else:
-		game_win()
 
 func _on_death_item_list_choose(choose_name):
 	summon_id = choose_name
@@ -200,6 +201,7 @@ func _on_option_pressed():
 func _on_main_menu_pressed():
 	resume_game()
 	Utilities.switch_scene("MainMenu", self)
+	AudioManager.stop_music()
 
 func _on_game_fail():
 	fail_panel.show()

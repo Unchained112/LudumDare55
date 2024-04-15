@@ -4,6 +4,15 @@ extends Control
 
 func _ready():
 	$VBoxContainer/Start.grab_focus()
+	var taiji = $taiji
+	var tween = taiji.create_tween().set_trans(Tween.TRANS_LINEAR).set_loops()
+	tween.tween_property(taiji, "rotation",  -180 , 500)
+	tween.tween_property(taiji, "rotation",  0 , 500)
+	var taiji2 = $taiji2
+	var tween2 = taiji2.create_tween().set_trans(Tween.TRANS_LINEAR).set_loops()
+	tween2.tween_property(taiji2, "rotation",  -180 , 500)
+	tween2.tween_property(taiji2, "rotation",  0 , 500)
+
 
 func reset_focus():
 	$VBoxContainer/Start.grab_focus()

@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dc388hkklqvvc"]
+[gd_scene load_steps=7 format=3 uid="uid://dc388hkklqvvc"]
 
 [ext_resource type="Script" path="res://scripts/template/main_menu.gd" id="1_qdw2d"]
+[ext_resource type="Texture2D" uid="uid://bn1uwro68fgrt" path="res://assets/graphics/ld55_Taiji_left.png" id="2_6fgpo"]
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="2_lhcnm"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://scenes/template/settings.tscn" id="3_lrjgf"]
+[ext_resource type="Texture2D" uid="uid://bk3o566wlans1" path="res://assets/graphics/ld55_Taiji_right.png" id="3_o7s54"]
+[ext_resource type="Texture2D" uid="uid://dewv2nb78ytn1" path="res://assets/graphics/ld55_Player_New.png" id="5_8a5j4"]
 
 [node name="MainMenu" type="Node2D"]
 position = Vector2(617, 306)
@@ -25,7 +28,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[node name="taiji2" type="Sprite2D" parent="UI/MainMenu"]
+position = Vector2(575, 256)
+scale = Vector2(5.583, 5.583)
+texture = ExtResource("2_6fgpo")
+
+[node name="taiji" type="Sprite2D" parent="UI/MainMenu"]
+position = Vector2(575, 256)
+scale = Vector2(5.58333, 5.58333)
+texture = ExtResource("3_o7s54")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MainMenu"]
 layout_mode = 1
@@ -34,10 +47,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -318.0
-offset_top = -104.0
-offset_right = 318.0
-offset_bottom = 104.0
+offset_left = -345.0
+offset_top = 42.0
+offset_right = 345.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -47,7 +60,8 @@ layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("2_lhcnm")
 theme_override_font_sizes/font_size = 50
-text = "Matthew, Emissary of Balance
+text = "
+Matthew, Emissary of Balance
 "
 
 [node name="Start" type="Button" parent="UI/MainMenu/VBoxContainer"]
@@ -83,6 +97,11 @@ theme = ExtResource("2_lhcnm")
 theme_override_font_sizes/font_size = 24
 text = "Quit
 "
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/MainMenu"]
+position = Vector2(573, 251)
+scale = Vector2(7.35417, 7.35417)
+texture = ExtResource("5_8a5j4")
 
 [node name="Settings" parent="UI" node_paths=PackedStringArray("pre_scene") instance=ExtResource("3_lrjgf")]
 visible = false

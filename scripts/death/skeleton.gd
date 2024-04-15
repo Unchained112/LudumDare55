@@ -30,10 +30,6 @@ func _physics_process(delta):
 		new_velocity = target_enemy.position - position
 		new_velocity = new_velocity.normalized() * speed
 	else:
-		#var homes = get_tree().get_nodes_in_group("home")
-		#for home in homes:
-			#new_velocity = home.position - position
-			#new_velocity = new_velocity.normalized() * speed
 		var players = get_tree().get_nodes_in_group("player")
 		for player in players:
 			new_velocity = player.position - position

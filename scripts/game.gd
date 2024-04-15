@@ -31,11 +31,11 @@ var wave_list = [
 	[30,10,2,0],
 	[15,15,3,0],
 	[0,30,4,0],#15
-	[10,10,6,0],
-	[10,10,10,0],
-	[0,0,15,0],
+	[10,10,5,0],
+	[10,10,8,0],
+	[0,0,10,0],
 	[10,10,15,0],
-	[0,0,0,1]#15
+	[0,0,0,1]#20
 ]
 var max_wave = len(wave_list)
 var wave_cnt = 0
@@ -184,7 +184,6 @@ func _on_rest_timer_timeout():
 	# TODO: Better game win condition check
 	if wave == max_wave:
 		game_win()
-	print("next wave:", wave + 1)
 	if wave < max_wave :
 		wave_info.text = text.split(":")[0] + ":" + str(wave + 1)
 		cur_wave_enemy_list = get_enemy_list(wave_list[wave])

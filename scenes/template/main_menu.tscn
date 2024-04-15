@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://4uhfcpg35k37" path="res://assets/graphics/ld55_Bone.png" id="11_6i47w"]
 [ext_resource type="Texture2D" uid="uid://ckytmqi8487kh" path="res://assets/graphics/ld55_Leaf.png" id="13_k6tnp"]
 [ext_resource type="Texture2D" uid="uid://dab1v0qcoduiv" path="res://assets/graphics/ld55_Ghost.png" id="17_ku38m"]
-[ext_resource type="Texture2D" uid="uid://b643l58ypwh8o" path="res://assets/graphics/ld55_GrassItem.png" id="19_w6v8k"]
+[ext_resource type="Texture2D" uid="uid://cn1fpsm7gnd7k" path="res://assets/graphics/ld55_GrassItem.png" id="19_w6v8k"]
 [ext_resource type="Texture2D" uid="uid://dgonf0wqdgbcm" path="res://assets/graphics/ld55_Tree.png" id="20_fxivc"]
 
 [node name="MainMenu" type="Node2D"]

@@ -13,7 +13,6 @@ func _ready():
 	tween2.tween_property(taiji2, "rotation",  -180 , 500)
 	tween2.tween_property(taiji2, "rotation",  0 , 500)
 
-
 func reset_focus():
 	$VBoxContainer/Start.grab_focus()
 

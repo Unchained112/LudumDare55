@@ -33,7 +33,9 @@ func _physics_process(delta):
 		var homes = get_tree().get_nodes_in_group("home")
 		for home in homes:
 			new_velocity = home.position - position
-			new_velocity = new_velocity.normalized() * speed
+			if new_velocity.length() > 90:
+				new_velocity = new_velocity.normalized() * speed
+			else: new_velocity = Vector2(0,0)
 
 	lerp_t += lerp_speed * delta
 	lerp_t = clamp(lerp_t,0.0,1.0)

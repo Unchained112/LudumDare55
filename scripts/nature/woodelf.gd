@@ -33,7 +33,9 @@ func _physics_process(delta):
 		var homes = get_tree().get_nodes_in_group("home")
 		for home in homes:
 			new_velocity = home.position - position
-			new_velocity = new_velocity.normalized() * speed
+			if new_velocity.length() > 90:
+				new_velocity = new_velocity.normalized() * speed
+			else: new_velocity = Vector2(0,0)
 
 	lerp_t += lerp_speed * delta
 	lerp_t = clamp(lerp_t,0.0,1.0)
@@ -44,7 +46,7 @@ func take_damage(damage_got: int, collider_position):
 	health -= damage_got
 	if health <= 0:
 		call_deferred("drop") # TODO: Need to check if this works
-		queue_free()		
+		queue_free()
 	velocity = (position-collider_position).normalized() * knockback * log(damage_got)/log(5)
 	lerp_t = 0
 

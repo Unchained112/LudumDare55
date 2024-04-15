@@ -18,7 +18,7 @@ func grow_up():
 	var gen_leaf_timer = Timer.new()
 	add_child(gen_leaf_timer)
 	
-	gen_leaf_timer.wait_time = 10.0  # 每隔1秒触发一次
+	gen_leaf_timer.wait_time = 15.0  # 每隔1秒触发一次
 	gen_leaf_timer.one_shot = false  # 设置为循环模式
 	gen_leaf_timer.start()
 	gen_leaf_timer.connect("timeout", gen_leaf)

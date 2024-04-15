@@ -3,8 +3,10 @@ extends Node2D
 signal start_summon(summon_name, id)
 
 @export var summon_list: Array[PackedScene] = []
-@export var summon_cost: Array[int] = [1,30,100,300,3000,0,
-										5,30,100,300,2000,0] #按照表里的顺序的召唤物花费
+@export var summon_cost: Array[int] = [1,20,60,100,1500,1,
+										5,20,60,100,1000,0] #按照表里的顺序的召唤物花
+#@export var summon_cost: Array[int] = [1,30,100,300,3000,1,
+										#5,30,100,300,2000,0] #按照表里的顺序的召唤物花费										
 #@export var summon_cost: Array[int] = [1,1,1,1,1,1,1,1,1,1,1,1] #for test
 #@export var max_wave: int = 3
 @export var enemy_type: Array[PackedScene] = []
@@ -19,18 +21,21 @@ var wave_list = [
 	[2,0,0,0],
 	[2,1,0,0],
 	[3,1,0,0],
-	[5,0,0,0],
+	[5,0,0,0],#5
 	[5,3,0,0],
-	[5,5,0,0],#5
+	[5,5,0,0],
 	[0,10,0,0],
-	[5,10,0,0],
-	[5,5,1,0],
-	[20,10,0,0],
-	[30,10,0,0],#10
+	[10,10,0,0],
+	[5,5,1,0],#10
+	[10,10,1,0],
 	[30,10,1,0],
-	[15,15,2,0],
-	[0,80,0,0],
-	[60,30,1,0],
+	[30,10,2,0],
+	[15,15,3,0],
+	[0,30,4,0],#15
+	[10,10,6,0],
+	[10,10,10,0],
+	[0,0,15,0],
+	[10,10,15,0],
 	[0,0,0,1]#15
 ]
 var max_wave = len(wave_list)
@@ -68,7 +73,7 @@ func _input(event: InputEvent):
 	if event.is_action_pressed("Summon"):
 		var this_summon_cost = summon_cost[summon_id]
 
-		if summon_id in range(0, 5):
+		if summon_id in range(0, 6):
 			if nature_energy >= this_summon_cost:
 				update_nature_energy(-this_summon_cost)
 				start_summon.emit(summon_list[summon_id], summon_id)
@@ -77,15 +82,15 @@ func _input(event: InputEvent):
 				if summon_id == 2:
 					nature_energy_max += 80
 					energy_pool.set_nature_max_energy(nature_energy_max)
-				if summon_id == 8:
-					death_energy_max += 80
-					energy_pool.set_death_max_energy(death_energy_max)
 
 		elif  summon_id in range(6, 11):
 			if death_energy >= this_summon_cost:
 				update_death_energy(-this_summon_cost)
 				start_summon.emit(summon_list[summon_id], summon_id)
-
+				if summon_id == 8:
+					death_energy_max += 80
+					energy_pool.set_death_max_energy(death_energy_max)
+					
 	if event.is_action_pressed("Escape"):
 		if not pause_panel.visible:
 			pause_game()

@@ -65,7 +65,7 @@ func summon(summon_scene: PackedScene, id: int):
 
 	# Add summon effect
 	var summon_effect
-	if id in range(0, 5):
+	if id in range(0, 6):
 		summon_effect = nature_summon_circle.instantiate()
 		AudioManager.play("res://assets/audio/683184__stevenmaertens__spawning.wav")
 	elif id in range(6, 11):

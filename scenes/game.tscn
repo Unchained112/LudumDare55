@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cgm7q1u4eruja"]
+[gd_scene load_steps=47 format=3 uid="uid://cgm7q1u4eruja"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_eix3y"]
 [ext_resource type="PackedScene" uid="uid://c16a4mstsr6de" path="res://scenes/home.tscn" id="2_xlnjj"]
@@ -41,7 +41,6 @@
 [ext_resource type="PackedScene" uid="uid://dolid28cun1g3" path="res://scenes/ui/pause_menu.tscn" id="34_hojjx"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://scenes/template/settings.tscn" id="34_ykl4g"]
 [ext_resource type="PackedScene" uid="uid://diqiok8p8xh0d" path="res://scenes/ui/player.tscn" id="38_ljclh"]
-[ext_resource type="PackedScene" uid="uid://b21tdaenx324q" path="res://scenes/death/bonepart.tscn" id="39_m4jre"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhenk"]
 size = Vector2(21, 24)
@@ -61,7 +60,7 @@ _bundled = {
 
 [sub_resource type="Curve2D" id="Curve2D_nyq2h"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -593, -290, 0, 0, 0, 0, 231, -114, 0, 0, 0, 0, 503, 318, 0, 0, 0, 0, -241, 174, 0, 0, 0, 0, -593, -290)
+"points": PackedVector2Array(0, 0, 0, 0, -593, -290, 0, 0, 0, 0, 500.087, -287.072, 0, 0, 0, 0, 503, 318, 0, 0, 0, 0, -595, 320, 0, 0, 0, 0, -593, -290)
 }
 point_count = 5
 
@@ -78,6 +77,7 @@ summon_list = Array[PackedScene]([ExtResource("4_0382i"), ExtResource("3_l6rio")
 enemy_type = Array[PackedScene]([ExtResource("14_xbjq5"), ExtResource("15_ohkah"), ExtResource("16_8w3gp"), ExtResource("17_jsxkh")])
 
 [node name="Background" type="ColorRect" parent="."]
+z_index = -2
 offset_left = -617.0
 offset_top = -306.0
 offset_right = 535.0
@@ -136,6 +136,7 @@ position = Vector2(-41, 14)
 position = Vector2(-73, 74)
 
 [node name="Player" parent="." instance=ExtResource("38_ljclh")]
+z_index = 2
 position = Vector2(-41, 74)
 
 [node name="EnemyGenTimer" type="Timer" parent="."]
@@ -146,11 +147,13 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Path2D" type="Path2D" parent="."]
+position = Vector2(8.26221, 2.11473)
+scale = Vector2(1.04918, 1.05902)
 curve = SubResource("Curve2D_nyq2h")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(-593, -290)
-rotation = 0.21043
+rotation = 0.00267865
 
 [node name="Skeleton" parent="." instance=ExtResource("7_q0tmq")]
 position = Vector2(-9, 74)
@@ -175,12 +178,6 @@ position = Vector2(13, 150)
 
 [node name="Bone3" parent="." instance=ExtResource("13_duhge")]
 position = Vector2(1, 150)
-
-[node name="Bonepart" parent="." instance=ExtResource("39_m4jre")]
-position = Vector2(-185, 22)
-
-[node name="Bonepart2" parent="." instance=ExtResource("39_m4jre")]
-position = Vector2(-73, -98)
 
 [node name="Boundary" type="Node" parent="."]
 

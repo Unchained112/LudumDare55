@@ -2,7 +2,7 @@ extends StaticBody2D
 
 @export var damage = 10
 
-var health_max: int = 1000 
+var health_max: int = 1000
 var health: int = 1000:
 	get:
 		return health

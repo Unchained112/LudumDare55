@@ -25,10 +25,10 @@ size = Vector2(24, 24)
 [node name="elite" type="Area2D" groups=["enemy"]]
 collision_mask = 3
 script = ExtResource("1_tocas")
-damage = 40
-health = 500
+damage = 70
+health = 600
 speed = 70
-knockback = 200
+knockback = 100
 drop_leaves = 100
 drop_bones = 100
 drop_boneparts = 0

@@ -15,6 +15,22 @@ extends CharacterBody2D
 var lerp_t = 1.0
 var lerp_speed = 0.8
 
+func _ready():
+	var grow_up_timer = Timer.new()
+	add_child(grow_up_timer)
+	
+	grow_up_timer.wait_time = 30.0 
+	grow_up_timer.one_shot = false  
+	grow_up_timer.start()
+	grow_up_timer.connect("timeout", gen_tree)
+
+# 计时器的超时处理函数
+func gen_tree():
+	# Generate tree
+	var new_tree = tree.instantiate()
+	get_parent().add_child(new_tree)
+	new_tree.position = position
+	
 func _physics_process(delta):
 	var new_velocity = Vector2(0, 0)
 
@@ -52,10 +68,7 @@ func take_damage(damage_got: int, collider_position):
 	lerp_t = 0
 
 func drop():
-	# Generate tree
-	var new_tree = tree.instantiate()
-	get_parent().add_child(new_tree)
-	new_tree.position = position
+
 
 	# Drop things
 	for i in range(1, drop_bones + 1):

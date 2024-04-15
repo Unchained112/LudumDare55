@@ -8,6 +8,7 @@
 size = Vector2(14, 28)
 
 [node name="Tree" type="Area2D"]
+z_index = -1
 script = ExtResource("1_kiw1o")
 leaf = ExtResource("2_13lal")
 

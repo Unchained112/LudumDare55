@@ -1,11 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://dc388hkklqvvc"]
+[gd_scene load_steps=23 format=3 uid="uid://dc388hkklqvvc"]
 
 [ext_resource type="Script" path="res://scripts/template/main_menu.gd" id="1_qdw2d"]
 [ext_resource type="Texture2D" uid="uid://bn1uwro68fgrt" path="res://assets/graphics/ld55_Taiji_left.png" id="2_6fgpo"]
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="2_lhcnm"]
+[ext_resource type="Texture2D" uid="uid://dok3bkxvr463w" path="res://assets/graphics/ld55_BoneDragon.png" id="3_bftos"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://scenes/template/settings.tscn" id="3_lrjgf"]
 [ext_resource type="Texture2D" uid="uid://bk3o566wlans1" path="res://assets/graphics/ld55_Taiji_right.png" id="3_o7s54"]
+[ext_resource type="Texture2D" uid="uid://btqwa7acoepvm" path="res://assets/graphics/ld55_Castle.png" id="4_18w7s"]
+[ext_resource type="Texture2D" uid="uid://ct3qwof0372fw" path="res://assets/graphics/ld55_NatureDragon.png" id="4_thhyy"]
+[ext_resource type="Texture2D" uid="uid://qxgq5h3fut5i" path="res://assets/graphics/ld55_WoodElf.png" id="5_2qxfb"]
+[ext_resource type="FontFile" uid="uid://dsisvfrdgqau" path="res://assets/Cubic_11_1.013_R.ttf" id="5_7d10b"]
 [ext_resource type="Texture2D" uid="uid://dewv2nb78ytn1" path="res://assets/graphics/ld55_Player_New.png" id="5_8a5j4"]
+[ext_resource type="Texture2D" uid="uid://cu1w55gd1qdcv" path="res://assets/graphics/ld55_VoidBeast.png" id="5_eldlg"]
+[ext_resource type="Texture2D" uid="uid://dh6glfsbq2jx4" path="res://assets/graphics/ld55_VoidMaster.png" id="6_lfexu"]
+[ext_resource type="Texture2D" uid="uid://cwghxeh7il7fo" path="res://assets/graphics/ld55_Skeleton.png" id="7_in0l6"]
+[ext_resource type="Texture2D" uid="uid://bpgp3gohrckyc" path="res://assets/graphics/ld55_WoodMan.png" id="8_ipu5c"]
+[ext_resource type="Texture2D" uid="uid://bwltw6pap5257" path="res://assets/graphics/ld55_Voidworm.png" id="8_qlx60"]
+[ext_resource type="Texture2D" uid="uid://ckebj4q04ecf4" path="res://assets/graphics/ld55_VoidMonster.png" id="9_pdslu"]
+[ext_resource type="Texture2D" uid="uid://4uhfcpg35k37" path="res://assets/graphics/ld55_Bone.png" id="11_6i47w"]
+[ext_resource type="Texture2D" uid="uid://ckytmqi8487kh" path="res://assets/graphics/ld55_Leaf.png" id="13_k6tnp"]
+[ext_resource type="Texture2D" uid="uid://dab1v0qcoduiv" path="res://assets/graphics/ld55_Ghost.png" id="17_ku38m"]
+[ext_resource type="Texture2D" uid="uid://b643l58ypwh8o" path="res://assets/graphics/ld55_GrassItem.png" id="19_w6v8k"]
+[ext_resource type="Texture2D" uid="uid://dgonf0wqdgbcm" path="res://assets/graphics/ld55_Tree.png" id="20_fxivc"]
 
 [node name="MainMenu" type="Node2D"]
 position = Vector2(617, 306)
@@ -30,39 +46,172 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.117647, 0.117647, 0.117647, 1)
 
+[node name="Poster" type="Node2D" parent="UI/MainMenu"]
+position = Vector2(0, 25)
+
+[node name="Ld55NatureDragon" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(984, 328)
+rotation = -0.394444
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_thhyy")
+
+[node name="Ld55BoneDragon" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(673, 285)
+rotation = 0.47822
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_bftos")
+
+[node name="Ld55Castle" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(736, 360)
+texture = ExtResource("4_18w7s")
+
+[node name="Ld55GrassItem" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(753, 431)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_w6v8k")
+
+[node name="Ld55Tree2" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(856, 350)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("20_fxivc")
+
+[node name="Ld55Tree" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(890, 364)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("20_fxivc")
+
+[node name="Polygon2D2" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(1, -28)
+color = Color(0.0980392, 0.0980392, 0.0980392, 0.466667)
+polygon = PackedVector2Array(520, 0, 520, 648, 1152, 647, 1153, 1)
+
+[node name="Ld55Skeleton" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(710, 422)
+texture = ExtResource("7_in0l6")
+
+[node name="Ld55WoodElf" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(954, 408)
+texture = ExtResource("5_2qxfb")
+
+[node name="Ld55Ghost" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(621, 402)
+rotation = 0.23911
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("17_ku38m")
+
+[node name="Ld55WoodMan" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(994, 426)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8_ipu5c")
+
+[node name="Ld55Bone" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(730, 471)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_6i47w")
+
+[node name="Polygon2D" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(1, -49)
+color = Color(0.0980392, 0.0980392, 0.0980392, 0.160784)
+polygon = PackedVector2Array(576, 249, 575, 440, 1134, 442, 1135, 226, 849, 325)
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(832, 432)
+scale = Vector2(3, 3)
+texture = ExtResource("5_8a5j4")
+
+[node name="Ld55Leaf" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(921, 467)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_k6tnp")
+
+[node name="Ld55VoidMaster" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(1038, 593)
+rotation = -0.23911
+texture = ExtResource("6_lfexu")
+
+[node name="Ld55VoidBeast2" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(553, 524)
+rotation = 0.527089
+texture = ExtResource("5_eldlg")
+
+[node name="Ld55VoidMonster" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(1105, 538)
+rotation = -1.07687
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("9_pdslu")
+
+[node name="Ld55Voidworm" type="Sprite2D" parent="UI/MainMenu/Poster"]
+position = Vector2(584, 596)
+rotation = 0.120428
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_qlx60")
+
+[node name="Star" type="Polygon2D" parent="UI/MainMenu/Poster"]
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star2" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(-452, -9)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star3" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(-403, -68)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star4" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(102, 34)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star5" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(64, -52)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star6" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(-479, -116)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
 [node name="taiji2" type="Sprite2D" parent="UI/MainMenu"]
-position = Vector2(575, 256)
-scale = Vector2(5.583, 5.583)
+position = Vector2(848, 160)
+scale = Vector2(3, 3)
 texture = ExtResource("2_6fgpo")
 
 [node name="taiji" type="Sprite2D" parent="UI/MainMenu"]
-position = Vector2(575, 256)
-scale = Vector2(5.58333, 5.58333)
+position = Vector2(848, 160)
+scale = Vector2(3, 3)
 texture = ExtResource("3_o7s54")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MainMenu"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -345.0
-offset_top = 42.0
-offset_right = 345.0
-offset_bottom = 300.0
-grow_horizontal = 2
+offset_top = -295.0
+offset_right = 520.0
+offset_bottom = 188.0
 grow_vertical = 2
 
 [node name="SimpleTitle" type="Label" parent="UI/MainMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("2_lhcnm")
-theme_override_font_sizes/font_size = 50
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_7d10b")
+theme_override_font_sizes/font_size = 42
 text = "
-Matthew, Emissary of Balance
+Matthew
+Emissary of Balance
 "
+horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="UI/MainMenu/VBoxContainer"]
 custom_minimum_size = Vector2(100, 32)
@@ -97,11 +246,6 @@ theme = ExtResource("2_lhcnm")
 theme_override_font_sizes/font_size = 24
 text = "Quit
 "
-
-[node name="Sprite2D" type="Sprite2D" parent="UI/MainMenu"]
-position = Vector2(573, 251)
-scale = Vector2(7.35417, 7.35417)
-texture = ExtResource("5_8a5j4")
 
 [node name="Settings" parent="UI" node_paths=PackedStringArray("pre_scene") instance=ExtResource("3_lrjgf")]
 visible = false

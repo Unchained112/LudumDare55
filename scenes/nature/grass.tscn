@@ -7,14 +7,53 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo3h1"]
 size = Vector2(14, 28)
 
-[node name="Tree" type="Area2D"]
+[node name="grass" type="Area2D"]
 z_index = -1
+position = Vector2(-3, 1)
 script = ExtResource("1_kiw1o")
 leaf = ExtResource("2_13lal")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_lo3h1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-1.52, 3.805)
 scale = Vector2(0.5, 0.6)
 texture = ExtResource("3_2din2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_lo3h1")
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D2"]
+scale = Vector2(0.5, 0.6)
+texture = ExtResource("3_2din2")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(7.415, 3.735)
+scale = Vector2(0.5, 0.6)
+texture = ExtResource("3_2din2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D3"]
+scale = Vector2(0.5, 0.6)
+texture = ExtResource("3_2din2")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(-1.135, -5.85)
+scale = Vector2(0.5, 0.6)
+texture = ExtResource("3_2din2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D4"]
+scale = Vector2(0.5, 0.6)
+texture = ExtResource("3_2din2")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(7.2, -5.87)
+scale = Vector2(0.5, 0.6)
+texture = ExtResource("3_2din2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D5"]
+scale = Vector2(0.5, 0.6)
+texture = ExtResource("3_2din2")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D5"]
+position = Vector2(-7.75, 7.755)
+scale = Vector2(0.5, 0.6)
+texture = ExtResource("3_2din2")

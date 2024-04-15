@@ -147,6 +147,7 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("8_qlx60")
 
 [node name="Star" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(17, -20)
 color = Color(0.803922, 0.803922, 0.803922, 1)
 polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
 
@@ -161,7 +162,7 @@ color = Color(0.803922, 0.803922, 0.803922, 1)
 polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
 
 [node name="Star4" type="Polygon2D" parent="UI/MainMenu/Poster"]
-position = Vector2(102, 34)
+position = Vector2(102, 8)
 color = Color(0.803922, 0.803922, 0.803922, 1)
 polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
 
@@ -172,6 +173,76 @@ polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
 
 [node name="Star6" type="Polygon2D" parent="UI/MainMenu/Poster"]
 position = Vector2(-479, -116)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star7" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(-385, -46)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star8" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(-26, 13)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star9" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(-365, -76)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star10" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(-81, 38)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star11" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(97, -26)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star12" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(25, -46)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star13" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(-491, 32)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star14" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(-494, -141)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star15" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(-420, -111)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star16" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(103, -202)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star17" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(53, -197)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star18" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(79, -175)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star19" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(-377, -223)
+color = Color(0.803922, 0.803922, 0.803922, 1)
+polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
+
+[node name="Star20" type="Polygon2D" parent="UI/MainMenu/Poster"]
+position = Vector2(-360, -207)
 color = Color(0.803922, 0.803922, 0.803922, 1)
 polygon = PackedVector2Array(1027, 223, 1024, 228, 1028, 233, 1031, 228)
 

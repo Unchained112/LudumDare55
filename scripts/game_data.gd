@@ -17,7 +17,7 @@ var items = {
 		"Health": 100,
 		"Speed": 30,
 		"Knockback": 300,
-		"Info": "Generate a tree upon death."
+		"Info": "Generate a tree every 30 seconds."
 	},
 	"WoodElf": {
 		"Cost": 60,
@@ -53,7 +53,7 @@ var items = {
 		"Health": 0,
 		"Speed": 0,
 		"Knockback": 0,
-		"Info": "Not implemented yet."
+		"Info": "This is life.(Not implemented yet.)"
 	},
 	"Skeleton": {
 		"Cost": 5,
@@ -107,6 +107,6 @@ var items = {
 		"Health": 0,
 		"Speed": 0,
 		"Knockback": 0,
-		"Info": "Not implemented yet."
+		"Info": "Where does death lead?(Not implemented yet.)"
 	}
 }

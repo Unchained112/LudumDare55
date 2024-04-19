@@ -164,13 +164,9 @@ func _on_pick_up_bone(bone: Bone, value: int):
 	bone.queue_free()
 	
 func _on_pick_up_bonepart(bonepart: Bonepart):
-	var tween = self.create_tween().set_trans(Tween.TRANS_BACK)
-	tween.tween_property(bonepart, "position", 
-		bonepart_pos + Vector2(-225, -270), 1.0)#我不理解
-	await tween.finished
-	
+	await  bonepart.effect_player.animation_finished
 	bonepart.queue_free()
-	
+
 func _on_enemy_created(enemy):
 	enemy.set_target(home)
 

@@ -3,6 +3,7 @@ class_name Bonepart
 
 var is_picked: bool = false
 var is_pool_full: bool = false
+@onready var effect_player: AnimationPlayer = $BonePartEffect/AnimationPlayer
 
 func _on_body_entered(body):
 	if body.is_in_group("player") and not is_picked:
@@ -10,7 +11,8 @@ func _on_body_entered(body):
 		for obj in objs:
 			if obj.is_in_group("tree"):
 				obj.cd_reduced += 1
-				
+
+		effect_player.play("bone_part_effect")
 		EventBus.pick_up_bonepart.emit(self)
 		is_picked = true # Avoid double collison
 		AudioManager.play("res://assets/audio/pickupBone.wav")

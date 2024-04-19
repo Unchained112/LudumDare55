@@ -18,7 +18,7 @@ speed = 30.0
 knockback = 100
 drop_leaves = 0
 drop_bones = 0
-drop_boneparts = 30
+drop_boneparts = 6
 bonepart = ExtResource("2_kr32r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

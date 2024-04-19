@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b21tdaenx324q"]
+[gd_scene load_steps=4 format=3 uid="uid://x3x0j5ydt2uq"]
 
-[ext_resource type="Script" path="res://scripts/death/bonepart.gd" id="1_cb3up"]
-[ext_resource type="Texture2D" uid="uid://ct3aiqwxbg8gj" path="res://assets/graphics/ld55_BoneParts.png" id="2_1b6x2"]
+[ext_resource type="Script" path="res://scripts/death/bone_sliver.gd" id="1_0om7c"]
+[ext_resource type="Texture2D" uid="uid://dppoy738onfnu" path="res://assets/graphics/ld55_Bone_Sliver.png" id="2_v5vgn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oonhf"]
-radius = 264.0
+radius = 120.0
 
-[node name="Bonepart" type="Area2D"]
-script = ExtResource("1_cb3up")
+[node name="Bone" type="Area2D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_0om7c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4.57764e-05, -1.52588e-05)
@@ -17,6 +19,6 @@ shape = SubResource("CircleShape2D_oonhf")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-4.57764e-05, -1.52588e-05)
 scale = Vector2(0.333333, 0.333333)
-texture = ExtResource("2_1b6x2")
+texture = ExtResource("2_v5vgn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

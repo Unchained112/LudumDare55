@@ -53,7 +53,7 @@ var items = {
 		"Health": 0,
 		"Speed": 0,
 		"Knockback": 0,
-		"Info": "This is life.(Not implemented yet.)"
+		"Info": "This is life."
 	},
 	"Skeleton": {
 		"Cost": 5,
@@ -101,12 +101,14 @@ var items = {
 		"Info": "Very powerful creature."
 	},
 	"BonePart": {
-		"Cost": 0,
+		"Cost": '/',
 		"ID": 11,
 		"Damage": 0,
 		"Health": 0,
 		"Speed": 0,
 		"Knockback": 0,
-		"Info": "Where does death lead?(Not implemented yet.)"
+		"Info": "Where does death lead? Accelerate leaf generation in nearby trees."
 	}
 }
+
+var tree_num: int = 0

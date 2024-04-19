@@ -22,10 +22,10 @@ metadata/_edit_use_anchors_ = true
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 184.0
-offset_bottom = 168.0
+offset_bottom = 192.0
 theme = ExtResource("1_ihy6d")
 
-[node name="InfoLabel" type="Label" parent="."]
+[node name="InfoLabel" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0

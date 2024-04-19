@@ -46,10 +46,11 @@ var nature_energy_max: int = 100
 var death_energy_max: int = 100
 var nature_energy: int = 0
 var death_energy: int = 0
-
+var score: int = 0
 var is_paused: bool = false
 
 @onready var wave_info: Label = $CanvasLayer/WaveInfo
+@onready var score_info: Label = $CanvasLayer/ScoreInfo
 @onready var rest_timer: Timer = $RestTimer
 @onready var energy_pool: Control = $CanvasLayer/EnergyPool
 @onready var energy_pool_pos: Vector2 = $EnergyPoolPos.position
@@ -77,7 +78,7 @@ func _input(event: InputEvent):
 				update_nature_energy(-this_summon_cost)
 				start_summon.emit(summon_list[summon_id], summon_id)
 				if summon_id == 0:
-					pass
+					GameData.tree_num += 1
 				if summon_id == 2:
 					nature_energy_max += 80
 					energy_pool.set_nature_max_energy(nature_energy_max)
@@ -122,6 +123,8 @@ func check_wave_end():
 
 func update_nature_energy(change: int):
 	nature_energy += change
+	score += change
+	score_info.text = 'Score: ' + str(score)
 	if nature_energy >= nature_energy_max:
 		nature_energy = nature_energy_max
 		EventBus.is_nature_energy_full = true
@@ -131,6 +134,8 @@ func update_nature_energy(change: int):
 
 func update_death_energy(change: int):
 	death_energy += change
+	score += change
+	score_info.text = 'Score: ' + str(score)
 	if death_energy >= death_energy_max:
 		death_energy = death_energy_max
 		EventBus.is_death_energy_full = true
@@ -142,20 +147,20 @@ func game_win():
 	win_panel.show()
 	Engine.time_scale = 0
 
-func _on_pick_up_leaf(leaf: Leaf):
+func _on_pick_up_leaf(leaf: Leaf, value: int):
 	var tween = self.create_tween().set_trans(Tween.TRANS_BACK)
 	tween.tween_property(leaf, "position", 
 		energy_pool_pos + Vector2(-20, -40), 1.0)
 	await tween.finished
-	update_nature_energy(1)
+	update_nature_energy(value)
 	leaf.queue_free()
 
-func _on_pick_up_bone(bone: Bone):
+func _on_pick_up_bone(bone: Bone, value: int):
 	var tween = self.create_tween().set_trans(Tween.TRANS_BACK)
 	tween.tween_property(bone, "position", 
 		energy_pool_pos + Vector2(20, -40), 1.0)
 	await tween.finished
-	update_death_energy(1)
+	update_death_energy(value)
 	bone.queue_free()
 	
 func _on_pick_up_bonepart(bonepart: Bonepart):
@@ -163,6 +168,7 @@ func _on_pick_up_bonepart(bonepart: Bonepart):
 	tween.tween_property(bonepart, "position", 
 		bonepart_pos + Vector2(-225, -270), 1.0)#我不理解
 	await tween.finished
+	
 	bonepart.queue_free()
 	
 func _on_enemy_created(enemy):

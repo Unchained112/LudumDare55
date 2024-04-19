@@ -68,8 +68,6 @@ func take_damage(damage_got: int, collider_position):
 	lerp_t = 0
 
 func drop():
-
-
 	# Drop things
 	for i in range(1, drop_bones + 1):
 		var new_bone = bone.instantiate()

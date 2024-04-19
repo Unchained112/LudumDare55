@@ -605,6 +605,9 @@ text = "WASD move
 Mouse click select character
 SPACE summon character"
 
+[node name="bear" parent="." instance=ExtResource("5_fhfmp")]
+position = Vector2(-208, 84)
+
 [connection signal="start_summon" from="." to="Player" method="_on_game_start_summon"]
 [connection signal="timeout" from="EnemyGenTimer" to="." method="_on_enemy_gen_timer_timeout"]
 [connection signal="timeout" from="RestTimer" to="." method="_on_rest_timer_timeout"]

@@ -7,9 +7,13 @@ extends CharacterBody2D
 @export var drop_leaves: int = 3
 @export var drop_bones: int = 5
 @export var drop_boneparts: int = 10
-@export var leaf : PackedScene
-@export var bone : PackedScene
-@export var bonepart : PackedScene
+@export var leaf : PackedScene = load("res://scenes/nature/leaf.tscn")
+@export var bone : PackedScene = load("res://scenes/death/bone.tscn")
+@export var leaf_sliver : PackedScene = load("res://scenes/nature/leaf_sliver.tscn")
+@export var bone_sliver : PackedScene = load("res://scenes/death/bone_sliver.tscn")
+@export var leaf_gold : PackedScene = load("res://scenes/nature/leaf_gold.tscn")
+@export var bone_gold : PackedScene = load("res://scenes/death/bone_gold.tscn")
+@export var bonepart : PackedScene = load("res://scenes/death/bonepart.tscn")
 
 var lerp_t = 1.0
 var lerp_speed = 0.8
@@ -51,20 +55,38 @@ func take_damage(damage_got: int, collider_position):
 	lerp_t = 0
 
 func drop():
-	for i in range(1, drop_bones + 1):
-		var new_bone = bone.instantiate()
-		get_parent().add_child(new_bone)
-		new_bone.position = position + Vector2(randf_range(-1.0, 1.0),
-			randf_range(-1.0, 1.0)) * randi_range(5, 30 + Utilities.calcualte_range_num(i))
+	var count = 1
+	while drop_bones > 0 :
+		if drop_bones > 25:
+			drop_item(bone_gold, count)
+			drop_bones -= 25
+			count += 1
+		if drop_bones > 5:
+			drop_item(bone_sliver, count)
+			drop_bones -= 5
+			count += 1
+		if drop_bones > 0:
+			drop_item(bone, count)
+			drop_bones -= 1
+			count += 1
+	count = 1
 
-	for i in range(1, drop_leaves + 1):
-		var new_leaf = leaf.instantiate()
-		get_parent().add_child(new_leaf)
-		new_leaf.position = position + Vector2(randf_range(-1.0, 1.0),
-			randf_range(-1.0, 1.0)) * randi_range(5, 30 + Utilities.calcualte_range_num(i))
-			
-	for i in range(1, drop_boneparts + 1):
-		var new_bonepart = bonepart.instantiate()
-		get_parent().add_child(new_bonepart)
-		new_bonepart.position = position + Vector2(randf_range(-1.0, 1.0),
-			randf_range(-1.0, 1.0)) * randi_range(5, 30 + Utilities.calcualte_range_num(i))
+	while drop_leaves > 0 :
+		if drop_leaves > 25:
+			drop_item(leaf_gold, count)
+			drop_leaves -= 25
+			count += 1
+		if drop_leaves > 5:
+			drop_item(leaf_sliver, count)
+			drop_leaves -= 5
+			count += 1
+		if drop_leaves > 0:
+			drop_item(leaf, count)
+			drop_leaves -= 1
+			count += 1
+
+func drop_item(item, count):
+	var new_item = item.instantiate()
+	get_parent().add_child(new_item)
+	new_item.position = position + Vector2(randf_range(-1.0, 1.0),
+			randf_range(-1.0, 1.0)) * randi_range(5, 30 + Utilities.calcualte_range_num(count))

@@ -1,8 +1,8 @@
 extends Node
 
-signal pick_up_leaf(leaf)
+signal pick_up_leaf(leaf, value)
 
-signal pick_up_bone(bone)
+signal pick_up_bone(bone, value)
 
 signal pick_up_bonepart(bonepart)
 

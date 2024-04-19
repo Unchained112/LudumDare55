@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b77mem87r4cb0"]
+
+[ext_resource type="Script" path="res://scripts/nature/leaf_sliver.gd" id="1_mrkla"]
+[ext_resource type="Texture2D" uid="uid://ba7h47alj20gf" path="res://assets/graphics/ld55_Leaf_Sliver.png" id="2_h348o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oonhf"]
+radius = 120.0
+
+[node name="Leaf" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_mrkla")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.57764e-05, -1.52588e-05)
+scale = Vector2(0.333333, 0.333333)
+shape = SubResource("CircleShape2D_oonhf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.57764e-05, -1.52588e-05)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_h348o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

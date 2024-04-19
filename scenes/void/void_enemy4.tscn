@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://buhrci8fucx1s"]
+[gd_scene load_steps=13 format=3 uid="uid://buhrci8fucx1s"]
 
 [ext_resource type="Script" path="res://scripts/void/void_creature.gd" id="1_f2bbo"]
-[ext_resource type="PackedScene" uid="uid://bfbn2gwsrlwns" path="res://scenes/nature/leaf.tscn" id="2_bsqio"]
-[ext_resource type="PackedScene" uid="uid://bvikiqtqmf8s6" path="res://scenes/death/bone.tscn" id="3_jmn06"]
+[ext_resource type="PackedScene" uid="uid://bfbn2gwsrlwns" path="res://scenes/nature/leaf.tscn" id="2_86m8q"]
+[ext_resource type="PackedScene" uid="uid://d3o7v0ln3ytww" path="res://scenes/nature/leaf_gold.tscn" id="2_ewsxm"]
+[ext_resource type="PackedScene" uid="uid://bvikiqtqmf8s6" path="res://scenes/death/bone.tscn" id="3_03g3w"]
+[ext_resource type="PackedScene" uid="uid://d3fktjchtjvhf" path="res://scenes/death/bone_gold.tscn" id="3_o1o8f"]
+[ext_resource type="PackedScene" uid="uid://b77mem87r4cb0" path="res://scenes/nature/leaf_sliver.tscn" id="4_7v7ex"]
 [ext_resource type="PackedScene" uid="uid://b21tdaenx324q" path="res://scenes/death/bonepart.tscn" id="4_adodq"]
 [ext_resource type="Shader" path="res://scripts/shader/basic.gdshader" id="4_f7e26"]
+[ext_resource type="PackedScene" uid="uid://x3x0j5ydt2uq" path="res://scenes/death/bone_sliver.tscn" id="5_a6lqy"]
 [ext_resource type="Texture2D" uid="uid://dh6glfsbq2jx4" path="res://assets/graphics/ld55_VoidMaster.png" id="5_evsvw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_20l7v"]
@@ -20,7 +24,7 @@ shader_parameter/inside = false
 shader_parameter/add_margins = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bixio"]
-size = Vector2(24, 24)
+size = Vector2(46, 64)
 
 [node name="boss" type="Area2D" groups=["enemy"]]
 collision_mask = 3
@@ -31,17 +35,20 @@ knockback = 20
 drop_leaves = 1000
 drop_bones = 1000
 drop_boneparts = 0
-leaf = ExtResource("2_bsqio")
-bone = ExtResource("3_jmn06")
+leaf = ExtResource("2_86m8q")
+bone = ExtResource("3_03g3w")
+leaf_sliver = ExtResource("4_7v7ex")
+bone_sliver = ExtResource("5_a6lqy")
+leaf_gold = ExtResource("2_ewsxm")
+bone_gold = ExtResource("3_o1o8f")
 bonepart = ExtResource("4_adodq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_20l7v")
-scale = Vector2(0.5, 0.5)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_evsvw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_bixio")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

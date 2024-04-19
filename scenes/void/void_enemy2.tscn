@@ -34,6 +34,7 @@ drop_bones = 10
 drop_boneparts = 0
 leaf = ExtResource("2_4m7lu")
 bone = ExtResource("3_qkacx")
+bone_sliver = ExtResource("3_qkacx")
 bonepart = ExtResource("4_asix8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

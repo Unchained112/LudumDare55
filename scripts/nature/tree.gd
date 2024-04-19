@@ -2,28 +2,21 @@ extends Area2D
 
 @export var damage = 10
 @export var health = 100
-@export var leaf : PackedScene 
+@export var leaf: PackedScene
+@export var leaf_sliver: PackedScene
+@export var gen_leaf_timer: Timer
+
+var cd_reduced: int = 0
 
 func _ready():
-	var grow_up_timer = Timer.new()
-	add_child(grow_up_timer)
-	
-	grow_up_timer.wait_time = 0.1  
-	grow_up_timer.one_shot = true  
-	grow_up_timer.start()
-	grow_up_timer.connect("timeout", grow_up)
-
-# 计时器的超时处理函数
-func grow_up():
-	var gen_leaf_timer = Timer.new()
-	add_child(gen_leaf_timer)
-	
-	gen_leaf_timer.wait_time = 15.0  # 每隔1秒触发一次
-	gen_leaf_timer.one_shot = false  # 设置为循环模式
-	gen_leaf_timer.start()
 	gen_leaf_timer.connect("timeout", gen_leaf)
 
 func gen_leaf():
+	if GameData.tree_num < 50:
+		gen_leaf_timer.wait_time = max(15 - cd_reduced, 10)
+	else:
+		gen_leaf_timer.wait_time = max(75.0 - cd_reduced, 50)
+		leaf = leaf_sliver
 	var new_leaf = leaf.instantiate()
 	# Add to the secen to avoid being delete when tree is deleted
 	get_parent().add_child(new_leaf)

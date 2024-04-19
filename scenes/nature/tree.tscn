@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://jvimleimsoht"]
+[gd_scene load_steps=6 format=3 uid="uid://jvimleimsoht"]
 
 [ext_resource type="Script" path="res://scripts/nature/tree.gd" id="1_e58tf"]
 [ext_resource type="PackedScene" uid="uid://bfbn2gwsrlwns" path="res://scenes/nature/leaf.tscn" id="2_508ea"]
 [ext_resource type="Texture2D" uid="uid://dgonf0wqdgbcm" path="res://assets/graphics/ld55_Tree.png" id="2_kjpcf"]
+[ext_resource type="PackedScene" uid="uid://b77mem87r4cb0" path="res://scenes/nature/leaf_sliver.tscn" id="3_t35eo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo3h1"]
 size = Vector2(14, 28)
 
-[node name="Tree" type="Area2D"]
+[node name="Tree" type="Area2D" node_paths=PackedStringArray("gen_leaf_timer") groups=["tree"]]
 script = ExtResource("1_e58tf")
 leaf = ExtResource("2_508ea")
+leaf_sliver = ExtResource("3_t35eo")
+gen_leaf_timer = NodePath("Timer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.6)
@@ -17,3 +20,7 @@ texture = ExtResource("2_kjpcf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lo3h1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true

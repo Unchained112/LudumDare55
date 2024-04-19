@@ -71,4 +71,4 @@ func delete_scene(scene):
 
 # Other static functions
 func calcualte_range_num(i: int) -> int:
-	return 10 * int(log(i) / log(5))
+	return 20 * int(log(i) / log(5))

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1ug602hrqfgx"]
+[gd_scene load_steps=10 format=3 uid="uid://b1ug602hrqfgx"]
 
 [ext_resource type="Script" path="res://scripts/void/void_creature.gd" id="1_f6gdw"]
 [ext_resource type="PackedScene" uid="uid://bfbn2gwsrlwns" path="res://scenes/nature/leaf.tscn" id="2_5ck68"]
 [ext_resource type="PackedScene" uid="uid://bvikiqtqmf8s6" path="res://scenes/death/bone.tscn" id="3_x57tv"]
+[ext_resource type="PackedScene" uid="uid://x3x0j5ydt2uq" path="res://scenes/death/bone_sliver.tscn" id="4_1cqpw"]
 [ext_resource type="PackedScene" uid="uid://b21tdaenx324q" path="res://scenes/death/bonepart.tscn" id="4_dcgrb"]
 [ext_resource type="Shader" path="res://scripts/shader/basic.gdshader" id="4_if288"]
 [ext_resource type="Texture2D" uid="uid://cu1w55gd1qdcv" path="res://assets/graphics/ld55_VoidBeast.png" id="5_0ljrx"]
@@ -29,9 +30,11 @@ damage = 10
 health = 50
 speed = 60
 drop_leaves = 0
+drop_bones = 4
 drop_boneparts = 0
 leaf = ExtResource("2_5ck68")
 bone = ExtResource("3_x57tv")
+bone_sliver = ExtResource("4_1cqpw")
 bonepart = ExtResource("4_dcgrb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

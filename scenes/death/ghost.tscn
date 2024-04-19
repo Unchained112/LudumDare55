@@ -18,6 +18,7 @@ speed = 200.0
 knockback = 500
 drop_leaves = 0
 drop_bones = 0
+drop_boneparts = 0
 bonepart = ExtResource("2_uqahe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

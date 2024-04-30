@@ -49,8 +49,6 @@ func _physics_process(delta):
 	lerp_t = clamp(lerp_t,0.0,1.0)
 	velocity = velocity.lerp(new_velocity, lerp_t)
 
-	#position.x = clamp(position.x, 0, screen_size.x)
-	#position.y = clamp(position.y, 0, screen_size.y)
 	move_and_slide()
 
 func take_damage(damage_got: int, collider_position):

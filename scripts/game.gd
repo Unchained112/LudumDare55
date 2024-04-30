@@ -151,18 +151,16 @@ func _on_pick_up_leaf(leaf: Leaf, value: int):
 	var tween = self.create_tween().set_trans(Tween.TRANS_BACK)
 	tween.tween_property(leaf, "position", 
 		energy_pool_pos + Vector2(-20, -40), 1.0)
-	await tween.finished
+	tween.tween_callback(leaf.queue_free)
 	update_nature_energy(value)
-	leaf.queue_free()
 
 func _on_pick_up_bone(bone: Bone, value: int):
 	var tween = self.create_tween().set_trans(Tween.TRANS_BACK)
 	tween.tween_property(bone, "position", 
 		energy_pool_pos + Vector2(20, -40), 1.0)
-	await tween.finished
+	tween.tween_callback(bone.queue_free)
 	update_death_energy(value)
-	bone.queue_free()
-	
+
 func _on_pick_up_bonepart(bonepart: Bonepart):
 	await  bonepart.effect_player.animation_finished
 	bonepart.queue_free()
